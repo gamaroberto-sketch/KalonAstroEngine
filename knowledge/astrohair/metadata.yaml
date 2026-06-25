@@ -1,0 +1,15 @@
+# AstroHair — Metadata v1.0
+name: AstroHair
+version: "1.0"
+author: Roberto Gama
+school: Kalon Tradicional Ocidental
+description: >
+  Motor de recomendações capilares baseado em astrologia tradicional ocidental.
+  Foca nos ciclos lunares, aspectos Lua-Vênus e influências de Saturno e Marte
+  sobre a saúde e beleza capilar.
+dimensions:
+  - beauty
+  - growth
+  - strength
+language: pt-BR
+created_at: "2026-06-25"

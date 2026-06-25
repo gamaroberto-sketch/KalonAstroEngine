@@ -1,0 +1,60 @@
+# AstroHair — Pesos Planetários v1.0
+# Define a influência base de cada planeta nas dimensões do produto.
+# Usado pelo Knowledge Engine para calcular score composto.
+
+planet_weights:
+  MOON:
+    beauty: 10
+    growth: 15
+    strength: 8
+
+  VEN:
+    beauty: 18
+    growth: 6
+    strength: 4
+
+  SAT:
+    beauty: -8
+    growth: -12
+    strength: -10
+
+  MAR:
+    beauty: -5
+    growth: 5
+    strength: 12
+
+  JUP:
+    beauty: 8
+    growth: 10
+    strength: 6
+
+  SUN:
+    beauty: 6
+    growth: 8
+    strength: 10
+
+  MER:
+    beauty: 3
+    growth: 2
+    strength: 2
+
+  URA:
+    beauty: -3
+    growth: 0
+    strength: -2
+
+  NEP:
+    beauty: 5
+    growth: 3
+    strength: -3
+
+  PLU:
+    beauty: -4
+    growth: 2
+    strength: -5
+
+# Dimensões do produto
+dimensions:
+  - beauty     # beleza, brilho, estética
+  - growth     # crescimento, fortalecimento
+  - strength   # resistência, saúde capilar

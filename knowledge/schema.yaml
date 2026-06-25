@@ -1,0 +1,39 @@
+# Kalon Astro Engine — Knowledge Schema v1.0
+# Schema de validação para arquivos rules.yaml
+# Toda regra deve conter os campos obrigatórios abaixo.
+# Campos ausentes causam KnowledgeValidationError na carga.
+
+rule_schema:
+  required:
+    - id           # string — identificador único global ex: HAIR_001
+    - product      # string — produto destino ex: AstroHair
+    - name         # string — nome legível da regra
+    - conditions   # dict — critérios de disparo
+    - score        # dict — pontuação por dimensão
+    - message      # string — texto para o visitante (Nível 1)
+
+  optional:
+    - confidence   # float 0.0-1.0 — força da evidência astrológica
+    - evidence     # list[str] — fontes: SolarFire, Rudhyar, Morin, Kalon
+    - tags         # list[str] — categorias para busca
+    - active       # bool — default true
+
+conditions_schema:
+  optional:
+    - aspect       # string — ID do aspecto ex: MOON_TRI_VEN
+    - object1      # string — ID do objeto ex: MOON
+    - object2      # string — ID do objeto ex: VEN
+    - phase        # string — applying | separating | exact
+    - max_orb      # float — orbe máximo em graus
+    - min_precision # int — precisão mínima 0-100
+    - planet_sign  # dict — {planet: MOON, sign: Câncer}
+    - planet_retro # string — planeta retrógrado ex: MER
+    - moon_phase   # string — crescente | minguante | nova | cheia
+
+score_schema:
+  # Cada produto define suas próprias dimensões.
+  # AstroHair usa: beauty, growth, strength
+  # AstroDiet usa: digestion, energy, detox
+  # AstroCash usa: profit, risk, timing
+  # AstroLove usa: attraction, harmony, passion
+  note: "Dimensões livres por produto — definidas em weights.yaml"

@@ -1,0 +1,97 @@
+# Kalon Knowledge Package — AstroHair v1.0
+# Escola: Tradicional Ocidental
+# Author: Roberto Gama / Kalon
+# Dimensões de score: beauty, growth, strength
+
+rules:
+
+  - id: HAIR_001
+    product: AstroHair
+    name: Lua trígono Vênus
+    conditions:
+      aspect: MOON_TRI_VEN
+      phase: applying
+    score:
+      beauty: +18
+      growth: +12
+      strength: +5
+    message: "Excelente período para hidratação profunda e cuidados estéticos. A harmonização Lua-Vênus favorece o brilho natural."
+    confidence: 0.91
+    evidence:
+      - Rudhyar
+      - Experiência Kalon
+    tags: [hidratação, beleza, crescimento]
+    active: true
+
+  - id: HAIR_002
+    product: AstroHair
+    name: Lua sextil Vênus
+    conditions:
+      aspect: MOON_SEX_VEN
+      phase: applying
+    score:
+      beauty: +12
+      growth: +8
+      strength: +3
+    message: "Bom momento para tratamentos de beleza e fortalecimento capilar."
+    confidence: 0.82
+    evidence:
+      - Rudhyar
+      - Experiência Kalon
+    tags: [beleza, fortalecimento]
+    active: true
+
+  - id: HAIR_003
+    product: AstroHair
+    name: Lua quadratura Saturno
+    conditions:
+      aspect: MOON_SQR_SAT
+    score:
+      beauty: -12
+      growth: -15
+      strength: -8
+    message: "Evite cortes e procedimentos químicos. Período de maior fragilidade capilar."
+    confidence: 0.88
+    evidence:
+      - SolarFire
+      - Morin
+      - Experiência Kalon
+    tags: [evitar, fragilidade]
+    active: true
+
+  - id: HAIR_004
+    product: AstroHair
+    name: Lua crescente em signo de Terra
+    conditions:
+      moon_phase: crescente
+      planet_sign:
+        planet: MOON
+        sign: Touro
+    score:
+      growth: +20
+      strength: +15
+      beauty: +8
+    message: "Lua crescente em signo de Terra: momento ideal para cortes que visam crescimento acelerado e fortalecimento."
+    confidence: 0.95
+    evidence:
+      - Rudhyar
+      - SolarFire
+      - Experiência Kalon
+    tags: [crescimento, corte, luna crescente]
+    active: true
+
+  - id: HAIR_005
+    product: AstroHair
+    name: Mercúrio retrógrado — evitar químicas
+    conditions:
+      planet_retro: MER
+    score:
+      beauty: -10
+      strength: -5
+      growth: 0
+    message: "Mercúrio retrógrado: evite procedimentos químicos permanentes como coloração, relaxamento ou permanente."
+    confidence: 0.79
+    evidence:
+      - Experiência Kalon
+    tags: [evitar, química, retrógrado]
+    active: true
