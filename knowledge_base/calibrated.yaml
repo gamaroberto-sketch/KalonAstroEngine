@@ -1,0 +1,78 @@
+entries:
+  MOO_TRI_VEN:
+    event_id: MOO_TRI_VEN
+    source: solarfire_calibration
+    calibrated_at: '2026-06-25T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-25T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.92
+    themes:
+      - harmonia afetiva
+      - beleza
+      - prazer estético
+      - sociabilidade
+      - afeto protetor
+      - contentamento emocional
+      - maternidade
+    domains:
+      - hair
+      - love
+      - wellbeing
+    keywords:
+      - beleza
+      - afeto
+      - harmonia
+      - leveza
+      - cuidado
+    favorable_for:
+      - tratamentos de beleza e cabelo
+      - momentos afetivos com pessoas próximas
+      - embelezamento do ambiente
+      - relacionamentos amorosos
+      - autocuidado
+    contraindications:
+      - excesso de indulgência
+      - trabalho intenso
+      - tarefas que exigem disciplina
+    psychological: Estado emocional harmonioso e receptivo, com tendência ao prazer e ao afeto. Favorece conexões suaves e cuidado com a aparência.
+
+  MOO_SEX_VEN:
+    event_id: MOO_SEX_VEN
+    source: solarfire_calibration
+    calibrated_at: '2026-06-25T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-25T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.88
+    themes:
+      - sociabilidade
+      - leveza emocional
+      - amizade
+      - hospitalidade
+      - afeto cotidiano
+      - satisfação doméstica
+    domains:
+      - love
+      - wellbeing
+      - family
+    keywords:
+      - amigos
+      - alegria
+      - leveza
+      - aconchego
+      - receptividade
+    favorable_for:
+      - reuniões sociais
+      - receber pessoas em casa
+      - momentos leves de lazer
+      - comunicação afetiva
+    contraindications:
+      - passividade excessiva
+      - dependência emocional
+    psychological: Clima emocional leve e sociável, propício à conexão com pessoas próximas. Risco de passividade — ação própria ainda é necessária.
+
+last_updated: '2026-06-25T00:00:00'
+total_entries: 2
