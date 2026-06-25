@@ -207,6 +207,42 @@ def check_explorer_csv():
     return len(lines) > 1, f"{len(lines)-1} linhas"
 check("CSV Export", check_explorer_csv)
 
+# ─── Timeline Engine ─────────────────────────────────────
+print()
+print("  Timeline Engine")
+print("  " + "─" * 45)
+
+from timeline.timeline_engine import generate as timeline_generate
+
+def check_timeline_basic():
+    from datetime import datetime
+    events = list(timeline_generate(
+        datetime(2026, 7, 1), datetime(2026, 7, 3), step="1d"
+    ))
+    return len(events) == 3, f"{len(events)} instantes gerados"
+check("Timeline generate", check_timeline_basic)
+
+def check_timeline_moon():
+    from datetime import datetime
+    events = list(timeline_generate(
+        datetime(2026, 7, 1), datetime(2026, 7, 1), step="1d"
+    ))
+    return "MOON" in events[0]["planets"], f"Lua={events[0]['planets']['MOON']['signo']}"
+check("Lua presente", check_timeline_moon)
+
+def check_timeline_filter():
+    from datetime import datetime
+    events = list(timeline_generate(
+        datetime(2026, 7, 1), datetime(2026, 7, 3), step="1d",
+        filters={"objects": ["MOON", "VEN"]}
+    ))
+    for e in events:
+        for asp in e["aspects"]:
+            if asp["object1_id"] not in ["MOON","VEN"] and asp["object2_id"] not in ["MOON","VEN"]:
+                return False, "aspecto fora do filtro encontrado"
+    return True, "filtro OK"
+check("Filtro objects", check_timeline_filter)
+
 # ─── Resultado Final ─────────────────────────────────────
 total = len(results)
 passed = sum(results)
