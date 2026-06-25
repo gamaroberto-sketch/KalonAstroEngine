@@ -243,6 +243,45 @@ def check_timeline_filter():
     return True, "filtro OK"
 check("Filtro objects", check_timeline_filter)
 
+# ─── Knowledge Engine ────────────────────────────────────
+print()
+print("  Knowledge Engine")
+print("  " + "─" * 45)
+
+from knowledge_engine.knowledge_engine import load_package, execute, KnowledgeValidationError, KnowledgePackageNotFound, _validate_rule
+
+def check_load_package():
+    pkg = load_package('astrohair')
+    return len(pkg['rules']) == 5, f"{len(pkg['rules'])} regras ativas"
+check("Load package AstroHair", check_load_package)
+
+def check_schema_validation():
+    try:
+        _validate_rule({'id': 'TEST', 'product': 'test'}, 'test.yaml')
+        return False, "deveria ter lançado exceção"
+    except KnowledgeValidationError:
+        return True, "KnowledgeValidationError OK"
+check("Schema validation", check_schema_validation)
+
+def check_package_not_found():
+    try:
+        load_package('astromarket')
+        return False, "deveria ter lançado exceção"
+    except KnowledgePackageNotFound:
+        return True, "KnowledgePackageNotFound OK"
+check("Package not found", check_package_not_found)
+
+def check_execute():
+    from datetime import datetime
+    from timeline.timeline_engine import generate
+    pkg = load_package('astrohair')
+    events = list(generate(datetime(2026,7,1), datetime(2026,7,1), step='1d'))
+    result = execute(events[0], pkg)
+    has_rules = len(result['triggered_rules']) > 0
+    has_score = len(result['total_score']) > 0
+    return has_rules and has_score, f"{len(result['triggered_rules'])} regras disparadas"
+check("Execute rules", check_execute)
+
 # ─── Resultado Final ─────────────────────────────────────
 total = len(results)
 passed = sum(results)
