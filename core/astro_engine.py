@@ -68,6 +68,7 @@ def calculate_chart(
         retrogrado = pos[3] < 0
         data = degree_to_sign(pos[0])
         data["retrogrado"] = retrogrado
+        data["speed_longitude"] = pos[3]
         if retrogrado:
             data["formatado"] += " R"
         planets_result[name] = data
