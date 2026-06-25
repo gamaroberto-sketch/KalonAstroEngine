@@ -148,6 +148,6 @@ def objects_from_chart(chart: dict) -> list:
                 "name": name,
                 "type": "planet",
                 "longitude": p["longitude"],
-                "speed": p.get("speed", 1.0)
+                "speed": p.get("speed_longitude", p.get("speed", 1.0))
             })
     return objects
