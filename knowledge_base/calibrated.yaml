@@ -499,5 +499,167 @@ entries:
       - decisões definitivas
     psychological: Alta energia mas com tensão interna; áreas da vida em conflito — proceder com cautela em beleza.
 
+  MOO_TRI_MAR:
+    event_id: MOO_TRI_MAR
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.87
+    hair_day_rating: green
+    themes:
+      - energia construtiva
+      - coragem emocional
+      - iniciativa
+      - assertividade
+      - vitalidade física
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - cortes e procedimentos capilares
+      - atividades físicas
+      - novos começos práticos
+      - decisões rápidas e assertivas
+    contraindications: []
+    psychological: Energia emocional canalizada de forma construtiva; bom momento para agir e tomar iniciativas, incluindo cuidados com a aparência.
+
+  MOO_SQR_MAR:
+    event_id: MOO_SQR_MAR
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: high
+    confidence: 0.86
+    hair_day_rating: red
+    themes:
+      - irritabilidade
+      - impulsividade
+      - conflitos
+      - impaciência
+      - tensão emocional
+      - acidentes por descuido
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - atividades físicas intensas para descarregar energia
+    contraindications:
+      - procedimentos capilares com químicos
+      - colorações e alisamentos
+      - decisões impulsivas de mudança de visual
+      - ambientes de alta tensão
+    psychological: Estado emocional agitado e combativo; risco elevado de acidentes por impulsividade — evitar procedimentos delicados.
+
+  MOO_OPP_MAR:
+    event_id: MOO_OPP_MAR
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.84
+    hair_day_rating: red
+    themes:
+      - conflitos relacionais
+      - tensão emocional
+      - impaciência
+      - competitividade
+      - reatividade
+    domains:
+      - wellbeing
+      - love
+    favorable_for:
+      - atividades físicas
+      - esportes competitivos
+    contraindications:
+      - procedimentos capilares
+      - situações que exigem paciência e cooperação
+      - decisões conjuntas
+    psychological: Tensão entre necessidades emocionais e impulsos; ambiente relacional mais conflituoso — cautela em interações e procedimentos.
+
+  MOO_TRI_MER:
+    event_id: MOO_TRI_MER
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.88
+    hair_day_rating: green
+    themes:
+      - comunicação fluida
+      - clareza mental
+      - intuição aguçada
+      - aprendizado fácil
+      - diálogo emocional
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - consultas com cabelereiros e especialistas
+      - pesquisa sobre tratamentos
+      - comunicação sobre cuidados pessoais
+      - leitura e estudo de beleza
+    contraindications: []
+    psychological: Mente e emoções alinhadas; excelente para consultas, tomada de decisão informada e comunicação clara sobre necessidades estéticas.
+
+  MOO_CON_VEN:
+    event_id: MOO_CON_VEN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: high
+    confidence: 0.93
+    hair_day_rating: green
+    themes:
+      - beleza intensificada
+      - charme natural
+      - prazer sensorial
+      - receptividade afetiva
+      - autocuidado elevado
+      - magnetismo pessoal
+    domains:
+      - hair
+      - love
+      - wellbeing
+    favorable_for:
+      - qualquer tratamento capilar
+      - colorações e transformações de visual
+      - procedimentos estéticos em geral
+      - encontros românticos
+      - autocuidado luxuoso
+    contraindications:
+      - excesso de indulgência alimentar
+    psychological: Um dos melhores momentos para beleza e autocuidado; charme e receptividade naturalmente elevados — aproveitar para procedimentos estéticos importantes.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 15
+total_entries: 20
