@@ -97,9 +97,8 @@ class KnowledgeHealthAnalyzer:
     def get_confidence_score(self) -> int:
         dist = self.get_confidence_distribution()
         base = dist["mean"] * 100
-        penalidade = (dist["below_080"] * 5) + ((dist["below_085"] - dist["below_080"]) * 2)
-        score = max(0, min(100, int(base - penalidade)))
-        return score
+        penalidade = dist["below_080"] * 8 + dist["below_085"] * 1
+        return max(0, min(100, int(base - penalidade)))
 
     def get_health_score(self) -> int:
         cov = self.get_coverage_score()["score"]
