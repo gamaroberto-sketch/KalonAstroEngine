@@ -82,5 +82,103 @@ entries:
       - dependência emocional
     psychological: Clima emocional leve e sociável, propício à conexão com pessoas próximas. Risco de passividade — ação própria ainda é necessária.
 
-last_updated: '2026-06-25T00:00:00'
-total_entries: 2
+  MOO_SQR_VEN:
+    event_id: MOO_SQR_VEN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: low
+    confidence: 0.82
+    themes:
+      - sociabilidade
+      - afeto
+      - sentimentalismo
+      - possessividade
+      - autoindulgência
+      - passado
+    domains:
+      - love
+      - wellbeing
+      - hair
+    favorable_for:
+      - convívio social leve
+      - momentos afetivos com pessoas próximas
+    contraindications:
+      - possessividade excessiva
+      - exagero em alimentos e bebidas
+      - decisões impulsivas de compra
+      - procedimentos definitivos de beleza
+    psychological: Estado afetivo sentimental com tendência à autoindulgência; favorável ao convívio mas requer moderação.
+
+  MOO_OPP_VEN:
+    event_id: MOO_OPP_VEN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: medium
+    confidence: 0.84
+    themes:
+      - contato emocional intenso
+      - extravagância
+      - autoindulgência
+      - relacionamentos
+      - desejo de conexão
+    domains:
+      - love
+      - wellbeing
+    favorable_for:
+      - conexão emocional profunda
+      - expressão de sentimentos
+    contraindications:
+      - exagero em alimentos e bebidas
+      - gastos impulsivos
+      - procedimentos capilares de alto custo
+    psychological: Forte desejo de contato emocional; energia relacional intensa que pode oscilar entre harmonia e tensão.
+
+  MOO_SQR_SAT:
+    event_id: MOO_SQR_SAT
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.88
+    themes:
+      - isolamento
+      - depressão passageira
+      - solidão
+      - dificuldade relacional
+      - negativismo
+      - distorção de perspectiva
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - repouso
+      - introspecção
+    contraindications:
+      - procedimentos capilares
+      - decisões importantes
+      - situações emocionalmente delicadas
+      - novos compromissos
+    psychological: Momento de recolhimento emocional com risco de negativismo; perspectiva distorcida — evitar decisões definitivas.
+
+last_updated: '2026-06-26T00:00:00'
+total_entries: 5
