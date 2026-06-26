@@ -1139,5 +1139,479 @@ entries:
     contraindications: []
     psychological: Comunicação emocional fluida; bom momento para consultar profissionais e pesquisar tratamentos.
 
+  MOO_SEX_SUN:
+    event_id: MOO_SEX_SUN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.87
+    hair_day_rating: green
+    themes:
+      - equanimidade
+      - equilíbrio interior
+      - oportunidades inesperadas
+      - comunhão emocional
+      - relações harmoniosas
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - qualquer procedimento capilar
+      - estar com pessoas
+      - aproveitar oportunidades
+    contraindications: []
+    psychological: Momento de equanimidade e equilíbrio; bom para autocuidado e contato social positivo.
+
+  MOO_SEX_MAR:
+    event_id: MOO_SEX_MAR
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.85
+    hair_day_rating: green
+    themes:
+      - iniciativa
+      - coragem
+      - autoconfiança
+      - liderança
+      - assertividade
+      - energia física
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - cortes capilares
+      - procedimentos que exigem decisão
+      - inicio de novos tratamentos
+      - atividade física
+    contraindications: []
+    psychological: Estado assertivo e corajoso; excelente para tomar iniciativa em cuidados capilares.
+
+  MOO_SEX_JUP:
+    event_id: MOO_SEX_JUP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.88
+    hair_day_rating: green
+    themes:
+      - bem-estar
+      - generosidade
+      - pertencimento
+      - apoio mútuo
+      - preocupação com o próximo
+      - otimismo
+    domains:
+      - hair
+      - wellbeing
+      - love
+    favorable_for:
+      - qualquer procedimento capilar
+      - atividades em grupo
+      - autocuidado expansivo
+    contraindications: []
+    psychological: Bem-estar genuíno com senso de pertencimento; ótimo para autocuidado e procedimentos de beleza.
+
+  MOO_SEX_SAT:
+    event_id: MOO_SEX_SAT
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.84
+    hair_day_rating: yellow
+    themes:
+      - reflexão
+      - calma
+      - meticulosidade
+      - equilíbrio dever-emoção
+      - seriedade produtiva
+      - cuidado com o outro
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - tratamentos de manutenção e rotina
+      - consultas com profissionais sérios
+      - cuidados meticulosos
+    contraindications:
+      - frivolidades
+      - decisões impulsivas
+    psychological: Estado calmo e reflexivo com boa dose de seriedade; adequado para manutenção capilar cuidadosa.
+
+  MOO_SEX_URA:
+    event_id: MOO_SEX_URA
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.83
+    hair_day_rating: yellow
+    themes:
+      - inquietação agradável
+      - desejo de novidade
+      - estimulação
+      - amizades inesperadas
+      - abertura para mudança
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - experimentar novo estilo capilar
+      - pesquisar novos produtos
+      - consultar novas tendências
+    contraindications:
+      - mudanças permanentes impulsivas
+    psychological: Inquietação positiva e desejo de novidade controlado; bom para explorar mas não para decisões permanentes.
+
+  MOO_SEX_NEP:
+    event_id: MOO_SEX_NEP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.80
+    hair_day_rating: yellow
+    themes:
+      - sensibilidade ao outro
+      - altruísmo
+      - devaneio
+      - compaixão
+      - intuição
+      - misticismo
+    domains:
+      - wellbeing
+      - spiritual
+    favorable_for:
+      - tratamentos sensoriais
+      - aromaterapia capilar
+      - hidratação relaxante
+    contraindications:
+      - químicas capilares
+      - decisões definitivas de visual
+    psychological: Sensibilidade e compaixão elevadas; bom para tratamentos sensoriais suaves, não para decisões.
+
+  MOO_SEX_MOO:
+    event_id: MOO_SEX_MOO
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.85
+    hair_day_rating: yellow
+    themes:
+      - sentimentos profundos
+      - familiaridade
+      - intimidade
+      - aconchego
+      - conexão com o passado
+      - empatia
+    domains:
+      - wellbeing
+      - family
+    favorable_for:
+      - cuidados capilares em casa
+      - rituais de beleza íntimos
+      - momentos de autocuidado tranquilo
+    contraindications: []
+    psychological: Necessidade de familiaridade e intimidade; melhor para rituais caseiros tranquilos do que salão.
+
+  MOO_CON_URA:
+    event_id: MOO_CON_URA
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: high
+    confidence: 0.82
+    hair_day_rating: red
+    themes:
+      - impulsividade
+      - impaciência
+      - mudanças repentinas
+      - humor errático
+      - rebeldia
+      - surpresas
+    domains:
+      - wellbeing
+    favorable_for:
+      - liberar tensões acumuladas
+    contraindications:
+      - procedimentos capilares permanentes
+      - coloração e químicas
+      - decisões sobre visual
+      - qualquer ação irreversível
+    psychological: Humor errático e impulsivo; alto risco de arrependimento — evitar qualquer procedimento capilar.
+
+  MOO_CON_MER:
+    event_id: MOO_CON_MER
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.83
+    hair_day_rating: yellow
+    themes:
+      - expressão emocional clara
+      - comunicação facilitada
+      - clareza mental
+      - sensibilidade na fala
+      - ideias fluindo
+    domains:
+      - wellbeing
+    favorable_for:
+      - consultar especialista capilar
+      - pesquisar e comparar tratamentos
+      - conversar sobre cuidados
+    contraindications:
+      - decisões baseadas em pensamento superficial
+    psychological: Mente e emoção fluindo juntas; excelente para buscar informação e consultar profissionais.
+
+  MOO_CON_MOO:
+    event_id: MOO_CON_MOO
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.86
+    hair_day_rating: yellow
+    themes:
+      - contentamento
+      - receptividade
+      - espontaneidade suave
+      - lua nova emocional
+      - familiaridade
+      - emoções intensificadas
+    domains:
+      - wellbeing
+      - family
+    favorable_for:
+      - rituais de autocuidado
+      - momentos com pessoas queridas
+      - início de ciclo emocional
+    contraindications:
+      - cirurgias (precaução extra)
+      - decisões irreversíveis no pico emocional
+    psychological: Lua Nova emocional pessoal — início de ciclo; bom para rituais mas cautela com decisões no pico.
+
+  MOO_OPP_MER:
+    event_id: MOO_OPP_MER
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.81
+    hair_day_rating: red
+    themes:
+      - conflito emoção-razão
+      - pensamento subjetivo
+      - preconceitos emergindo
+      - comunicação distorcida
+      - categorização simplista
+    domains:
+      - wellbeing
+    favorable_for:
+      - contato com sentimentos profundos
+      - introspecção honesta
+    contraindications:
+      - negociações importantes
+      - contratos
+      - decisões de beleza baseadas em opinião
+      - procedimentos capilares
+    psychological: Emoções sobrepondo fortemente a razão; pensamento distorcido por padrões do passado — evitar decisões.
+
+  MOO_OPP_MOO:
+    event_id: MOO_OPP_MOO
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.83
+    hair_day_rating: red
+    themes:
+      - humores profundos e poderosos
+      - dificuldade de perspectiva
+      - projeção emocional
+      - insatisfação
+      - conflito relacional
+    domains:
+      - wellbeing
+    favorable_for:
+      - observar próprias emoções com distância
+    contraindications:
+      - procedimentos capilares
+      - decisões importantes
+      - situações de grupo exigentes
+      - confrontos relacionais
+    psychological: Lua Cheia emocional — humores intensos com dificuldade de perspectiva; evitar procedimentos e decisões.
+
+  MOO_TRI_MOO:
+    event_id: MOO_TRI_MOO
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.87
+    hair_day_rating: green
+    themes:
+      - bem-estar profundo
+      - harmonia emocional
+      - contentamento
+      - familiaridade acolhedora
+      - apoio emocional
+      - cuidado com o outro
+    domains:
+      - hair
+      - wellbeing
+      - family
+    favorable_for:
+      - qualquer procedimento capilar
+      - momentos de autocuidado
+      - estar com pessoas queridas
+      - rituais de beleza tranquilos
+    contraindications: []
+    psychological: Harmonia emocional profunda e senso de bem-estar; um dos melhores estados para autocuidado capilar.
+
+  MOO_SQR_MOO:
+    event_id: MOO_SQR_MOO
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.82
+    hair_day_rating: red
+    themes:
+      - emoções discordantes
+      - irritação
+      - conflito relacional
+      - dificuldade com grupos
+      - humor perturbado
+    domains:
+      - wellbeing
+    favorable_for:
+      - identificar tensões reais nos relacionamentos
+    contraindications:
+      - procedimentos capilares
+      - aparições públicas
+      - decisões importantes
+      - situações de grupo
+    psychological: Emoções discordantes com tendência a conflitos; não é momento para procedimentos ou decisões.
+
+  MOO_OPP_URA:
+    event_id: MOO_OPP_URA
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.82
+    hair_day_rating: red
+    themes:
+      - instabilidade emocional
+      - rebeldia
+      - imprevisibilidade
+      - excitação nervosa
+      - ruptura de rotina
+    domains:
+      - wellbeing
+    favorable_for:
+      - aceitar mudanças inevitáveis
+    contraindications:
+      - procedimentos capilares
+      - decisões definitivas
+      - compromissos de longo prazo
+    psychological: Instabilidade emocional e imprevisibilidade; humor erratico — evitar procedimentos e decisões.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 35
+total_entries: 50

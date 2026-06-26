@@ -769,3 +769,333 @@ entries:
   to_value: null
   reason: Migracao retroativa — aprovado via SolarFire calibration
   notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_SUN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_SUN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_MAR
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_MAR
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_JUP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_JUP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_SAT
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_SAT
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_URA
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_URA
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_NEP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_NEP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_MOO
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_MOO
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_URA
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_URA
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_MER
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_MER
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_MOO
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_MOO
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_MER
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_MER
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_MOO
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_MOO
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_MOO
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_MOO
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_MOO
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_MOO
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_URA
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Calibração via SolarFire
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_URA
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Aprovação direta para Sprint 1
+  notes: null
