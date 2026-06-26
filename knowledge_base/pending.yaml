@@ -1,0 +1,10 @@
+# Knowledge Base — Entradas Pendentes
+# Caixa de entrada: calibrações iniciadas mas não aprovadas.
+# Estados possíveis: pending_reason = low_confidence | conflict | incomplete | interrupted | auto_generated
+# NÃO são consumidas pelo Knowledge Engine enquanto pendentes.
+
+metadata:
+  created_at: '2026-06-26'
+  kalon_version: '1.0'
+
+entries: {}

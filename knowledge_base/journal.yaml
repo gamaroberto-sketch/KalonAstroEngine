@@ -1,0 +1,771 @@
+entries:
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_JUP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_JUP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_MAR
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_MAR
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_NEP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_NEP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_PLU
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_PLU
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_SAT
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_SAT
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_SUN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_SUN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_CON_VEN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_CON_VEN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_JUP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_JUP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_MAR
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_MAR
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_NEP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_NEP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_PLU
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_PLU
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_SAT
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_SAT
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_SUN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_SUN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_OPP_VEN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_OPP_VEN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_MER
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_MER
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SEX_PLU
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SEX_PLU
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-25T00:00:00'
+  action: created
+  event_id: MOO_SEX_VEN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-25T00:00:00'
+  action: approved
+  event_id: MOO_SEX_VEN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_JUP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_JUP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_MAR
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_MAR
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_MER
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_MER
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_NEP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_NEP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_PLU
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_PLU
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_SAT
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_SAT
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_SUN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_SUN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_URA
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_URA
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_SQR_VEN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_SQR_VEN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_JUP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_JUP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_MAR
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_MAR
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_MER
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_MER
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_NEP
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_NEP
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_PLU
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_PLU
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_SAT
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_SAT
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_SUN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_SUN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: created
+  event_id: MOO_TRI_URA
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-26T00:00:00'
+  action: approved
+  event_id: MOO_TRI_URA
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null
+- timestamp: '2026-06-25T00:00:00'
+  action: created
+  event_id: MOO_TRI_VEN
+  previous_state: null
+  new_state: pending
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — pre-journal (calibracao via SolarFire)
+  notes: null
+- timestamp: '2026-06-25T00:00:00'
+  action: approved
+  event_id: MOO_TRI_VEN
+  previous_state: pending
+  new_state: approved
+  reviewer: Roberto Gama
+  field: null
+  from_value: null
+  to_value: null
+  reason: Migracao retroativa — aprovado via SolarFire calibration
+  notes: null

@@ -1,0 +1,10 @@
+# Knowledge Base — Entradas Arquivadas
+# Entradas que foram aprovadas mas substituídas ou descontinuadas.
+# Mantidas para auditoria completa do sistema.
+# NÃO são consumidas pelo Knowledge Engine.
+
+metadata:
+  created_at: '2026-06-26'
+  kalon_version: '1.0'
+
+entries: {}
