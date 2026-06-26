@@ -9,6 +9,7 @@ Uso:
     python knowledge_lab/studio.py confidence
     python knowledge_lab/studio.py simulate --date 2026-06-27
     python knowledge_lab/studio.py snapshot
+    python knowledge_lab/studio.py health
 """
 
 import sys
@@ -26,19 +27,20 @@ from knowledge_lab.rule_coverage import RuleCoverageAnalyzer
 from knowledge_lab.conflicts import ConflictDetector
 from knowledge_lab.confidence import ConfidenceAnalyzer
 from knowledge_lab.simulator import Simulator
+from knowledge_lab.health import KnowledgeHealthAnalyzer
 
 
 def _header():
     print()
     print("  ╔══════════════════════════════════════════════╗")
-    print("  ║      Kalon Knowledge Studio v1.0             ║")
+    print("  ║      Kalon Knowledge Studio v1.1             ║")
     print("  ╚══════════════════════════════════════════════╝")
 
 
 def main():
     parser = argparse.ArgumentParser(
         prog="studio",
-        description="Kalon Knowledge Studio v1.0 — Gestao da Knowledge Base"
+        description="Kalon Knowledge Studio v1.1 — Gestao da Knowledge Base"
     )
     subparsers = parser.add_subparsers(dest="command", metavar="COMANDO")
 
@@ -53,6 +55,7 @@ def main():
                             help="Data no formato YYYY-MM-DD (default: hoje)")
 
     subparsers.add_parser("snapshot", help="Gerar snapshot do calibrated.yaml")
+    subparsers.add_parser("health", help="Relatório de saúde da Knowledge Base")
 
     args = parser.parse_args()
 
@@ -96,6 +99,9 @@ def main():
         print()
         print(f"  Snapshot gerado: {path}")
         print()
+
+    elif args.command == "health":
+        KnowledgeHealthAnalyzer(loader).render()
 
 
 if __name__ == "__main__":
