@@ -820,5 +820,264 @@ entries:
       - excesso emocional
     psychological: Emoções intensas canalizadas positivamente; excelente para transformações de visual com intenção.
 
+  MOO_SQR_NEP:
+    event_id: MOO_SQR_NEP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.81
+    hair_day_rating: red
+    themes:
+      - ilusão
+      - confusão emocional
+      - devaneio
+      - distorção da realidade
+      - influências subconscientes
+      - vulnerabilidade psíquica
+    domains:
+      - wellbeing
+    favorable_for:
+      - meditação
+      - descanso
+    contraindications:
+      - procedimentos capilares
+      - decisões sobre beleza
+      - uso de álcool ou substâncias
+      - qualquer decisão importante
+    psychological: Estado onírico com distorção da realidade; percepção comprometida — evitar decisões e procedimentos.
+
+  MOO_SQR_PLU:
+    event_id: MOO_SQR_PLU
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: high
+    confidence: 0.84
+    hair_day_rating: red
+    themes:
+      - compulsividade
+      - lutas de poder
+      - manipulação emocional
+      - ciúme
+      - obsessão
+      - autoanálise forçada
+    domains:
+      - wellbeing
+    favorable_for:
+      - autoanálise honesta
+      - terapia emocional
+    contraindications:
+      - procedimentos capilares
+      - qualquer decisão de beleza
+      - situações que exigem equilíbrio
+    psychological: Forças subconscientes dominando o comportamento; risco de compulsividade — evitar procedimentos irreversíveis.
+
+  MOO_SQR_MER:
+    event_id: MOO_SQR_MER
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: medium
+    confidence: 0.80
+    hair_day_rating: yellow
+    themes:
+      - comunicação distorcida
+      - emoções sobrepondo razão
+      - subjetividade excessiva
+      - mal-entendidos
+      - reajuste psicológico
+    domains:
+      - wellbeing
+    favorable_for:
+      - expressão emocional
+      - liberação de tensões acumuladas
+    contraindications:
+      - negociações importantes
+      - contratos
+      - decisões de beleza baseadas em opinião alheia
+    psychological: Sentimentos sobrepõem raciocínio; momento de reajuste emocional — cautela em decisões baseadas em comunicação.
+
+  MOO_OPP_NEP:
+    event_id: MOO_OPP_NEP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.82
+    hair_day_rating: red
+    themes:
+      - ilusão máxima
+      - mal-entendidos
+      - sensibilidade distorcida
+      - fuga da realidade
+      - complexos subconscientes
+      - reações alérgicas possíveis
+    domains:
+      - wellbeing
+    favorable_for:
+      - repouso
+      - atividades espirituais simples
+    contraindications:
+      - procedimentos capilares com químicos
+      - colorações
+      - álcool e drogas
+      - decisões importantes
+      - situações que exigem clareza
+    psychological: Percepção fortemente distorcida pelo subconsciente; risco de ilusão e reações alérgicas — evitar químicas capilares.
+
+  MOO_OPP_PLU:
+    event_id: MOO_OPP_PLU
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: high
+    confidence: 0.83
+    hair_day_rating: red
+    themes:
+      - conflito emocional profundo
+      - ciúme
+      - possessividade
+      - manipulação
+      - forças subconscientes
+      - intensidade perturbadora
+    domains:
+      - wellbeing
+    favorable_for:
+      - autoconhecimento profundo (após o momento)
+    contraindications:
+      - procedimentos capilares
+      - qualquer decisão definitiva de beleza
+      - situações emocionalmente carregadas
+    psychological: Forças subconscientes aflorando com intensidade perturbadora; não é momento para decisões ou procedimentos.
+
+  MOO_CON_JUP:
+    event_id: MOO_CON_JUP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.88
+    hair_day_rating: green
+    themes:
+      - confiança
+      - otimismo
+      - generosidade
+      - bem-estar expansivo
+      - conexão espiritual
+      - apetite aumentado
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - procedimentos capilares em geral
+      - autocuidado expansivo
+      - momentos de celebração e beleza
+    contraindications:
+      - excessos alimentares
+      - arrogância nas decisões
+    psychological: Estado de confiança e otimismo genuíno; excelente para autocuidado — apenas moderar excessos.
+
+  MOO_CON_NEP:
+    event_id: MOO_CON_NEP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: medium
+    confidence: 0.78
+    hair_day_rating: yellow
+    themes:
+      - sensibilidade extrema
+      - intuição aguçada
+      - sonho e fantasia
+      - vulnerabilidade emocional
+      - empatia profunda
+      - confusão comunicativa
+    domains:
+      - wellbeing
+      - spiritual
+    favorable_for:
+      - tratamentos sensoriais e relaxantes
+      - aromaterapia capilar
+      - meditação e espiritualidade
+    contraindications:
+      - químicas capilares
+      - álcool antes de procedimentos
+      - decisões definitivas de visual
+    psychological: Sensibilidade máxima com risco de ilusão; bom para experiências sensoriais suaves, não para decisões.
+
+  MOO_CON_PLU:
+    event_id: MOO_CON_PLU
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: high
+    confidence: 0.82
+    hair_day_rating: yellow
+    themes:
+      - intensidade emocional extrema
+      - autoanálise profunda
+      - obsessão possível
+      - transformação psíquica
+      - encontros intensos
+      - possessividade
+    domains:
+      - wellbeing
+    favorable_for:
+      - terapia e autoconhecimento
+      - transformações intencionais profundas
+    contraindications:
+      - procedimentos impulsivos
+      - decisões baseadas em emoção intensa do momento
+    psychological: Intensidade emocional máxima; transformação possível mas com risco de obsessão — agir com consciência plena.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 25
+total_entries: 33
