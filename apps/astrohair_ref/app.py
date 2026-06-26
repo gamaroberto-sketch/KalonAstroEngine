@@ -51,6 +51,10 @@ ASPECT_ABBR = {
     "Biquintil":      "BQT",
 }
 
+# Aspectos suportados pelo AstroHair v0.1
+# Aspectos menores (SSX, SSQ, SES, etc.) aguardam calibração futura
+SUPPORTED_ASPECTS = {"Conjunção", "Oposição", "Trígono", "Quadratura", "Sextil"}
+
 # Tabela de score base: (polarity, intensity) -> pontos
 SCORE_TABLE = {
     ("positive", "low"):    +12,
@@ -134,7 +138,8 @@ def detect_moon_transits(date: datetime) -> list:
     all_aspects = detect_aspects([transit_moon] + natal_objects)
     moon_aspects = [
         a for a in all_aspects
-        if a["object1_id"] == "MOON" or a["object2_id"] == "MOON"
+        if (a["object1_id"] == "MOON" or a["object2_id"] == "MOON")
+        and a["tipo"] in SUPPORTED_ASPECTS
     ]
 
     # Para cada aspecto, construir chave KB e buscar entry
