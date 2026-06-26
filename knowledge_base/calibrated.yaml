@@ -661,5 +661,164 @@ entries:
       - excesso de indulgência alimentar
     psychological: Um dos melhores momentos para beleza e autocuidado; charme e receptividade naturalmente elevados — aproveitar para procedimentos estéticos importantes.
 
+  MOO_CON_SUN:
+    event_id: MOO_CON_SUN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: high
+    confidence: 0.90
+    hair_day_rating: green
+    themes:
+      - renovação cíclica
+      - harmonia emoção-vontade
+      - recarga de energia
+      - novos começos
+      - unidade interior
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - início de novos tratamentos capilares
+      - procedimentos de renovação
+      - cortes para crescimento
+    contraindications:
+      - cirurgias (precaução extra)
+    psychological: Lua Nova pessoal — momento de recarga e recomeço; excelente para iniciar ciclos de cuidado capilar.
+
+  MOO_CON_MAR:
+    event_id: MOO_CON_MAR
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: high
+    confidence: 0.82
+    hair_day_rating: red
+    themes:
+      - impulsividade
+      - irritabilidade
+      - ação precipitada
+      - energia intensa
+      - conflito
+    domains:
+      - wellbeing
+    favorable_for:
+      - exercício físico
+      - atividades que exigem coragem
+    contraindications:
+      - procedimentos capilares
+      - químicas e colorações
+      - decisões sobre visual
+      - situações que exigem calma
+    psychological: Energia intensa e impulsiva; risco de ações precipitadas — evitar procedimentos irreversíveis de beleza.
+
+  MOO_CON_SAT:
+    event_id: MOO_CON_SAT
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.87
+    hair_day_rating: red
+    themes:
+      - isolamento
+      - pessimismo
+      - rigidez emocional
+      - culpa
+      - recolhimento
+      - melancolia
+    domains:
+      - wellbeing
+    favorable_for:
+      - estabelecer novos hábitos de rotina
+      - tarefas que exigem resistência
+    contraindications:
+      - procedimentos capilares
+      - decisões sobre beleza
+      - situações sociais exigentes
+    psychological: Recolhimento emocional com tendência ao pessimismo; perspectiva distorcida — aguardar momento mais favorável.
+
+  MOO_TRI_NEP:
+    event_id: MOO_TRI_NEP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.79
+    hair_day_rating: yellow
+    themes:
+      - imaginação
+      - sensibilidade elevada
+      - fantasia
+      - altruísmo
+      - espiritualidade
+      - sonhos
+    domains:
+      - wellbeing
+      - spiritual
+    favorable_for:
+      - tratamentos relaxantes
+      - hidratação profunda
+      - atividades criativas e artísticas
+    contraindications:
+      - decisões importantes
+      - procedimentos que exigem clareza mental
+    psychological: Estado contemplativo e sensível; bom para tratamentos relaxantes mas não para decisões definitivas.
+
+  MOO_TRI_PLU:
+    event_id: MOO_TRI_PLU
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.85
+    hair_day_rating: green
+    themes:
+      - intensidade emocional
+      - transformação
+      - profundidade
+      - renovação interior
+      - sensibilidade amplificada
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - tratamentos transformadores
+      - mudanças significativas de visual
+      - procedimentos de renovação profunda
+    contraindications:
+      - excesso emocional
+    psychological: Emoções intensas canalizadas positivamente; excelente para transformações de visual com intenção.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 20
+total_entries: 25
