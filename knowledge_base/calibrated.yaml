@@ -180,5 +180,163 @@ entries:
       - novos compromissos
     psychological: Momento de recolhimento emocional com risco de negativismo; perspectiva distorcida — evitar decisões definitivas.
 
+  MOO_TRI_SAT:
+    event_id: MOO_TRI_SAT
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.89
+    themes:
+      - autocontrole emocional
+      - sobriedade
+      - paciência
+      - força interior
+      - realismo
+      - conservadorismo
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - procedimentos que exigem disciplina
+      - tratamentos de manutenção
+      - consultas com profissionais experientes
+    contraindications: []
+    psychological: Equilíbrio emocional sóbrio e realista; bom para decisões cautelosas e procedimentos de rotina.
+
+  MOO_OPP_SAT:
+    event_id: MOO_OPP_SAT
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.86
+    themes:
+      - solidão
+      - isolamento
+      - frieza emocional
+      - pessimismo
+      - dificuldade de comunicação
+      - depressão passageira
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - repouso
+      - solitude produtiva
+    contraindications:
+      - procedimentos capilares
+      - decisões importantes
+      - novos começos
+      - interações sociais exigentes
+    psychological: Tendência ao isolamento e pessimismo; perspectiva distorcida — não tomar decisões definitivas.
+
+  MOO_TRI_URA:
+    event_id: MOO_TRI_URA
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.85
+    themes:
+      - renovação
+      - excitação emocional
+      - mudança construtiva
+      - liberdade
+      - inovação
+      - espontaneidade
+    domains:
+      - hair
+      - wellbeing
+    favorable_for:
+      - mudanças de visual
+      - novos cortes e estilos
+      - experimentação capilar
+      - quebra de rotina nos cuidados
+    contraindications: []
+    psychological: Impulso positivo para mudanças; boa energia para inovar no visual sem precipitação destrutiva.
+
+  MOO_SQR_URA:
+    event_id: MOO_SQR_URA
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: high
+    confidence: 0.83
+    themes:
+      - impulsividade
+      - rebeldia
+      - instabilidade emocional
+      - impaciência
+      - agitação
+      - surpresas desagradáveis
+    domains:
+      - wellbeing
+      - hair
+    favorable_for: []
+    contraindications:
+      - procedimentos capilares permanentes
+      - coloração e químicas
+      - decisões sobre mudanças de visual
+      - qualquer procedimento irreversível
+    psychological: Estado emocional instável e impulsivo; alto risco de arrependimento em decisões de beleza tomadas agora.
+
+  MOO_TRI_JUP:
+    event_id: MOO_TRI_JUP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.90
+    themes:
+      - bem-estar
+      - generosidade
+      - otimismo
+      - pertencimento
+      - expansão emocional
+      - altruísmo
+    domains:
+      - hair
+      - wellbeing
+      - love
+    favorable_for:
+      - qualquer tratamento capilar
+      - procedimentos de beleza em geral
+      - momentos de autocuidado
+      - atividades em grupo
+    contraindications:
+      - excessos alimentares
+    psychological: Estado de bem-estar genuíno e generosidade; excelente para autocuidado e procedimentos de beleza.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 5
+total_entries: 10
