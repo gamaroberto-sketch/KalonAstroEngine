@@ -12,6 +12,7 @@ entries:
     polarity: positive
     intensity: medium
     confidence: 0.92
+    hair_day_rating: green
     themes:
       - harmonia afetiva
       - beleza
@@ -55,6 +56,7 @@ entries:
     polarity: positive
     intensity: low
     confidence: 0.88
+    hair_day_rating: green
     themes:
       - sociabilidade
       - leveza emocional
@@ -95,6 +97,7 @@ entries:
     polarity: mixed
     intensity: low
     confidence: 0.82
+    hair_day_rating: yellow
     themes:
       - sociabilidade
       - afeto
@@ -129,6 +132,7 @@ entries:
     polarity: mixed
     intensity: medium
     confidence: 0.84
+    hair_day_rating: yellow
     themes:
       - contato emocional intenso
       - extravagância
@@ -160,6 +164,7 @@ entries:
     polarity: negative
     intensity: medium
     confidence: 0.88
+    hair_day_rating: red
     themes:
       - isolamento
       - depressão passageira
@@ -193,6 +198,7 @@ entries:
     polarity: positive
     intensity: low
     confidence: 0.89
+    hair_day_rating: yellow
     themes:
       - autocontrole emocional
       - sobriedade
@@ -223,6 +229,7 @@ entries:
     polarity: negative
     intensity: medium
     confidence: 0.86
+    hair_day_rating: red
     themes:
       - solidão
       - isolamento
@@ -256,6 +263,7 @@ entries:
     polarity: positive
     intensity: medium
     confidence: 0.85
+    hair_day_rating: green
     themes:
       - renovação
       - excitação emocional
@@ -287,6 +295,7 @@ entries:
     polarity: negative
     intensity: high
     confidence: 0.83
+    hair_day_rating: red
     themes:
       - impulsividade
       - rebeldia
@@ -318,6 +327,7 @@ entries:
     polarity: positive
     intensity: medium
     confidence: 0.90
+    hair_day_rating: green
     themes:
       - bem-estar
       - generosidade
