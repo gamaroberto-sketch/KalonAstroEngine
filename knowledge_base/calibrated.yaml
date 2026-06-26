@@ -1079,5 +1079,65 @@ entries:
       - decisões baseadas em emoção intensa do momento
     psychological: Intensidade emocional máxima; transformação possível mas com risco de obsessão — agir com consciência plena.
 
+  MOO_SEX_PLU:
+    event_id: MOO_SEX_PLU
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.83
+    hair_day_rating: yellow
+    themes:
+      - emoções profundas
+      - renovação doméstica
+      - amor pelo misterioso
+      - cura relacional
+      - compulsão controlada
+    domains:
+      - wellbeing
+      - hair
+    favorable_for:
+      - tratamentos de renovação capilar
+      - reorganização da rotina de cuidados
+      - limpeza e reestruturação
+    contraindications:
+      - obsessão com um único objetivo
+    psychological: Emoções profundas com tendência à renovação; bom para reorganizar rotina capilar com intenção.
+
+  MOO_SEX_MER:
+    event_id: MOO_SEX_MER
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: low
+    confidence: 0.82
+    hair_day_rating: yellow
+    themes:
+      - comunicação facilitada
+      - sociabilidade
+      - expressão emocional
+      - conversa e troca
+      - sensibilidade na fala
+    domains:
+      - wellbeing
+    favorable_for:
+      - consultar especialista capilar
+      - pesquisar procedimentos
+      - conversar sobre cuidados
+    contraindications: []
+    psychological: Comunicação emocional fluida; bom momento para consultar profissionais e pesquisar tratamentos.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 33
+total_entries: 35
