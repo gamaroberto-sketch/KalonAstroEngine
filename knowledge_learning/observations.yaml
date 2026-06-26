@@ -1,0 +1,53 @@
+metadata:
+  confidence_model_version: '1.0'
+  created_at: '2026-06-26'
+observations:
+- date: '2026-06-26'
+  event_id: MOO_TRI_VEN
+  registered_by: Roberto Gama
+  reference_app_rating: green
+  solarfire_rating: green
+  user_validation: confirmed
+  reflection:
+    confirmed: Beleza e harmonia presentes
+    surprised: null
+    learned: Consistente com SolarFire
+  observation: ''
+  evidence:
+  - SolarFire
+  - ReferenceApp
+  notes: null
+  id: OBS_001
+  registered_at: '2026-06-26T16:13:08'
+- date: '2026-06-26'
+  event_id: MOO_TRI_VEN
+  registered_by: Roberto Gama
+  reference_app_rating: green
+  solarfire_rating: green
+  user_validation: confirmed
+  reflection:
+    confirmed: Mais beleza
+    surprised: null
+    learned: Funciona bem
+  observation: ''
+  evidence:
+  - ReferenceApp
+  notes: null
+  id: OBS_002
+  registered_at: '2026-06-26T16:13:13'
+- date: '2026-06-26'
+  event_id: MOO_TRI_VEN
+  registered_by: Roberto Gama
+  reference_app_rating: green
+  solarfire_rating: green
+  user_validation: partial
+  reflection:
+    confirmed: Ok
+    surprised: null
+    learned: Teste parcial
+  observation: ''
+  evidence:
+  - SolarFire
+  notes: null
+  id: OBS_003
+  registered_at: '2026-06-26T16:13:18'

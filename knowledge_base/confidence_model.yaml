@@ -1,0 +1,13 @@
+version: '1.0'
+created_at: '2026-06-26'
+last_update_applied: '2026-06-26T00:00:00'
+processed_up_to_obs_id: 'OBS_000'
+rules:
+  confirmed_delta: +0.01
+  partial_delta: 0.00
+  diverged_delta: -0.02
+  min_observations_to_update: 3
+  max_delta_per_session: 0.05
+  confidence_floor: 0.50
+  confidence_ceiling: 0.99
+description: 'Modelo inicial — formula linear simples'

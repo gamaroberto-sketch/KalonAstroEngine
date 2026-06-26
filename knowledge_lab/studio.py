@@ -28,6 +28,8 @@ from knowledge_lab.conflicts import ConflictDetector
 from knowledge_lab.confidence import ConfidenceAnalyzer
 from knowledge_lab.simulator import Simulator
 from knowledge_lab.health import KnowledgeHealthAnalyzer
+from knowledge_learning.learning_engine import LearningEngine
+from knowledge_learning.learning_report import LearningReportGenerator
 
 
 def _header():
@@ -49,6 +51,9 @@ def main():
     subparsers.add_parser("rules",      help="Distribuicao interna: polarity/intensity/rating/domain")
     subparsers.add_parser("conflicts",  help="Detectar inconsistencias semanticas")
     subparsers.add_parser("confidence", help="Estatisticas de confianca das entradas")
+
+    obs_parser = subparsers.add_parser("observations", help="Resumo do Learning Engine (observacoes)")
+    obs_parser.add_argument("--event", default=None, help="event_id para ver historico")
 
     sim_parser = subparsers.add_parser("simulate", help="Simular score de um dia especifico")
     sim_parser.add_argument("--date", "-d", default=None,
@@ -82,6 +87,14 @@ def main():
 
     elif args.command == "confidence":
         ConfidenceAnalyzer(loader).render()
+
+    elif args.command == "observations":
+        engine = LearningEngine()
+        report = LearningReportGenerator(engine)
+        if args.event:
+            report.render_event_history(args.event)
+        else:
+            report.render_global_summary()
 
     elif args.command == "simulate":
         if args.date:
