@@ -348,5 +348,156 @@ entries:
       - excessos alimentares
     psychological: Estado de bem-estar genuíno e generosidade; excelente para autocuidado e procedimentos de beleza.
 
+  MOO_SQR_JUP:
+    event_id: MOO_SQR_JUP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: low
+    confidence: 0.80
+    hair_day_rating: yellow
+    themes:
+      - otimismo excessivo
+      - benevolência
+      - generosidade
+      - arrogância sutil
+      - contemplação filosófica
+    domains:
+      - wellbeing
+    favorable_for:
+      - momentos de bem-estar geral
+      - reflexão sobre objetivos
+    contraindications:
+      - excesso de confiança em decisões
+    psychological: Humor positivo mas com risco de excesso de confiança; bom estado geral mas requer moderação.
+
+  MOO_OPP_JUP:
+    event_id: MOO_OPP_JUP
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: medium
+    confidence: 0.81
+    hair_day_rating: yellow
+    themes:
+      - inquietação espiritual
+      - desejo de liberdade
+      - generosidade
+      - resistência a limitações
+      - questionamento de objetivos
+    domains:
+      - wellbeing
+      - spiritual
+    favorable_for:
+      - reflexão sobre propósito de vida
+      - atividades ao ar livre
+    contraindications:
+      - procedimentos que exigem paciência e quietude
+    psychological: Necessidade de liberdade e expansão; pode resistir a rotinas e compromissos neste momento.
+
+  MOO_TRI_SUN:
+    event_id: MOO_TRI_SUN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: positive
+    intensity: medium
+    confidence: 0.91
+    hair_day_rating: green
+    themes:
+      - harmonia interior
+      - vitalidade
+      - fluxo natural de energia
+      - equanimidade
+      - relacionamentos harmoniosos
+    domains:
+      - hair
+      - wellbeing
+      - love
+    favorable_for:
+      - qualquer procedimento capilar
+      - atividades em grupo
+      - decisões importantes
+      - novos começos
+    contraindications: []
+    psychological: Harmonia profunda entre emoção e vontade; um dos melhores estados para autocuidado e beleza.
+
+  MOO_SQR_SUN:
+    event_id: MOO_SQR_SUN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: negative
+    intensity: medium
+    confidence: 0.84
+    hair_day_rating: red
+    themes:
+      - tensão interior
+      - irritabilidade
+      - desafios cotidianos
+      - desequilíbrio emocional
+      - tensões ocultas à superfície
+    domains:
+      - wellbeing
+    favorable_for:
+      - atenção a pequenos problemas acumulados
+    contraindications:
+      - procedimentos capilares
+      - decisões importantes
+      - situações que exigem paciência
+    psychological: Tensões internas emergindo; humor mais irritável — não é bom momento para procedimentos de beleza.
+
+  MOO_OPP_SUN:
+    event_id: MOO_OPP_SUN
+    source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-26'
+    kalon_version: '1.0'
+    calibrated_at: '2026-06-26T00:00:00'
+    reviewed: true
+    reviewed_at: '2026-06-26T00:00:00'
+    polarity: mixed
+    intensity: high
+    confidence: 0.83
+    hair_day_rating: yellow
+    themes:
+      - energia elevada
+      - tensão entre áreas da vida
+      - conflito emoção-vontade
+      - atração por opostos
+      - desequilíbrio doméstico-profissional
+    domains:
+      - wellbeing
+    favorable_for:
+      - atividades físicas
+      - energia disponível para projetos
+    contraindications:
+      - procedimentos que exigem serenidade
+      - decisões definitivas
+    psychological: Alta energia mas com tensão interna; áreas da vida em conflito — proceder com cautela em beleza.
+
 last_updated: '2026-06-26T00:00:00'
-total_entries: 10
+total_entries: 15
