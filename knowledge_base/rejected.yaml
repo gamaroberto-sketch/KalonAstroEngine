@@ -1,0 +1,10 @@
+# Knowledge Base — Entradas Rejeitadas
+# Entradas que não passaram na revisão de Roberto Gama.
+# Mantidas para aprendizado e auditoria do sistema.
+# NÃO são consumidas pelo Knowledge Engine.
+
+metadata:
+  created_at: '2026-06-26'
+  kalon_version: '1.0'
+
+entries: {}

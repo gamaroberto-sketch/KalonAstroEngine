@@ -2,6 +2,10 @@ entries:
   MOO_TRI_VEN:
     event_id: MOO_TRI_VEN
     source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-25'
+    kalon_version: '1.0'
     calibrated_at: '2026-06-25T00:00:00'
     reviewed: true
     reviewed_at: '2026-06-25T00:00:00'
@@ -41,6 +45,10 @@ entries:
   MOO_SEX_VEN:
     event_id: MOO_SEX_VEN
     source: solarfire_calibration
+    origin: SolarFire 9 — Roderick Kidston
+    reviewed_by: Roberto Gama
+    review_date: '2026-06-25'
+    kalon_version: '1.0'
     calibrated_at: '2026-06-25T00:00:00'
     reviewed: true
     reviewed_at: '2026-06-25T00:00:00'
