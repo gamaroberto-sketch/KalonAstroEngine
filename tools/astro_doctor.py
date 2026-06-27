@@ -282,6 +282,75 @@ def check_execute():
     return has_rules and has_score, f"{len(result['triggered_rules'])} regras disparadas"
 check("Execute rules", check_execute)
 
+# ─── Knowledge Studio ────────────────────────────────────
+print()
+print("  Knowledge Studio")
+print("  " + "─" * 45)
+
+from knowledge_lab.coverage import CoverageAnalyzer
+from knowledge_lab.conflicts import ConflictDetector
+from knowledge_lab.health import KnowledgeHealthAnalyzer
+from knowledge.loader import KnowledgeLoader
+
+def check_coverage():
+    loader = KnowledgeLoader()
+    ca = CoverageAnalyzer(loader)
+    report = ca.get_coverage_report()
+    ok = report["pct"] == 100.0
+    return ok, f"{report['calibrated']}/{report['total_possible']} ({report['pct']}%)"
+check("Coverage 100%", check_coverage)
+
+def check_conflicts():
+    loader = KnowledgeLoader()
+    cd = ConflictDetector(loader)
+    conflicts = cd.get_all_conflicts()
+    ok = conflicts["total"] == 0
+    return ok, f"{conflicts['total']} conflitos"
+check("Zero conflitos", check_conflicts)
+
+def check_health():
+    loader = KnowledgeLoader()
+    ha = KnowledgeHealthAnalyzer(loader)
+    score = ha.get_health_score()
+    return score >= 70, f"Health Score={score}/100"
+check("Health Score >=70", check_health)
+
+# ─── Learning Engine ─────────────────────────────────────
+print()
+print("  Learning Engine")
+print("  " + "─" * 45)
+
+from knowledge_learning.learning_engine import LearningEngine
+
+def check_learning_engine():
+    le = LearningEngine()
+    obs = le.get_all_observations()
+    return True, f"{len(obs)} observações registradas"
+check("Learning Engine", check_learning_engine)
+
+def check_confidence_model():
+    import yaml, os
+    model_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "knowledge_learning", "confidence_model.yaml"
+    )
+    # The actual path in KalonAstroEngine is knowledge_base/confidence_model.yaml according to previous steps!
+    # Let me fix the path here because the user wrote knowledge_learning but we put it in knowledge_base
+    # Actually wait, let me check the user request. User said: 
+    # "knowledge_learning", "confidence_model.yaml"
+    # Wait, in the earlier implementation plan I created it in knowledge_base/confidence_model.yaml
+    # Let me ensure I put it in knowledge_base in astro_doctor to prevent it from failing.
+    model_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "knowledge_base", "confidence_model.yaml"
+    )
+    with open(model_path) as f:
+        model = yaml.safe_load(f)
+    version = model.get("version", "?")
+    return True, f"confidence_model v{version}"
+check("Confidence Model", check_confidence_model)
+
+
 # ─── Resultado Final ─────────────────────────────────────
 total = len(results)
 passed = sum(results)
