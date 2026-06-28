@@ -2,5 +2,53 @@ id: ciclos
 tipo: recomendacao
 categoria: temporal_astrologico
 dominio: astrohair
-objetivos_servidos: []
-recomendacoes: []
+
+objetivos_servidos:
+  - estimular_crescimento
+  - fortalecer_foliculo
+  - equilibrar_oleosidade
+  - retardar_envelhecimento
+
+recomendacoes:
+
+  - id: cic_01
+    objetivo: estimular_crescimento
+    descricao: Cortar o cabelo preferencialmente na Lua Crescente — fase associada ao ciclo anágena e ao crescimento
+    evidencia_origem: ciclo_capilar
+    objeto_astrologico: lua
+    indicadores_alvo:
+      - crescimento_capilar
+
+  - id: cic_02
+    objetivo: fortalecer_foliculo
+    descricao: Aplicar tratamentos intensivos (máscaras, óleos) na Lua Cheia — pico de absorção e vitalidade
+    evidencia_origem: ciclo_capilar
+    objeto_astrologico: lua
+    indicadores_alvo:
+      - espessura_do_fio
+      - hidratacao_capilar
+
+  - id: cic_03
+    objetivo: equilibrar_oleosidade
+    descricao: Lavagens mais frequentes na Lua Nova — fase de maior produção sebácea para alguns biotipos
+    evidencia_origem: regulacao_sebacea
+    objeto_astrologico: lua
+    indicadores_alvo:
+      - oleosidade_capilar
+
+  - id: cic_04
+    objetivo: retardar_envelhecimento
+    descricao: Período de Saturn Return (~29 anos) — fase de revisão da estrutura capilar; considerar avaliação tricológica preventiva
+    evidencia_origem: envelhecimento_estrutural
+    objeto_astrologico: saturno
+    indicadores_alvo:
+      - envelhecimento_capilar
+      - espessura_do_fio
+
+  - id: cic_05
+    objetivo: estimular_crescimento
+    descricao: Trânsitos de Júpiter sobre o ASC ou Lua — janelas favoráveis para tratamentos de crescimento intensivo
+    evidencia_origem: ciclo_capilar
+    objeto_astrologico: jupiter
+    indicadores_alvo:
+      - crescimento_capilar

@@ -2,5 +2,60 @@ id: acompanhamento
 tipo: recomendacao
 categoria: encaminhamento_profissional
 dominio: astrohair
-objetivos_servidos: []
-recomendacoes: []
+
+objetivos_servidos:
+  - reduzir_inflamacao
+  - estimular_crescimento
+  - preservar_pigmentacao
+  - fortalecer_foliculo
+  - retardar_envelhecimento
+
+recomendacoes:
+
+  - id: aco_01
+    objetivo: reduzir_inflamacao
+    descricao: Dermatologista ou tricologista — para diagnóstico de dermatite seborreica, foliculite ou alopecia areata
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - inflamacao_capilar
+      - queda_capilar
+
+  - id: aco_02
+    objetivo: estimular_crescimento
+    descricao: Endocrinologista — quando queda capilar é difusa e sem causa aparente; investigar função tireoidiana e perfil hormonal
+    evidencia_origem: regulacao_hormonal
+    indicadores_alvo:
+      - queda_capilar
+      - crescimento_capilar
+
+  - id: aco_03
+    objetivo: fortalecer_foliculo
+    descricao: Nutricionista — avaliação de deficiências nutricionais (ferro, zinco, biotina, vitamina D) que comprometem o folículo
+    evidencia_origem: constituicao_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - espessura_do_fio
+
+  - id: aco_04
+    objetivo: preservar_pigmentacao
+    descricao: Dermatologista — encanecimento precoce pode ter origem autoimune ou nutricional; investigação recomendada antes dos 30 anos
+    evidencia_origem: pigmentacao
+    indicadores_alvo:
+      - pigmentacao_capilar
+      - envelhecimento_capilar
+
+  - id: aco_05
+    objetivo: retardar_envelhecimento
+    descricao: Tricologista — avaliação periódica da densidade capilar; exame de fototricograma para monitorar fase anágena
+    evidencia_origem: envelhecimento_estrutural
+    indicadores_alvo:
+      - envelhecimento_capilar
+      - espessura_do_fio
+
+  - id: aco_06
+    objetivo: reduzir_inflamacao
+    descricao: Psicólogo ou terapeuta — estresse crônico é fator fisiológico comprovado de queda capilar; não é recomendação acessória
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - queda_capilar
+      - inflamacao_capilar

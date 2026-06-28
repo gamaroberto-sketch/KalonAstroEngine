@@ -2,5 +2,51 @@ id: habitos
 tipo: recomendacao
 categoria: comportamental
 dominio: astrohair
-objetivos_servidos: []
-recomendacoes: []
+
+objetivos_servidos:
+  - reduzir_inflamacao
+  - estimular_crescimento
+  - fortalecer_foliculo
+  - retardar_envelhecimento
+
+recomendacoes:
+
+  - id: hab_01
+    objetivo: reduzir_inflamacao
+    descricao: Evitar manipulação excessiva do couro cabeludo — fricção ativa processos inflamatórios
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - queda_capilar
+      - inflamacao_capilar
+
+  - id: hab_02
+    objetivo: reduzir_inflamacao
+    descricao: Gerenciar estresse — cortisol elevado interrompe a fase anágena e amplifica inflamação
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - queda_capilar
+      - inflamacao_capilar
+
+  - id: hab_03
+    objetivo: estimular_crescimento
+    descricao: Manter sono regular — regeneração celular do folículo ocorre predominantemente durante o sono
+    evidencia_origem: ciclo_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - espessura_do_fio
+
+  - id: hab_04
+    objetivo: fortalecer_foliculo
+    descricao: Massagem capilar regular — estimula circulação na papila dérmica sem fricção agressiva
+    evidencia_origem: ciclo_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - fortalecer_foliculo
+
+  - id: hab_05
+    objetivo: retardar_envelhecimento
+    descricao: Proteção solar do couro cabeludo — radiação UV acelera degradação dos melanócitos
+    evidencia_origem: pigmentacao
+    indicadores_alvo:
+      - pigmentacao_capilar
+      - envelhecimento_capilar

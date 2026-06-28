@@ -2,5 +2,75 @@ id: alimentacao
 tipo: recomendacao
 categoria: nutricional
 dominio: astrohair
-objetivos_servidos: []
-recomendacoes: []
+
+objetivos_servidos:
+  - reduzir_inflamacao
+  - estimular_crescimento
+  - melhorar_hidratacao
+  - preservar_pigmentacao
+  - fortalecer_foliculo
+
+recomendacoes:
+
+  - id: ali_01
+    objetivo: reduzir_inflamacao
+    descricao: Aumentar ômega-3 (sardinha, linhaça, chia) — reduz prostaglandinas pró-inflamatórias no couro cabeludo
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - queda_capilar
+      - inflamacao_capilar
+
+  - id: ali_02
+    objetivo: reduzir_inflamacao
+    descricao: Reduzir açúcar refinado e ultraprocessados — picos de insulina amplificam processos inflamatórios sistêmicos
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - queda_capilar
+      - inflamacao_capilar
+
+  - id: ali_03
+    objetivo: estimular_crescimento
+    descricao: Garantir aporte de ferro e vitamina C — ferro é cofator essencial para a síntese de queratina no folículo
+    evidencia_origem: ciclo_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - espessura_do_fio
+
+  - id: ali_04
+    objetivo: estimular_crescimento
+    descricao: Proteína suficiente na dieta — queratina é proteína; deficiência proteica causa queda difusa
+    evidencia_origem: ciclo_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - espessura_do_fio
+
+  - id: ali_05
+    objetivo: fortalecer_foliculo
+    descricao: Zinco e biotina — cofatores da divisão celular no bulbo capilar
+    evidencia_origem: constituicao_capilar
+    indicadores_alvo:
+      - crescimento_capilar
+      - espessura_do_fio
+
+  - id: ali_06
+    objetivo: melhorar_hidratacao
+    descricao: Hidratação hídrica adequada — mínimo 35ml por kg/dia para manter teor de água no córtex do fio
+    evidencia_origem: hidratacao
+    indicadores_alvo:
+      - hidratacao_capilar
+
+  - id: ali_07
+    objetivo: preservar_pigmentacao
+    descricao: Cobre e manganês (castanha, sementes) — cofatores da tirosinase, enzima produtora de melanina
+    evidencia_origem: pigmentacao
+    indicadores_alvo:
+      - pigmentacao_capilar
+      - envelhecimento_capilar
+
+  - id: ali_08
+    objetivo: reduzir_inflamacao
+    descricao: Antioxidantes (vitamina E, selênio, polifenóis) — neutralizam radicais livres que danificam o folículo
+    evidencia_origem: inflamacao
+    indicadores_alvo:
+      - inflamacao_capilar
+      - envelhecimento_capilar
