@@ -5,6 +5,7 @@ node:
   tipo: indicador
   camada: indicadores
   dominio: saude_capilar
+  classificacao: potencial
 
 relacoes:
 
