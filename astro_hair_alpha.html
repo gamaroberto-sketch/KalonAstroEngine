@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstroHair — Análise Capilar</title>
+<style>
+  /* ── TOKENS ─────────────────────────────────────────── */
+  :root {
+    --bg:        #0B0D0F;
+    --surface:   #13161A;
+    --border:    #1E2328;
+    --muted:     #2C3038;
+    --text:      #E8E4DC;
+    --text-dim:  #7A8090;
+    --gold:      #C9A84C;
+    --gold-dim:  #8A6B2A;
+    --green:     #4CAF7D;
+    --red:       #C95C4C;
+    --blue:      #4C8AC9;
+    --radius:    6px;
+    --font-body: 'Georgia', serif;
+    --font-ui:   system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    padding: 0 16px 60px;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0 20px;
+    margin-bottom: 40px;
+  }
+  .brand {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: normal;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  /* ── LAYOUT ─────────────────────────────────────────── */
+  .container { max-width: 780px; margin: 0 auto; }
+
+  /* ── FORMULÁRIO ─────────────────────────────────────── */
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  input {
+    width: 100%;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color .15s;
+  }
+  input:focus { border-color: var(--gold); }
+  input::placeholder { color: var(--text-dim); }
+
+  .btn {
+    background: var(--gold);
+    border: none;
+    border-radius: var(--radius);
+    color: #000;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 12px 28px;
+    text-transform: uppercase;
+    transition: opacity .15s;
+    width: 100%;
+  }
+  .btn:hover { opacity: .85; }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+
+  /* ── ESTADO DE LOADING ───────────────────────────────── */
+  .loading {
+    text-align: center;
+    padding: 48px;
+    color: var(--text-dim);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    display: none;
+  }
+  .spinner {
+    width: 28px; height: 28px;
+    border: 2px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── RESULTADOS ──────────────────────────────────────── */
+  #results { display: none; }
+
+  .section-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  /* perspectivas */
+  .perspectives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .perspective-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .perspective-card.potencial { border-top: 2px solid var(--green); }
+  .perspective-card.desafio   { border-top: 2px solid var(--red); }
+  .perspective-card.duplo     { border-top: 2px solid var(--blue); }
+  .perspective-card.equilibrio{ border-top: 2px solid var(--gold); }
+
+  .perspective-title {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .potencial .perspective-title { color: var(--green); }
+  .desafio   .perspective-title { color: var(--red); }
+  .duplo     .perspective-title { color: var(--blue); }
+  .equilibrio .perspective-title { color: var(--gold); }
+
+  .evidence-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .evidence-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .evidence-name {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .evidence-objects {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--muted);
+    border-radius: 3px;
+    font-family: var(--font-ui);
+    font-size: 10px;
+    padding: 2px 6px;
+    margin: 2px 2px 0 0;
+    color: var(--text-dim);
+  }
+
+  /* objetivos */
+  .objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .objective-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--text);
+  }
+  .objective-pill span {
+    display: block;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* recomendações */
+  .rec-category { margin-bottom: 28px; }
+  .rec-category-title {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+  .rec-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .rec-bullet {
+    width: 6px; height: 6px;
+    background: var(--gold-dim);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .rec-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .rec-trace {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  /* auditoria */
+  .audit-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .audit-chain {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 2;
+  }
+  .audit-chain strong { color: var(--text); }
+  .audit-arrow { color: var(--gold-dim); margin: 0 6px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  .empty { color: var(--text-dim); font-size: 13px; font-style: italic; }
+
+  /* erro */
+  .error-msg {
+    background: #1a0f0f;
+    border: 1px solid #4a1f1f;
+    border-radius: var(--radius);
+    color: #ff8080;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    padding: 14px 18px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">Kalon Astro</div>
+    <h1>O que seu mapa diz sobre<br>sua <em>saúde capilar</em>?</h1>
+  </header>
+
+  <!-- FORMULÁRIO -->
+  <div class="form-card">
+    <div class="form-grid">
+      <div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome" value="Roberto Gama">
+      </div>
+      <div>
+        <label for="data">Data de nascimento</label>
+        <input type="date" id="data" value="1957-08-29">
+      </div>
+      <div>
+        <label for="hora">Hora (local)</label>
+        <input type="time" id="hora" value="00:00">
+      </div>
+      <div>
+        <label for="cidade">Cidade de nascimento</label>
+        <input type="text" id="cidade" placeholder="Ex: São Paulo, SP" value="Ourinhos, SP">
+      </div>
+    </div>
+    <div class="error-msg" id="error-msg"></div>
+    <button class="btn" id="btn-analisar" onclick="analisar()">Analisar</button>
+  </div>
+
+  <!-- LOADING -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    Calculando posições planetárias e navegando o Knowledge Graph…
+  </div>
+
+  <!-- RESULTADOS -->
+  <div id="results">
+
+    <div class="section-label">Perspectivas do mapa</div>
+    <div class="perspectives" id="perspectives-grid"></div>
+
+    <hr class="divider">
+
+    <div class="section-label">Objetivos terapêuticos identificados</div>
+    <div class="objectives-grid" id="objectives-grid"></div>
+
+    <hr class="divider">
+
+    <div class="section-label">O que você pode fazer</div>
+    <div id="recommendations-grid"></div>
+
+    <hr class="divider">
+
+    <div class="section-label">Como chegamos aqui — auditoria completa</div>
+    <div id="audit-grid"></div>
+
+  </div>
+
+</div>
+
+<script>
+// ── DADOS DO KNOWLEDGE GRAPH (embutidos) ─────────────────────────────────────
+// Em produção: carregados via API do Python backend
+
+const EVIDENCES = [
+  { id: "inflamacao", objetos: ["marte","escorpiao"], posicoes: ["casa_1","casa_6"],
+    indicadores: ["queda_capilar","inflamacao_capilar"], processos: ["inflamacao"] },
+  { id: "regulacao_hormonal", objetos: ["lua","venus","saturno"],
+    signos: ["escorpiao","touro"],
+    indicadores: ["queda_capilar","crescimento_capilar","oleosidade_capilar","espessura_do_fio","envelhecimento_capilar"],
+    processos: ["regulacao_hormonal"] },
+  { id: "ciclo_capilar", objetos: ["lua","sol","saturno"],
+    indicadores: ["crescimento_capilar","queda_capilar","espessura_do_fio","envelhecimento_capilar"],
+    processos: ["ciclo_capilar"] },
+  { id: "regulacao_sebacea", objetos: ["lua","venus","jupiter"],
+    signos: ["cancer","touro"],
+    indicadores: ["oleosidade_capilar","hidratacao_capilar"], processos: ["regulacao_sebacea"] },
+  { id: "hidratacao", objetos: ["lua","venus","netuno"],
+    signos: ["cancer","peixes","escorpiao"],
+    indicadores: ["hidratacao_capilar"], processos: ["hidratacao"] },
+  { id: "pigmentacao", objetos: ["sol","saturno","marte"],
+    signos: ["leao","capricornio"],
+    indicadores: ["pigmentacao_capilar","envelhecimento_capilar"], processos: ["pigmentacao"] },
+  { id: "envelhecimento_estrutural", objetos: ["saturno","plutao"],
+    posicoes: ["casa_1"],
+    indicadores: ["envelhecimento_capilar","espessura_do_fio","queda_capilar"],
+    processos: ["ciclo_capilar","regulacao_hormonal","pigmentacao"] },
+  { id: "constituicao_capilar", objetos: ["asc"],
+    signos: ["aries","touro","gemeos","cancer","leao","virgem","libra","escorpiao","sagitario","capricornio","aquario","peixes"],
+    posicoes: ["casa_1"],
+    indicadores: ["espessura_do_fio","oleosidade_capilar","crescimento_capilar"],
+    processos: ["ciclo_capilar","regulacao_sebacea"] },
+];
+
+const INDICATOR_CLASS = {
+  crescimento_capilar: "potencial", hidratacao_capilar: "potencial",
+  espessura_do_fio: "potencial", pigmentacao_capilar: "potencial",
+  oleosidade_capilar: "duplo", queda_capilar: "desafio",
+  inflamacao_capilar: "desafio", envelhecimento_capilar: "desafio"
+};
+
+const OBJECTIVES = [
+  { id: "reduzir_inflamacao",      label: "Reduzir inflamação",       indicadores: ["queda_capilar","inflamacao_capilar"] },
+  { id: "estimular_crescimento",   label: "Estimular crescimento",    indicadores: ["crescimento_capilar","espessura_do_fio"] },
+  { id: "equilibrar_oleosidade",   label: "Equilibrar oleosidade",    indicadores: ["oleosidade_capilar"] },
+  { id: "melhorar_hidratacao",     label: "Melhorar hidratação",      indicadores: ["hidratacao_capilar"] },
+  { id: "preservar_pigmentacao",   label: "Preservar pigmentação",    indicadores: ["pigmentacao_capilar"] },
+  { id: "fortalecer_foliculo",     label: "Fortalecer folículo",      indicadores: ["crescimento_capilar","espessura_do_fio","queda_capilar"] },
+  { id: "retardar_envelhecimento", label: "Retardar envelhecimento",  indicadores: ["envelhecimento_capilar","pigmentacao_capilar","espessura_do_fio"] },
+];
+
+const RECOMMENDATIONS = {
+  habitos: {
+    label: "Hábitos",
+    items: [
+      { objetivo: "reduzir_inflamacao", texto: "Evitar manipulação excessiva do couro cabeludo — fricção ativa processos inflamatórios", evidencia: "inflamacao" },
+      { objetivo: "reduzir_inflamacao", texto: "Gerenciar estresse — cortisol elevado interrompe a fase anágena e amplifica inflamação", evidencia: "inflamacao" },
+      { objetivo: "estimular_crescimento", texto: "Manter sono regular — regeneração celular do folículo ocorre predominantemente durante o sono", evidencia: "ciclo_capilar" },
+      { objetivo: "fortalecer_foliculo", texto: "Massagem capilar regular — estimula circulação na papila dérmica sem fricção agressiva", evidencia: "ciclo_capilar" },
+      { objetivo: "retardar_envelhecimento", texto: "Proteção solar do couro cabeludo — radiação UV acelera degradação dos melanócitos", evidencia: "pigmentacao" },
+    ]
+  },
+  alimentacao: {
+    label: "Alimentação",
+    items: [
+      { objetivo: "reduzir_inflamacao", texto: "Aumentar ômega-3 (sardinha, linhaça, chia) — reduz prostaglandinas pró-inflamatórias no couro cabeludo", evidencia: "inflamacao" },
+      { objetivo: "reduzir_inflamacao", texto: "Reduzir açúcar refinado e ultraprocessados — picos de insulina amplificam processos inflamatórios", evidencia: "inflamacao" },
+      { objetivo: "estimular_crescimento", texto: "Garantir aporte de ferro e vitamina C — cofatores essenciais para a síntese de queratina", evidencia: "ciclo_capilar" },
+      { objetivo: "estimular_crescimento", texto: "Proteína suficiente na dieta — queratina é proteína; deficiência causa queda difusa", evidencia: "ciclo_capilar" },
+      { objetivo: "fortalecer_foliculo", texto: "Zinco e biotina — cofatores da divisão celular no bulbo capilar", evidencia: "constituicao_capilar" },
+      { objetivo: "melhorar_hidratacao", texto: "Hidratação adequada — mínimo 35ml por kg/dia para manter teor de água no córtex do fio", evidencia: "hidratacao" },
+      { objetivo: "preservar_pigmentacao", texto: "Cobre e manganês (castanha, sementes) — cofatores da tirosinase, enzima produtora de melanina", evidencia: "pigmentacao" },
+    ]
+  },
+  ciclos: {
+    label: "Ciclos lunares",
+    items: [
+      { objetivo: "estimular_crescimento", texto: "Cortar o cabelo preferencialmente na Lua Crescente — fase associada ao ciclo anágena e ao crescimento", evidencia: "ciclo_capilar" },
+      { objetivo: "fortalecer_foliculo", texto: "Aplicar tratamentos intensivos (máscaras, óleos) na Lua Cheia — pico de absorção e vitalidade", evidencia: "ciclo_capilar" },
+      { objetivo: "equilibrar_oleosidade", texto: "Lavagens mais frequentes na Lua Nova — fase de maior produção sebácea para alguns biotipos", evidencia: "regulacao_sebacea" },
+    ]
+  },
+  acompanhamento: {
+    label: "Acompanhamento profissional",
+    items: [
+      { objetivo: "reduzir_inflamacao", texto: "Dermatologista ou tricologista — para diagnóstico de dermatite seborreica, foliculite ou alopecia areata", evidencia: "inflamacao" },
+      { objetivo: "estimular_crescimento", texto: "Endocrinologista — investigar função tireoidiana e perfil hormonal quando queda é difusa", evidencia: "regulacao_hormonal" },
+      { objetivo: "fortalecer_foliculo", texto: "Nutricionista — avaliação de deficiências (ferro, zinco, biotina, vitamina D)", evidencia: "constituicao_capilar" },
+      { objetivo: "preservar_pigmentacao", texto: "Dermatologista — encanecimento precoce pode ter origem autoimune ou nutricional", evidencia: "pigmentacao" },
+      { objetivo: "retardar_envelhecimento", texto: "Tricologista — avaliação periódica de densidade capilar; exame de fototricograma", evidencia: "envelhecimento_estrutural" },
+    ]
+  }
+};
+
+// ── MAPA SIMPLIFICADO (posições via lookup por data/local) ───────────────────
+// Em produção: chamada ao backend Python com pyswisseph
+// Para o Alpha: lookup por data de nascimento com posições pré-calculadas
+
+function calcularMapaAlpha(data, hora, cidade) {
+  // Mapa de Roberto Gama — 29/08/1957 Ourinhos SP
+  // Calculado via pyswisseph na sessão anterior
+  const BASE = {
+    objetos: ["sol","lua","mercurio","venus","marte","jupiter","saturno",
+              "urano","netuno","plutao","asc","mc"],
+    signos:  ["virgem","libra","virgem","libra","virgem","libra","sagitario",
+              "leao","escorpiao","virgem","touro","peixes"],
+    casas:   ["casa_4","casa_5","casa_4","casa_5","casa_4","casa_5","casa_7",
+              "casa_3","casa_5","casa_4","casa_1","casa_10"]
+  };
+
+  const todos = new Set();
+  BASE.objetos.forEach(o => todos.add(o));
+  BASE.signos.forEach(s => todos.add(s));
+  BASE.casas.forEach(c => todos.add(c));
+
+  return { posicoes: BASE, objetosSet: todos };
+}
+
+// ── MOTOR (navegação do grafo) ────────────────────────────────────────────────
+
+function lerEvidencias(objetosSet) {
+  const potenciais = [], desafios = [], duplos = [];
+
+  EVIDENCES.forEach(ev => {
+    const ativados = (ev.objetos||[]).filter(o => objetosSet.has(o));
+    if (!ativados.length) return;
+
+    const posAtivas = (ev.posicoes||[]).filter(p => objetosSet.has(p));
+    const signosAtivos = (ev.signos||[]).filter(s => objetosSet.has(s));
+
+    const entrada = { ...ev, ativados, posAtivas, signosAtivos };
+
+    const classes = new Set((ev.indicadores||[]).map(i => INDICATOR_CLASS[i]).filter(Boolean));
+    const temP = classes.has("potencial");
+    const temD = classes.has("desafio") || classes.has("duplo");
+
+    if (temP && temD) duplos.push(entrada);
+    else if (temP)    potenciais.push(entrada);
+    else if (temD)    desafios.push(entrada);
+  });
+
+  // Equilíbrios
+  const objP = new Set(potenciais.concat(duplos).flatMap(e => e.ativados));
+  const objD = new Set(desafios.concat(duplos).flatMap(e => e.ativados));
+  const equilibrios = [...objP].filter(o => objD.has(o));
+
+  return { potenciais, desafios, duplos, equilibrios };
+}
+
+function identificarObjetivos(evidencias) {
+  const { potenciais, desafios, duplos } = evidencias;
+  const todasAtivas = [...potenciais, ...desafios, ...duplos];
+  const indicadoresAtivos = new Set(todasAtivas.flatMap(e => e.indicadores||[]));
+
+  return OBJECTIVES.filter(obj =>
+    obj.indicadores.some(i => indicadoresAtivos.has(i))
+  );
+}
+
+function filtrarRecomendacoes(objetivos) {
+  const objIds = new Set(objetivos.map(o => o.id));
+  const resultado = {};
+  Object.entries(RECOMMENDATIONS).forEach(([cat, data]) => {
+    const items = data.items.filter(r => objIds.has(r.objetivo));
+    if (items.length) resultado[cat] = { label: data.label, items };
+  });
+  return resultado;
+}
+
+// ── RENDERIZAÇÃO ──────────────────────────────────────────────────────────────
+
+function renderPerspectives(evidencias) {
+  const { potenciais, desafios, duplos, equilibrios } = evidencias;
+  const grid = document.getElementById('perspectives-grid');
+
+  const card = (tipo, titulo, items) => `
+    <div class="perspective-card ${tipo}">
+      <div class="perspective-title">${titulo}</div>
+      ${items.length ? items.map(ev => `
+        <div class="evidence-item">
+          <div class="evidence-name">${ev.id.replace(/_/g,' ')}</div>
+          <div>${ev.ativados.map(o => `<span class="tag">${o}</span>`).join('')}</div>
+        </div>`).join('') : '<p class="empty">Nenhuma evidência identificada</p>'}
+    </div>`;
+
+  const equilibrioCard = `
+    <div class="perspective-card equilibrio">
+      <div class="perspective-title">Fatores de equilíbrio</div>
+      ${equilibrios.length
+        ? equilibrios.map(o => `<span class="tag">${o}</span>`).join('')
+        : '<p class="empty">Nenhum fator de equilíbrio</p>'}
+    </div>`;
+
+  grid.innerHTML =
+    card('potencial','Potenciais', potenciais) +
+    card('desafio','Desafios', desafios) +
+    card('duplo','Duplos', duplos) +
+    equilibrioCard;
+}
+
+function renderObjectives(objetivos) {
+  const grid = document.getElementById('objectives-grid');
+  grid.innerHTML = objetivos.map(obj => `
+    <div class="objective-pill">
+      ${obj.label}
+      <span>${obj.indicadores.join(', ').replace(/_/g,' ')}</span>
+    </div>`).join('');
+}
+
+function renderRecommendations(recs) {
+  const grid = document.getElementById('recommendations-grid');
+  grid.innerHTML = Object.entries(recs).map(([cat, data]) => `
+    <div class="rec-category">
+      <div class="rec-category-title">${data.label}</div>
+      ${data.items.map(r => `
+        <div class="rec-item">
+          <div class="rec-bullet"></div>
+          <div>
+            <div class="rec-text">${r.texto}</div>
+            <div class="rec-trace">via evidência: ${r.evidencia.replace(/_/g,' ')} → objetivo: ${r.objetivo.replace(/_/g,' ')}</div>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+function renderAudit(evidencias, objetivos) {
+  const { potenciais, desafios, duplos } = evidencias;
+  const todasAtivas = [...potenciais, ...desafios, ...duplos];
+  const grid = document.getElementById('audit-grid');
+
+  grid.innerHTML = todasAtivas.map(ev => `
+    <div class="audit-block">
+      <div class="audit-chain">
+        <strong>Evidência</strong>: ${ev.id.replace(/_/g,' ')}
+        <span class="audit-arrow">→</span>
+        <strong>Objetos ativos</strong>: ${ev.ativados.join(', ')}
+        <span class="audit-arrow">→</span>
+        <strong>Processo</strong>: ${(ev.processos||[]).join(', ').replace(/_/g,' ')}
+        <span class="audit-arrow">→</span>
+        <strong>Indicadores</strong>: ${(ev.indicadores||[]).join(', ').replace(/_/g,' ')}
+      </div>
+    </div>`).join('');
+}
+
+// ── FLUXO PRINCIPAL ───────────────────────────────────────────────────────────
+
+function analisar() {
+  const nome  = document.getElementById('nome').value.trim();
+  const data  = document.getElementById('data').value;
+  const hora  = document.getElementById('hora').value;
+  const cidade = document.getElementById('cidade').value.trim();
+
+  const errorEl = document.getElementById('error-msg');
+  errorEl.style.display = 'none';
+
+  if (!nome || !data || !cidade) {
+    errorEl.textContent = 'Preencha nome, data de nascimento e cidade.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('btn-analisar');
+  btn.disabled = true;
+  document.getElementById('loading').style.display = 'block';
+  document.getElementById('results').style.display = 'none';
+
+  // Simula latência do backend (em produção: fetch ao Python)
+  setTimeout(() => {
+    const mapa = calcularMapaAlpha(data, hora, cidade);
+    const evidencias  = lerEvidencias(mapa.objetosSet);
+    const objetivos   = identificarObjetivos(evidencias);
+    const recs        = filtrarRecomendacoes(objetivos);
+
+    renderPerspectives(evidencias);
+    renderObjectives(objetivos);
+    renderRecommendations(recs);
+    renderAudit(evidencias, objetivos);
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    btn.disabled = false;
+
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+  }, 1200);
+}
+</script>
+</body>
+</html>
