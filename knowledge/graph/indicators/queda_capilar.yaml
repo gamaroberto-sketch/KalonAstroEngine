@@ -1,0 +1,36 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Queda Capilar | v1.0
+node:
+  id: queda_capilar
+  nome: Queda Capilar
+  tipo: indicador
+  camada: indicadores
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: produzido_por_estrutura
+    alvo: foliculo_capilar
+    contexto: fisiologia_universal
+
+  - tipo: determinado_por_processo
+    alvo: ciclo_capilar
+    contexto: fisiologia_universal
+    nota: fase telógena aumentada ou anágena encurtada = queda
+
+  - tipo: determinado_por_processo
+    alvo: inflamacao
+    contexto: fisiologia_universal
+    nota: inflamação crônica destrói o folículo
+
+  - tipo: determinado_por_processo
+    alvo: regulacao_hormonal
+    contexto: fisiologia_universal
+    nota: DHT elevado miniaturiza o folículo; cortisol interrompe anágena

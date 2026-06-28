@@ -1,0 +1,31 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Espessura do Fio | v1.0
+node:
+  id: espessura_do_fio
+  nome: Espessura do Fio
+  tipo: indicador
+  camada: indicadores
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: manifesta_em_estrutura
+    alvo: fio_de_cabelo
+    contexto: fisiologia_universal
+
+  - tipo: determinado_por_processo
+    alvo: regulacao_hormonal
+    contexto: fisiologia_universal
+    nota: DHT miniaturiza o fio progressivamente
+
+  - tipo: determinado_por_processo
+    alvo: ciclo_capilar
+    contexto: fisiologia_universal
+    nota: ciclos encurtados reduzem a espessura ao longo do tempo

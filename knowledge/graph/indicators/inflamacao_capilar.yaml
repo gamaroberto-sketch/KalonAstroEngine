@@ -1,0 +1,34 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Inflamação Capilar | v1.0
+# Indicador NOVO — identificado pela Ontologia AstroHair (Missão 13)
+node:
+  id: inflamacao_capilar
+  nome: Inflamação Capilar
+  tipo: indicador
+  camada: indicadores
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: manifesta_em_estrutura
+    alvo: couro_cabeludo
+    contexto: fisiologia_universal
+
+  - tipo: manifesta_em_estrutura
+    alvo: foliculo_capilar
+    contexto: fisiologia_universal
+
+  - tipo: determinado_por_processo
+    alvo: inflamacao
+    contexto: fisiologia_universal
+
+  - tipo: pode_causar
+    alvo: queda_capilar
+    contexto: fisiologia_universal

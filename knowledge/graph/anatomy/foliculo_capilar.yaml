@@ -1,0 +1,53 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Folículo Capilar | v1.0
+node:
+  id: foliculo_capilar
+  nome: Folículo Capilar
+  tipo: estrutura_anatomica
+  camada: anatomia
+
+relacoes:
+
+  - tipo: localizado_em
+    alvo: couro_cabeludo
+    contexto: anatomia_universal
+
+  - tipo: contem_estrutura
+    alvo: bulbo_capilar
+    contexto: anatomia_universal
+
+  - tipo: contem_estrutura
+    alvo: papila_dermica
+    contexto: anatomia_universal
+    nota: papila recebe sangue e nutrientes — base da produção do fio
+
+  - tipo: contem_estrutura
+    alvo: bainha_radicular
+    contexto: anatomia_universal
+
+  - tipo: produz
+    alvo: fio_de_cabelo
+    contexto: anatomia_universal
+
+  - tipo: participa_de_sistema
+    alvo: sistema_endocrino
+    contexto: anatomia_universal
+    nota: receptores hormonais no folículo respondem a andrógenos, estrogênio, tireoide
+
+  - tipo: participa_de_sistema
+    alvo: sistema_imunologico
+    contexto: anatomia_universal
+    nota: folículo é alvo de ataques autoimunes nas alopecias
+
+  - tipo: tem_ciclo
+    alvo: ciclo_capilar
+    contexto: fisiologia_universal
+    nota: anágena (crescimento) → catágena (transição) → telógena (repouso)
+
+  - tipo: relacionado_a_processo
+    alvo: inflamacao
+    contexto: fisiologia_universal
+    nota: inflamação crônica destrói o folículo irreversivelmente
+
+  - tipo: relacionado_a_processo
+    alvo: regulacao_hormonal
+    contexto: fisiologia_universal

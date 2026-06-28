@@ -1,0 +1,57 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Ciclo Capilar | v1.0
+node:
+  id: ciclo_capilar
+  nome: Ciclo Capilar
+  tipo: processo_fisiologico
+  camada: fisiologia
+
+relacoes:
+
+  - tipo: e_ciclo_de
+    alvo: foliculo_capilar
+    contexto: fisiologia_universal
+
+  - tipo: tem_fase
+    alvo: fase_anagena
+    contexto: fisiologia_universal
+    nota: crescimento ativo — dura 2 a 7 anos; 85% dos fios nesta fase
+
+  - tipo: tem_fase
+    alvo: fase_catagena
+    contexto: fisiologia_universal
+    nota: transição — dura 2 a 3 semanas; folículo regride
+
+  - tipo: tem_fase
+    alvo: fase_telogena
+    contexto: fisiologia_universal
+    nota: repouso e queda — dura 3 meses; 15% dos fios nesta fase
+
+  - tipo: relacionado_a_objeto
+    alvo: lua
+    contexto: ocidental_todas
+    nota: Lua governa ciclos biológicos rítmicos — ciclo capilar responde ao ciclo lunar
+
+  - tipo: relacionado_a_objeto
+    alvo: saturno
+    contexto: ocidental_todas
+    nota: Saturno governa o tempo e duração dos ciclos — encurtamento da anágena no envelhecimento
+
+  - tipo: relacionado_a_objeto
+    alvo: sol
+    contexto: ocidental_todas
+    nota: Sol governa a vitalidade que sustenta a fase anágena
+
+  - tipo: relacionado_a_processo
+    alvo: regulacao_hormonal
+    contexto: fisiologia_universal
+    nota: hormônios determinam a duração de cada fase
+
+  - tipo: pode_causar
+    alvo: crescimento_capilar
+    contexto: fisiologia_universal
+    nota: fase anágena ativa e prolongada = crescimento
+
+  - tipo: pode_causar
+    alvo: queda_capilar
+    contexto: fisiologia_universal
+    nota: fase telógena aumentada ou anágena encurtada = queda

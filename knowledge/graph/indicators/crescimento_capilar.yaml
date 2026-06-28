@@ -1,0 +1,38 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Crescimento Capilar | v1.0
+# Camada: Indicadores — o que medimos / observamos
+# NÃO contém relações diretas planeta→indicador
+# A cadeia é: planeta → processo_fisiologico → indicador
+node:
+  id: crescimento_capilar
+  nome: Crescimento Capilar
+  tipo: indicador
+  camada: indicadores
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: produzido_por_estrutura
+    alvo: foliculo_capilar
+    contexto: fisiologia_universal
+
+  - tipo: determinado_por_processo
+    alvo: ciclo_capilar
+    contexto: fisiologia_universal
+    nota: fase anágena prolongada = crescimento ativo
+
+  - tipo: determinado_por_processo
+    alvo: regulacao_hormonal
+    contexto: fisiologia_universal
+    nota: equilíbrio hormonal favorece a fase anágena
+
+  - tipo: manifesta_em_estrutura
+    alvo: fio_de_cabelo
+    contexto: fisiologia_universal

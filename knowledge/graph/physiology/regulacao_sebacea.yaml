@@ -1,0 +1,55 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Regulação Sebácea | v1.0
+node:
+  id: regulacao_sebacea
+  nome: Regulação Sebácea
+  tipo: processo_fisiologico
+  camada: fisiologia
+
+relacoes:
+
+  - tipo: e_funcao_de
+    alvo: glandula_sebacea
+    contexto: fisiologia_universal
+
+  - tipo: afeta_estrutura
+    alvo: couro_cabeludo
+    contexto: fisiologia_universal
+
+  - tipo: afeta_estrutura
+    alvo: fio_de_cabelo
+    contexto: fisiologia_universal
+    nota: sebo reveste o fio — lubrifica e protege a cutícula
+
+  - tipo: relacionado_a_objeto
+    alvo: lua
+    contexto: ocidental_todas
+    nota: Lua governa fluidos e secreções glandulares — ciclos de oleosidade
+
+  - tipo: relacionado_a_objeto
+    alvo: venus
+    contexto: ocidental_todas
+    nota: Vênus governa maciez, lubrificação e equilíbrio sebáceo
+
+  - tipo: relacionado_a_objeto
+    alvo: jupiter
+    contexto: ocidental_todas
+    nota: Júpiter representa expansão — excesso sebáceo quando mal aspectado
+
+  - tipo: relacionado_a_signo
+    alvo: cancer
+    contexto: ocidental_todas
+    nota: Câncer governa fluidos, secreções, retenção
+
+  - tipo: relacionado_a_signo
+    alvo: touro
+    contexto: ocidental_todas
+    nota: Touro — oleosidade natural, fio denso e sebáceo
+
+  - tipo: pode_causar
+    alvo: oleosidade_capilar_elevada
+    contexto: fisiologia_universal
+
+  - tipo: pode_causar
+    alvo: ressecamento_capilar
+    contexto: fisiologia_universal
+    nota: regulação sebácea insuficiente → couro seco → fio ressecado

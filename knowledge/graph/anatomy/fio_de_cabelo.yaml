@@ -1,0 +1,46 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Fio de Cabelo | v1.0
+node:
+  id: fio_de_cabelo
+  nome: Fio de Cabelo
+  tipo: estrutura_anatomica
+  camada: anatomia
+
+relacoes:
+
+  - tipo: produzido_por
+    alvo: foliculo_capilar
+    contexto: anatomia_universal
+
+  - tipo: composto_de
+    alvo: queratina
+    contexto: anatomia_universal
+    nota: proteína estrutural — síntese depende de aminoácidos, zinco e biotina
+
+  - tipo: composto_de_camada
+    alvo: cuticula
+    contexto: anatomia_universal
+    nota: camada externa protetora — determina brilho e resistência à quebra
+
+  - tipo: composto_de_camada
+    alvo: cortex
+    contexto: anatomia_universal
+    nota: camada média — contém melanina e determina cor e elasticidade
+
+  - tipo: composto_de_camada
+    alvo: medula
+    contexto: anatomia_universal
+    nota: núcleo interno — presente em fios grossos; ausente em fios finos
+
+  - tipo: relacionado_a_processo
+    alvo: pigmentacao
+    contexto: fisiologia_universal
+    nota: melanócitos no bulbo produzem eumelanina (escuro) e feomelanina (avermelhado)
+
+  - tipo: relacionado_a_processo
+    alvo: hidratacao
+    contexto: fisiologia_universal
+
+  - tipo: relacionado_a_processo
+    alvo: queratinizacao
+    contexto: fisiologia_universal
+    nota: processo de endurecimento do fio ao sair do folículo

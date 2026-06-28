@@ -1,0 +1,62 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Pigmentação | v1.0
+node:
+  id: pigmentacao
+  nome: Pigmentação
+  tipo: processo_fisiologico
+  camada: fisiologia
+
+relacoes:
+
+  - tipo: e_funcao_de
+    alvo: melanocito
+    contexto: fisiologia_universal
+    nota: melanócitos no bulbo capilar produzem melanina
+
+  - tipo: afeta_estrutura
+    alvo: cortex
+    contexto: fisiologia_universal
+    nota: melanina se deposita no córtex — determina a cor do fio
+
+  - tipo: envolve_substancia
+    alvo: eumelanina
+    contexto: fisiologia_universal
+    nota: pigmento escuro — castanho e preto
+
+  - tipo: envolve_substancia
+    alvo: feomelanina
+    contexto: fisiologia_universal
+    nota: pigmento avermelhado e amarelado
+
+  - tipo: relacionado_a_objeto
+    alvo: sol
+    contexto: ocidental_todas
+    nota: Sol governa vitalidade, brilho e produção de pigmento
+
+  - tipo: relacionado_a_objeto
+    alvo: saturno
+    contexto: ocidental_todas
+    nota: Saturno representa envelhecimento — perda progressiva de melanina
+
+  - tipo: relacionado_a_objeto
+    alvo: marte
+    contexto: ocidental_todas
+    nota: Marte está associado à feomelanina — tons quentes e avermelhados
+
+  - tipo: relacionado_a_signo
+    alvo: leao
+    contexto: ocidental_todas
+    nota: Leão governa expressão vital, brilho, cor
+
+  - tipo: relacionado_a_signo
+    alvo: capricornio
+    contexto: ocidental_todas
+    nota: Capricórnio governa envelhecimento estrutural incluindo perda de pigmento
+
+  - tipo: pode_causar
+    alvo: encanecimento_precoce
+    contexto: fisiologia_universal
+    nota: estresse oxidativo, deficiências nutricionais ou fator genético
+
+  - tipo: pode_causar
+    alvo: coloracao_capilar_intensa
+    contexto: fisiologia_universal

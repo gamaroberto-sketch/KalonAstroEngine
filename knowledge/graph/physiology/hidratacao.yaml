@@ -1,0 +1,63 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Hidratação | v1.0
+# Universal — reutilizável em saúde capilar, pele, mucosas, etc.
+node:
+  id: hidratacao
+  nome: Hidratação
+  tipo: processo_fisiologico
+  camada: fisiologia
+
+relacoes:
+
+  - tipo: e_funcao_de
+    alvo: sistema_renal
+    contexto: fisiologia_universal
+    nota: rins regulam o equilíbrio hídrico sistêmico
+
+  - tipo: e_funcao_de
+    alvo: sistema_circulatorio
+    contexto: fisiologia_universal
+
+  - tipo: afeta_estrutura
+    alvo: fio_de_cabelo
+    contexto: fisiologia_universal
+    nota: teor de água no córtex determina elasticidade e resistência à quebra
+
+  - tipo: afeta_estrutura
+    alvo: couro_cabeludo
+    contexto: fisiologia_universal
+
+  - tipo: relacionado_a_objeto
+    alvo: lua
+    contexto: ocidental_todas
+    nota: Lua representa o elemento água, fluidos corporais, retenção
+
+  - tipo: relacionado_a_objeto
+    alvo: venus
+    contexto: ocidental_todas
+    nota: Vênus representa receptividade e absorção de nutrição
+
+  - tipo: relacionado_a_objeto
+    alvo: netuno
+    contexto: ocidental_todas
+    nota: Netuno representa dissolução, permeabilidade, absorção celular
+
+  - tipo: relacionado_a_signo
+    alvo: cancer
+    contexto: ocidental_todas
+
+  - tipo: relacionado_a_signo
+    alvo: peixes
+    contexto: ocidental_todas
+
+  - tipo: relacionado_a_signo
+    alvo: escorpiao
+    contexto: ocidental_todas
+
+  - tipo: pode_causar
+    alvo: hidratacao_capilar_adequada
+    contexto: fisiologia_universal
+
+  - tipo: pode_causar
+    alvo: ressecamento_capilar
+    contexto: fisiologia_universal
+    nota: hidratação insuficiente → fio quebradiço, sem elasticidade

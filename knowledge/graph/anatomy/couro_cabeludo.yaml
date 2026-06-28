@@ -1,0 +1,51 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Couro Cabeludo | v1.0
+# Camada: Anatomia — o que existe fisicamente
+node:
+  id: couro_cabeludo
+  nome: Couro Cabeludo
+  tipo: estrutura_anatomica
+  camada: anatomia
+
+relacoes:
+
+  - tipo: pertence_a_regiao
+    alvo: cabeca
+    contexto: anatomia_universal
+
+  - tipo: contem_estrutura
+    alvo: foliculo_capilar
+    contexto: anatomia_universal
+
+  - tipo: contem_estrutura
+    alvo: glandula_sebacea
+    contexto: anatomia_universal
+
+  - tipo: contem_estrutura
+    alvo: rede_vascular_dermica
+    contexto: anatomia_universal
+
+  - tipo: composto_de_tecido
+    alvo: derme
+    contexto: anatomia_universal
+
+  - tipo: composto_de_tecido
+    alvo: hipoderme
+    contexto: anatomia_universal
+
+  - tipo: participa_de_sistema
+    alvo: sistema_tegumentar
+    contexto: anatomia_universal
+
+  - tipo: participa_de_sistema
+    alvo: sistema_circulatorio
+    contexto: anatomia_universal
+    nota: vascularização nutre os folículos
+
+  - tipo: relacionado_a_processo
+    alvo: inflamacao
+    contexto: fisiologia_universal
+    nota: couro cabeludo é sítio primário de processos inflamatórios capilares
+
+  - tipo: relacionado_a_processo
+    alvo: regulacao_sebacea
+    contexto: fisiologia_universal

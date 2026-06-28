@@ -1,0 +1,31 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Hidratação Capilar | v1.0
+node:
+  id: hidratacao_capilar
+  nome: Hidratação Capilar
+  tipo: indicador
+  camada: indicadores
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: manifesta_em_estrutura
+    alvo: fio_de_cabelo
+    contexto: fisiologia_universal
+    nota: teor de água no córtex determina elasticidade
+
+  - tipo: determinado_por_processo
+    alvo: hidratacao
+    contexto: fisiologia_universal
+
+  - tipo: determinado_por_processo
+    alvo: regulacao_sebacea
+    contexto: fisiologia_universal
+    nota: sebo protege o fio da perda de umidade

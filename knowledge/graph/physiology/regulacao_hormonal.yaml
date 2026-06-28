@@ -1,0 +1,71 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Regulação Hormonal | v1.0
+node:
+  id: regulacao_hormonal
+  nome: Regulação Hormonal
+  tipo: processo_fisiologico
+  camada: fisiologia
+
+relacoes:
+
+  - tipo: e_funcao_de
+    alvo: sistema_endocrino
+    contexto: fisiologia_universal
+
+  - tipo: afeta_estrutura
+    alvo: foliculo_capilar
+    contexto: fisiologia_universal
+    nota: receptores hormonais no folículo determinam o ciclo capilar
+
+  - tipo: envolve_substancia
+    alvo: estrogênio
+    contexto: fisiologia_universal
+    nota: favorece fase anágena — crescimento; queda pós-parto por queda do estrogênio
+
+  - tipo: envolve_substancia
+    alvo: dht
+    contexto: fisiologia_universal
+    nota: dihidrotestosterona — miniaturiza o folículo na alopecia androgênica
+
+  - tipo: envolve_substancia
+    alvo: cortisol
+    contexto: fisiologia_universal
+    nota: estresse crônico → cortisol elevado → interrompe fase anágena
+
+  - tipo: envolve_substancia
+    alvo: hormonio_tireoidiano
+    contexto: fisiologia_universal
+    nota: hipotireoidismo causa queda difusa
+
+  - tipo: relacionado_a_objeto
+    alvo: lua
+    contexto: ocidental_todas
+    nota: Lua representa ciclos, fluidos, processos rítmicos — incluindo ciclos hormonais
+
+  - tipo: relacionado_a_objeto
+    alvo: venus
+    contexto: ocidental_todas
+    nota: Vênus representa equilíbrio estrogênico, beleza, feminino
+
+  - tipo: relacionado_a_objeto
+    alvo: saturno
+    contexto: ocidental_todas
+    nota: Saturno representa estrutura, DHT, envelhecimento hormonal
+
+  - tipo: relacionado_a_signo
+    alvo: escorpiao
+    contexto: ocidental_todas
+    nota: Escorpião governa sistema reprodutivo e hormonal profundo
+
+  - tipo: relacionado_a_signo
+    alvo: touro
+    contexto: ocidental_todas
+    nota: Touro governa tireoide — hipotireoidismo como causa de queda
+
+  - tipo: pode_causar
+    alvo: queda_capilar
+    contexto: fisiologia_universal
+
+  - tipo: pode_causar
+    alvo: crescimento_capilar
+    contexto: fisiologia_universal
+    nota: equilíbrio hormonal favorável → fase anágena prolongada
