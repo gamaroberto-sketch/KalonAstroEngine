@@ -1,0 +1,145 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Gêmeos | v1.0
+node:
+  id: gemeos
+  nome: Gêmeos
+  tipo: signo
+  ordem: 3
+
+relacoes:
+
+  - tipo: pertence_a_elemento
+    alvo: ar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_modalidade
+    alvo: mutavel
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: mercurio
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: mercurio
+    contexto: vedica
+    nota: Budha
+
+  - tipo: tem_exaltacao
+    alvo: nodo_norte
+    contexto: ocidental_moderna
+    nota: atribuição moderna; não unânime
+
+  - tipo: tem_exilio
+    alvo: jupiter
+    contexto: ocidental_todas
+
+  - tipo: longitude_inicio
+    alvo: 60
+    contexto: astronomico
+
+  - tipo: longitude_fim
+    alvo: 90
+    contexto: astronomico
+
+  - tipo: estacao
+    alvo: fim_primavera_norte
+    contexto: astronomico_tropical
+
+  - tipo: corresponde_a_cor
+    alvo: amarelo
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_pedra
+    alvo: agata
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: citrino
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_metal
+    alvo: mercurio_quicksilver
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_planta
+    alvo: lavanda
+    contexto: ocidental_medieval
+
+  - tipo: governa_regiao
+    alvo: bracos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: maos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: pulmoes
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: sistema_nervoso_periferico
+    contexto: astromedicina_moderna
+
+  - tipo: arquetipo
+    alvo: mensageiro
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: eterno_estudante
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: comunicacao
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: dualidade
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: adaptacao
+    contexto: ocidental_todas
+
+  - tipo: influencia_indicador
+    alvo: clareza_mental
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: comunicacao
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: receptividade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: atua_em_dominio
+    alvo: mente_e_aprendizagem
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: mithuna
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: mrigashira_parcial
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: ardra
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: punarvasu_parcial
+    contexto: vedica

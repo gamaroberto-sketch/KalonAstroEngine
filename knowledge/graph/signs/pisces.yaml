@@ -1,0 +1,159 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Peixes | v1.0
+node:
+  id: peixes
+  nome: Peixes
+  tipo: signo
+  ordem: 12
+
+relacoes:
+
+  - tipo: pertence_a_elemento
+    alvo: agua
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_modalidade
+    alvo: mutavel
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: feminino
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: jupiter
+    contexto: ocidental_medieval
+
+  - tipo: tem_regente
+    alvo: netuno
+    contexto: ocidental_moderna
+
+  - tipo: tem_regente
+    alvo: jupiter
+    contexto: vedica
+    nota: Guru / Brihaspati; Netuno não é usado no Jyotisha clássico
+
+  - tipo: tem_exaltacao
+    alvo: venus
+    contexto: ocidental_todas
+
+  - tipo: tem_queda
+    alvo: mercurio
+    contexto: ocidental_todas
+
+  - tipo: tem_exilio
+    alvo: mercurio
+    contexto: ocidental_todas
+    nota: queda e exílio de Mercúrio coincidem em Peixes
+
+  - tipo: longitude_inicio
+    alvo: 330
+    contexto: astronomico
+
+  - tipo: longitude_fim
+    alvo: 360
+    contexto: astronomico
+
+  - tipo: estacao
+    alvo: fim_inverno_norte
+    contexto: astronomico_tropical
+
+  - tipo: corresponde_a_cor
+    alvo: azul_mar_lavanda
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_pedra
+    alvo: ametista
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: aquamarine
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_metal
+    alvo: estanho
+    contexto: ocidental_medieval
+
+  - tipo: corresponde_a_metal
+    alvo: neptunio
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_planta
+    alvo: lotus
+    contexto: ocidental_medieval
+
+  - tipo: governa_regiao
+    alvo: pes
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: sistema_linfatico
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: glandula_pineal
+    contexto: astromedicina_moderna
+
+  - tipo: arquetipo
+    alvo: mistico
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: sonhador
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: dissolucao
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: compaixao_universal
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: transcendencia
+    contexto: ocidental_todas
+
+  - tipo: influencia_indicador
+    alvo: espiritualidade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: equilibrio_emocional
+    contexto: ocidental_todas
+    direcao: dissolvedor
+
+  - tipo: influencia_indicador
+    alvo: receptividade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: atua_em_dominio
+    alvo: espiritualidade
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+    nota: sensibilidades, pés, sistema imune
+
+  - tipo: atua_em_dominio
+    alvo: mente_e_aprendizagem
+    contexto: ocidental_todas
+    nota: intuição, sonhos, imaginação
+
+  - tipo: nome_vedico
+    alvo: meena
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: purva_bhadrapada_parcial
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: uttara_bhadrapada
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: revati
+    contexto: vedica

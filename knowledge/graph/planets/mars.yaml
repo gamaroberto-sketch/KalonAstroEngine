@@ -1,0 +1,277 @@
+# ============================================================
+# KALON ASTRO — KNOWLEDGE GRAPH
+# Objeto: Marte | Versão: 1.1 (forca removida — pertence ao Motor)
+# Ontologia: v1.0
+# ============================================================
+
+node:
+  id: marte
+  nome: Marte
+  tipo: objeto_astrologico
+  subtipo: planeta_classico
+
+relacoes:
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: rege
+    alvo: aries
+    contexto: ocidental_todas
+
+  - tipo: rege
+    alvo: escorpiao
+    contexto: ocidental_medieval
+    nota: domicílio clássico; substituído por Plutão na tradição moderna
+
+  - tipo: co_rege
+    alvo: escorpiao
+    contexto: ocidental_moderna
+
+  # ── DIGNIDADES ESSENCIAIS ──────────────────────────────────
+  - tipo: exaltacao_em
+    alvo: capricornio
+    contexto: ocidental_todas
+    fonte: Ptolomeu
+
+  - tipo: queda_em
+    alvo: cancer
+    contexto: ocidental_todas
+    fonte: Ptolomeu
+
+  - tipo: exilio_em
+    alvo: libra
+    contexto: ocidental_todas
+
+  - tipo: exilio_em
+    alvo: touro
+    contexto: ocidental_medieval
+
+  # ── TRIPLICIDADE ───────────────────────────────────────────
+  - tipo: rege_triplicidade
+    alvo: elemento_fogo
+    contexto: ocidental_medieval
+    nota: regente noturno (Dorotheus)
+
+  # ── ELEMENTO E QUALIDADE ───────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: fogo
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_qualidade
+    alvo: cardinal
+    contexto: ocidental_todas
+    nota: via domicílio em Áries
+
+  - tipo: pertence_a_qualidade
+    alvo: fixo
+    contexto: ocidental_medieval
+    nota: via co-domicílio em Escorpião
+
+  # ── POLARIDADE E TEMPERAMENTO ─────────────────────────────
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_todas
+
+  - tipo: temperamento
+    alvo: quente
+    contexto: ocidental_medieval
+    fonte: teoria dos quatro humores
+
+  - tipo: temperamento
+    alvo: seco
+    contexto: ocidental_medieval
+    fonte: teoria dos quatro humores
+
+  - tipo: humor
+    alvo: bile_amarela
+    contexto: ocidental_medieval
+    fonte: tradição galênica
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_metal
+    alvo: ferro
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_cor
+    alvo: vermelho
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_dia
+    alvo: terca_feira
+    contexto: ocidental_todas
+    nota: dies Martis
+
+  - tipo: corresponde_a_numero
+    alvo: 9
+    contexto: numerologia_pitagorica
+
+  - tipo: corresponde_a_pedra
+    alvo: rubi
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: hematita
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_planta
+    alvo: pimenta
+    contexto: ocidental_medieval
+
+  - tipo: corresponde_a_planta
+    alvo: urtiga
+    contexto: ocidental_medieval
+
+  - tipo: corresponde_a_animal
+    alvo: lobo
+    contexto: ocidental_medieval
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_sistema
+    alvo: musculatura
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_sistema
+    alvo: sistema_sanguineo
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_sistema
+    alvo: suprarrenais
+    contexto: astromedicina_moderna
+
+  - tipo: governa_sistema
+    alvo: sistema_imunologico
+    contexto: astromedicina_moderna
+
+  - tipo: governa_regiao
+    alvo: cabeca
+    contexto: astromedicina_ocidental
+    nota: via domicílio em Áries
+
+  - tipo: governa_regiao
+    alvo: orgaos_genitais
+    contexto: astromedicina_ocidental
+    nota: via co-domicílio em Escorpião
+
+  - tipo: governa_regiao
+    alvo: vesicula_biliar
+    contexto: astromedicina_medieval
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: guerreiro
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: heroi
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: acao
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: desejo
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: separacao
+    contexto: ocidental_todas
+    nota: Marte separa; Vênus une
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: vitalidade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: coragem
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: atrito
+    contexto: ocidental_todas
+    direcao: gerador
+
+  - tipo: influencia_indicador
+    alvo: momentum
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: resiliencia
+    contexto: ocidental_todas
+    direcao: ativador
+
+  # ── CICLO ASTRONÔMICO ─────────────────────────────────────
+  - tipo: ciclo_orbital
+    alvo: 687_dias
+    contexto: astronomico
+
+  - tipo: retrogradacao
+    alvo: a_cada_26_meses
+    contexto: astronomico
+    nota: duração aproximada de 60 a 80 dias
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    nota: conflitos, sexualidade, rivalidade
+
+  - tipo: atua_em_dominio
+    alvo: tempo_e_ciclos
+    contexto: ocidental_todas
+
+  # ── VÉDICO (Jyotisha) ─────────────────────────────────────
+  - tipo: graha
+    alvo: mangala
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: mrigashira
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: chitra
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: dhanishtha
+    contexto: vedica
+
+  - tipo: amigo_de
+    alvo: jupiter
+    contexto: vedica
+
+  - tipo: amigo_de
+    alvo: sol
+    contexto: vedica
+
+  - tipo: amigo_de
+    alvo: lua
+    contexto: vedica
+
+  - tipo: neutro_com
+    alvo: saturno
+    contexto: vedica
+
+  - tipo: inimigo_de
+    alvo: mercurio
+    contexto: vedica
+
+  - tipo: inimigo_de
+    alvo: venus
+    contexto: vedica
+
+  - tipo: dasha_anos
+    alvo: 7
+    contexto: vedica_vimshotari

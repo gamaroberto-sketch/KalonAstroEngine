@@ -1,0 +1,155 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Netuno | v1.0
+node:
+  id: netuno
+  nome: Netuno
+  tipo: objeto_astrologico
+  subtipo: planeta_moderno
+
+relacoes:
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: rege
+    alvo: peixes
+    contexto: ocidental_moderna
+
+  # ── DIGNIDADES ESSENCIAIS ──────────────────────────────────
+  - tipo: exaltacao_em
+    alvo: cancer
+    contexto: ocidental_moderna
+    nota: atribuição moderna; não presente na tradição clássica
+
+  - tipo: queda_em
+    alvo: capricornio
+    contexto: ocidental_moderna
+
+  - tipo: exilio_em
+    alvo: virgem
+    contexto: ocidental_moderna
+
+  # ── ELEMENTO E QUALIDADE ───────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: agua
+    contexto: ocidental_moderna
+    nota: via domicílio em Peixes
+
+  - tipo: pertence_a_qualidade
+    alvo: mutavel
+    contexto: ocidental_moderna
+
+  # ── POLARIDADE ────────────────────────────────────────────
+  - tipo: polaridade
+    alvo: feminino
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_metal
+    alvo: neptunio
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_cor
+    alvo: azul_mar_turquesa
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: ametista
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: aquamarine
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_sistema
+    alvo: sistema_linfatico
+    contexto: astromedicina_moderna
+
+  - tipo: governa_sistema
+    alvo: sistema_imunologico
+    contexto: astromedicina_moderna
+
+  - tipo: governa_regiao
+    alvo: pes
+    contexto: astromedicina_moderna
+    nota: via domicílio em Peixes
+
+  - tipo: governa_regiao
+    alvo: glandula_pineal
+    contexto: astromedicina_moderna
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: mistico
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: sonhador
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: dissolucao
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: transcendencia
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: compaixao
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: ilusao
+    contexto: ocidental_moderna
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: espiritualidade
+    contexto: ocidental_moderna
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: equilibrio_emocional
+    contexto: ocidental_moderna
+    direcao: dissolvedor
+
+  - tipo: influencia_indicador
+    alvo: criatividade
+    contexto: ocidental_moderna
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: clareza_mental
+    contexto: ocidental_moderna
+    direcao: dissolvedor
+    nota: Netuno pode criar névoa ou clareza transpessoal
+
+  # ── CICLO ASTRONÔMICO ─────────────────────────────────────
+  - tipo: ciclo_orbital
+    alvo: 165_anos
+    contexto: astronomico
+    nota: passa aproximadamente 14 anos em cada signo
+
+  - tipo: retrogradacao
+    alvo: uma_vez_por_ano
+    contexto: astronomico
+    nota: retrograde dura aproximadamente 160 dias
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: espiritualidade
+    contexto: ocidental_moderna
+
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_moderna
+    nota: sensibilidades, alergias, estados alterados
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_moderna
+    nota: idealizações, fusão, codependência
+
+  - tipo: atua_em_dominio
+    alvo: mente_e_aprendizagem
+    contexto: ocidental_moderna
+    nota: imaginação, intuição, sonhos

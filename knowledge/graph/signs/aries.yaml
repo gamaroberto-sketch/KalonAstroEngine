@@ -1,0 +1,150 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Áries | v1.0
+node:
+  id: aries
+  nome: Áries
+  tipo: signo
+  ordem: 1
+
+relacoes:
+
+  # ── ELEMENTO E MODALIDADE ─────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: fogo
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_modalidade
+    alvo: cardinal
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_todas
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: tem_regente
+    alvo: marte
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: marte
+    contexto: vedica
+    nota: Mangala
+
+  # ── DIGNIDADES PLANETÁRIAS ────────────────────────────────
+  - tipo: tem_exaltacao
+    alvo: sol
+    contexto: ocidental_todas
+
+  - tipo: tem_queda
+    alvo: saturno
+    contexto: ocidental_todas
+
+  - tipo: tem_exilio
+    alvo: venus
+    contexto: ocidental_todas
+
+  # ── POSIÇÃO NO ZODÍACO ────────────────────────────────────
+  - tipo: longitude_inicio
+    alvo: 0
+    contexto: astronomico
+
+  - tipo: longitude_fim
+    alvo: 30
+    contexto: astronomico
+
+  - tipo: estacao
+    alvo: inicio_primavera_norte
+    contexto: astronomico_tropical
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_cor
+    alvo: vermelho
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_pedra
+    alvo: diamante
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: rubi
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_metal
+    alvo: ferro
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_planta
+    alvo: pimenta
+    contexto: ocidental_medieval
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_regiao
+    alvo: cabeca
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: face
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: cerebro
+    contexto: astromedicina_ocidental
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: pioneiro
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: guerreiro
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: iniciacao
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: acao_imediata
+    contexto: ocidental_todas
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: vitalidade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: momentum
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: coragem
+    contexto: ocidental_todas
+    direcao: ativador
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+
+  # ── VÉDICO ────────────────────────────────────────────────
+  - tipo: nome_vedico
+    alvo: mesha
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: ashwini
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: bharani
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: krittika_parcial
+    contexto: vedica

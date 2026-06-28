@@ -1,0 +1,264 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Saturno | v1.0
+node:
+  id: saturno
+  nome: Saturno
+  tipo: objeto_astrologico
+  subtipo: planeta_classico
+
+relacoes:
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: rege
+    alvo: capricornio
+    contexto: ocidental_todas
+
+  - tipo: rege
+    alvo: aquario
+    contexto: ocidental_medieval
+    nota: co-regência clássica; Urano assumiu na tradição moderna
+
+  - tipo: co_rege
+    alvo: aquario
+    contexto: ocidental_moderna
+
+  # ── DIGNIDADES ESSENCIAIS ──────────────────────────────────
+  - tipo: exaltacao_em
+    alvo: libra
+    contexto: ocidental_todas
+    fonte: Ptolomeu
+
+  - tipo: queda_em
+    alvo: aries
+    contexto: ocidental_todas
+
+  - tipo: exilio_em
+    alvo: cancer
+    contexto: ocidental_todas
+
+  - tipo: exilio_em
+    alvo: leao
+    contexto: ocidental_todas
+
+  # ── TRIPLICIDADE ───────────────────────────────────────────
+  - tipo: rege_triplicidade
+    alvo: elemento_ar
+    contexto: ocidental_medieval
+    nota: regente noturno (Dorotheus)
+
+  # ── ELEMENTO E QUALIDADE ───────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: terra
+    contexto: ocidental_todas
+    nota: via domicílio em Capricórnio
+
+  - tipo: pertence_a_qualidade
+    alvo: cardinal
+    contexto: ocidental_todas
+    nota: via domicílio em Capricórnio
+
+  - tipo: pertence_a_qualidade
+    alvo: fixo
+    contexto: ocidental_medieval
+    nota: via co-domicílio em Aquário
+
+  # ── POLARIDADE E TEMPERAMENTO ─────────────────────────────
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_todas
+
+  - tipo: temperamento
+    alvo: frio
+    contexto: ocidental_medieval
+
+  - tipo: temperamento
+    alvo: seco
+    contexto: ocidental_medieval
+
+  - tipo: humor
+    alvo: bile_negra
+    contexto: ocidental_medieval
+    fonte: tradição galênica
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_metal
+    alvo: chumbo
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_cor
+    alvo: preto_cinza_escuro
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_dia
+    alvo: sabado
+    contexto: ocidental_todas
+    nota: dies Saturni; Saturday em inglês
+
+  - tipo: corresponde_a_numero
+    alvo: 8
+    contexto: numerologia_pitagorica
+
+  - tipo: corresponde_a_pedra
+    alvo: obsidiana
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: onix
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_planta
+    alvo: cipreste
+    contexto: ocidental_medieval
+
+  - tipo: corresponde_a_planta
+    alvo: beladona
+    contexto: ocidental_medieval
+
+  - tipo: corresponde_a_animal
+    alvo: corvo
+    contexto: ocidental_medieval
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_sistema
+    alvo: sistema_osseo
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_sistema
+    alvo: sistema_dentario
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_sistema
+    alvo: pele
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: joelhos
+    contexto: astromedicina_ocidental
+    nota: via domicílio em Capricórnio
+
+  - tipo: governa_regiao
+    alvo: baco
+    contexto: astromedicina_medieval
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: anciao
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: eremita
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: estrutura
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: limite
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: tempo
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: karma
+    contexto: ocidental_todas
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: resiliencia
+    contexto: ocidental_todas
+    direcao: construtor
+
+  - tipo: influencia_indicador
+    alvo: atrito
+    contexto: ocidental_todas
+    direcao: gerador
+
+  - tipo: influencia_indicador
+    alvo: maturidade_do_ciclo
+    contexto: ocidental_todas
+    direcao: sinalizador
+
+  - tipo: influencia_indicador
+    alvo: saude
+    contexto: ocidental_todas
+    direcao: regulador
+
+  # ── CICLO ASTRONÔMICO ─────────────────────────────────────
+  - tipo: ciclo_orbital
+    alvo: 29_5_anos
+    contexto: astronomico
+    nota: ciclo do Saturn Return — marca de maturidade
+
+  - tipo: retrogradacao
+    alvo: uma_vez_por_ano
+    contexto: astronomico
+    nota: retrograde dura aproximadamente 140 dias
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: tempo_e_ciclos
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: espiritualidade
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+    nota: recursos construídos com disciplina e esforço
+
+  # ── VÉDICO (Jyotisha) ─────────────────────────────────────
+  - tipo: graha
+    alvo: shani
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: pushya
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: anuradha
+    contexto: vedica
+
+  - tipo: rege_nakshatra
+    alvo: uttara_bhadrapada
+    contexto: vedica
+
+  - tipo: amigo_de
+    alvo: mercurio
+    contexto: vedica
+
+  - tipo: amigo_de
+    alvo: venus
+    contexto: vedica
+
+  - tipo: neutro_com
+    alvo: jupiter
+    contexto: vedica
+
+  - tipo: inimigo_de
+    alvo: sol
+    contexto: vedica
+
+  - tipo: inimigo_de
+    alvo: lua
+    contexto: vedica
+
+  - tipo: inimigo_de
+    alvo: marte
+    contexto: vedica
+
+  - tipo: dasha_anos
+    alvo: 19
+    contexto: vedica_vimshotari

@@ -1,0 +1,144 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Urano | v1.0
+node:
+  id: urano
+  nome: Urano
+  tipo: objeto_astrologico
+  subtipo: planeta_moderno
+
+relacoes:
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: rege
+    alvo: aquario
+    contexto: ocidental_moderna
+
+  # ── DIGNIDADES ESSENCIAIS ──────────────────────────────────
+  - tipo: exaltacao_em
+    alvo: escorpiao
+    contexto: ocidental_moderna
+    nota: atribuição moderna; não presente na tradição clássica
+
+  - tipo: queda_em
+    alvo: touro
+    contexto: ocidental_moderna
+
+  - tipo: exilio_em
+    alvo: leao
+    contexto: ocidental_moderna
+
+  # ── ELEMENTO E QUALIDADE ───────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: ar
+    contexto: ocidental_moderna
+    nota: via domicílio em Aquário
+
+  - tipo: pertence_a_qualidade
+    alvo: fixo
+    contexto: ocidental_moderna
+
+  # ── POLARIDADE ────────────────────────────────────────────
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_metal
+    alvo: uranio
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_cor
+    alvo: azul_eletrico
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: aquamarine
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: labradorita
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_sistema
+    alvo: sistema_nervoso_autonomo
+    contexto: astromedicina_moderna
+
+  - tipo: governa_sistema
+    alvo: sistema_bioeletrico
+    contexto: astromedicina_moderna
+
+  - tipo: governa_regiao
+    alvo: tornozelos
+    contexto: astromedicina_moderna
+    nota: via domicílio em Aquário
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: revolucionario
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: inventor
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: revolucao
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: originalidade
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: ruptura
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: liberdade
+    contexto: ocidental_moderna
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: abertura
+    contexto: ocidental_moderna
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: transformacao
+    contexto: ocidental_moderna
+    direcao: catalisador
+
+  - tipo: influencia_indicador
+    alvo: clareza_mental
+    contexto: ocidental_moderna
+    direcao: disruptor
+
+  # ── CICLO ASTRONÔMICO ─────────────────────────────────────
+  - tipo: ciclo_orbital
+    alvo: 84_anos
+    contexto: astronomico
+    nota: passa aproximadamente 7 anos em cada signo
+
+  - tipo: retrogradacao
+    alvo: uma_vez_por_ano
+    contexto: astronomico
+    nota: retrograde dura aproximadamente 150 dias
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: mente_e_aprendizagem
+    contexto: ocidental_moderna
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_moderna
+
+  - tipo: atua_em_dominio
+    alvo: tempo_e_ciclos
+    contexto: ocidental_moderna
+    nota: mudanças abruptas e ruptura de padrões
+
+  - tipo: atua_em_dominio
+    alvo: espiritualidade
+    contexto: ocidental_moderna
+    nota: despertar e expansão de consciência coletiva

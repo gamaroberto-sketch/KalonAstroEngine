@@ -1,0 +1,164 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Plutão | v1.0
+node:
+  id: plutao
+  nome: Plutão
+  tipo: objeto_astrologico
+  subtipo: planeta_moderno
+
+relacoes:
+
+  # ── REGÊNCIAS ──────────────────────────────────────────────
+  - tipo: rege
+    alvo: escorpiao
+    contexto: ocidental_moderna
+
+  # ── DIGNIDADES ESSENCIAIS ──────────────────────────────────
+  - tipo: exaltacao_em
+    alvo: leao
+    contexto: ocidental_moderna
+    nota: atribuição moderna; não presente na tradição clássica
+
+  - tipo: queda_em
+    alvo: aquario
+    contexto: ocidental_moderna
+
+  - tipo: exilio_em
+    alvo: touro
+    contexto: ocidental_moderna
+
+  # ── ELEMENTO E QUALIDADE ───────────────────────────────────
+  - tipo: pertence_a_elemento
+    alvo: agua
+    contexto: ocidental_moderna
+    nota: via domicílio em Escorpião
+
+  - tipo: pertence_a_qualidade
+    alvo: fixo
+    contexto: ocidental_moderna
+
+  # ── POLARIDADE ────────────────────────────────────────────
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS MATERIAIS ────────────────────────────
+  - tipo: corresponde_a_metal
+    alvo: plutonio
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_cor
+    alvo: bordo_preto_carmesim
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: obsidiana
+    contexto: ocidental_moderna
+
+  - tipo: corresponde_a_pedra
+    alvo: labradorita_escura
+    contexto: ocidental_moderna
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_sistema
+    alvo: sistema_reprodutivo
+    contexto: astromedicina_moderna
+    nota: via domicílio em Escorpião
+
+  - tipo: governa_sistema
+    alvo: sistema_excretor
+    contexto: astromedicina_moderna
+
+  - tipo: governa_sistema
+    alvo: celulas_e_dna
+    contexto: astromedicina_moderna
+    nota: transformação celular, oncologia
+
+  - tipo: governa_regiao
+    alvo: orgaos_genitais
+    contexto: astromedicina_moderna
+
+  - tipo: governa_regiao
+    alvo: intestino_grosso
+    contexto: astromedicina_moderna
+
+  # ── ARQUÉTIPOS E PRINCÍPIOS ───────────────────────────────
+  - tipo: arquetipo
+    alvo: fenix
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: sombra
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: transformacao
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: morte_e_renascimento
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: poder
+    contexto: ocidental_moderna
+
+  - tipo: principio
+    alvo: profundidade
+    contexto: ocidental_moderna
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: transformacao
+    contexto: ocidental_moderna
+    direcao: catalisador
+
+  - tipo: influencia_indicador
+    alvo: resiliencia
+    contexto: ocidental_moderna
+    direcao: forjador
+
+  - tipo: influencia_indicador
+    alvo: saude
+    contexto: ocidental_moderna
+    direcao: regenerador
+
+  - tipo: influencia_indicador
+    alvo: maturidade_do_ciclo
+    contexto: ocidental_moderna
+    direcao: sinalizador
+
+  # ── CICLO ASTRONÔMICO ─────────────────────────────────────
+  - tipo: ciclo_orbital
+    alvo: 248_anos
+    contexto: astronomico
+    nota: órbita excêntrica — passa entre 12 e 31 anos em cada signo
+
+  - tipo: retrogradacao
+    alvo: uma_vez_por_ano
+    contexto: astronomico
+    nota: retrograde dura aproximadamente 185 dias
+
+  # ── DOMÍNIOS DE ATUAÇÃO ───────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_moderna
+    nota: crises, regeneração, processos profundos
+
+  - tipo: atua_em_dominio
+    alvo: espiritualidade
+    contexto: ocidental_moderna
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_moderna
+    nota: poder, controle, transformação de estruturas
+
+  - tipo: atua_em_dominio
+    alvo: tempo_e_ciclos
+    contexto: ocidental_moderna
+    nota: fim de eras, encerramentos definitivos
+
+  - tipo: atua_em_dominio
+    alvo: prosperidade
+    contexto: ocidental_moderna
+    nota: recursos ocultos, heranças, poder econômico

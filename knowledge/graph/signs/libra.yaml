@@ -1,0 +1,149 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Libra | v1.0
+node:
+  id: libra
+  nome: Libra
+  tipo: signo
+  ordem: 7
+
+relacoes:
+
+  - tipo: pertence_a_elemento
+    alvo: ar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_modalidade
+    alvo: cardinal
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: venus
+    contexto: ocidental_todas
+
+  - tipo: tem_regente
+    alvo: venus
+    contexto: vedica
+    nota: Shukra
+
+  - tipo: tem_exaltacao
+    alvo: saturno
+    contexto: ocidental_todas
+
+  - tipo: tem_queda
+    alvo: sol
+    contexto: ocidental_todas
+
+  - tipo: tem_exilio
+    alvo: marte
+    contexto: ocidental_todas
+
+  - tipo: longitude_inicio
+    alvo: 180
+    contexto: astronomico
+
+  - tipo: longitude_fim
+    alvo: 210
+    contexto: astronomico
+
+  - tipo: estacao
+    alvo: inicio_outono_norte
+    contexto: astronomico_tropical
+
+  - tipo: corresponde_a_cor
+    alvo: azul_claro_rosa
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_pedra
+    alvo: opala
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_pedra
+    alvo: lapis_lazuli
+    contexto: ocidental_tradicional
+
+  - tipo: corresponde_a_metal
+    alvo: cobre
+    contexto: ocidental_todas
+
+  - tipo: corresponde_a_planta
+    alvo: verbena
+    contexto: ocidental_medieval
+
+  - tipo: governa_regiao
+    alvo: rins
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: lombar
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: suprarrenais
+    contexto: astromedicina_moderna
+
+  - tipo: arquetipo
+    alvo: diplomata
+    contexto: psicologia_arquetipica
+
+  - tipo: arquetipo
+    alvo: mediador
+    contexto: psicologia_arquetipica
+
+  - tipo: principio
+    alvo: equilibrio
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: justica
+    contexto: ocidental_todas
+
+  - tipo: principio
+    alvo: parceria
+    contexto: ocidental_todas
+
+  - tipo: influencia_indicador
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: equilibrio_emocional
+    contexto: ocidental_todas
+    direcao: regulador
+
+  - tipo: influencia_indicador
+    alvo: clareza_mental
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+    nota: mediação, direito, diplomacia
+
+  - tipo: atua_em_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: tula
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: chitra_parcial
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: swati
+    contexto: vedica
+
+  - tipo: contém_nakshatra
+    alvo: vishakha_parcial
+    contexto: vedica
