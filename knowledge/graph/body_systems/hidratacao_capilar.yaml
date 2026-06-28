@@ -1,0 +1,53 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Hidratação Capilar | v1.0
+node:
+  id: hidratacao_capilar
+  nome: Hidratação Capilar
+  tipo: indicador_capilar
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: lua
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: venus
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: netuno
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: cancer
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: touro
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: peixes
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: saude
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: equilibrio_emocional
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: receptividade
+    contexto: ocidental_todas
+

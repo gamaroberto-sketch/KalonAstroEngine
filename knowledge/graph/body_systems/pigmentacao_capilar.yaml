@@ -1,0 +1,53 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Pigmentação Capilar | v1.0
+node:
+  id: pigmentacao_capilar
+  nome: Pigmentação Capilar
+  tipo: indicador_capilar
+  dominio: saude_capilar
+
+relacoes:
+
+  - tipo: pertence_a_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  - tipo: pertence_a_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: sol
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: saturno
+    contexto: ocidental_todas
+
+  - tipo: regido_por
+    alvo: marte
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: leao
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: capricornio
+    contexto: ocidental_todas
+
+  - tipo: influenciado_por_signo
+    alvo: aries
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: vitalidade
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: saude
+    contexto: ocidental_todas
+
+  - tipo: conecta_indicador
+    alvo: maturidade_do_ciclo
+    contexto: ocidental_todas
+

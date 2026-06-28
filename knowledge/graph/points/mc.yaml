@@ -1,0 +1,60 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Meio do Céu (MC) | v1.0
+node:
+  id: mc
+  nome: Meio do Céu
+  tipo: ponto_matematico
+  subtipo: angulo
+
+relacoes:
+
+  - tipo: definicao
+    alvo: ponto_mais_alto_da_ecliptica_no_momento
+    contexto: astronomico
+    nota: Medium Coeli — cúspide da Casa X na maioria dos sistemas
+
+  - tipo: angulo_do_mapa
+    alvo: casa_10
+    contexto: ocidental_todas
+
+  - tipo: oposto_a
+    alvo: ic
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: reputacao_publica
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: carreira_e_vocacao
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: realizacao_social
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: figura_de_autoridade
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: joelhos
+    contexto: astromedicina_ocidental
+    nota: via associação com Casa X e Capricórnio natural
+
+  - tipo: influencia_indicador
+    alvo: lideranca
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: momentum
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: atua_em_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: madhya_lagna
+    contexto: vedica

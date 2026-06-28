@@ -1,0 +1,52 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Descendente (DC) | v1.0
+node:
+  id: dc
+  nome: Descendente
+  tipo: ponto_matematico
+  subtipo: angulo
+
+relacoes:
+
+  - tipo: definicao
+    alvo: ponto_de_intersecao_ecliptica_horizonte_oeste
+    contexto: astronomico
+    nota: exatamente oposto ao ASC — o ponto que se põe no horizonte
+
+  - tipo: angulo_do_mapa
+    alvo: casa_7
+    contexto: ocidental_todas
+
+  - tipo: oposto_a
+    alvo: asc
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: o_outro
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: parceiros_e_conjuges
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: relacoes_significativas
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: o_que_buscamos_no_outro
+    contexto: ocidental_todas
+    nota: o DC revela o que o ASC projeta — qualidades não integradas em si mesmo
+
+  - tipo: governa_regiao
+    alvo: rins
+    contexto: astromedicina_ocidental
+    nota: via associação com Casa VII e Libra natural
+
+  - tipo: influencia_indicador
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas

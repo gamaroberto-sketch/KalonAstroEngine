@@ -1,0 +1,60 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Fundo do Céu (IC) | v1.0
+node:
+  id: ic
+  nome: Fundo do Céu
+  tipo: ponto_matematico
+  subtipo: angulo
+
+relacoes:
+
+  - tipo: definicao
+    alvo: ponto_mais_baixo_da_ecliptica_no_momento
+    contexto: astronomico
+    nota: Imum Coeli — cúspide da Casa IV; oposto ao MC
+
+  - tipo: angulo_do_mapa
+    alvo: casa_4
+    contexto: ocidental_todas
+
+  - tipo: oposto_a
+    alvo: mc
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: raizes_e_ancestralidade
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: lar_e_familia_de_origem
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: vida_privada_e_interior
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: fim_da_vida
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: estomago
+    contexto: astromedicina_ocidental
+    nota: via associação com Casa IV e Câncer natural
+
+  - tipo: governa_regiao
+    alvo: peito
+    contexto: astromedicina_ocidental
+
+  - tipo: influencia_indicador
+    alvo: equilibrio_emocional
+    contexto: ocidental_todas
+    direcao: regulador
+
+  - tipo: atua_em_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    nota: família de origem, vínculos primários
+
+  - tipo: atua_em_dominio
+    alvo: lugar_e_pertencimento
+    contexto: ocidental_todas

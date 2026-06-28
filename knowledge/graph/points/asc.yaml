@@ -1,0 +1,107 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Ascendente (ASC) | v1.0
+node:
+  id: asc
+  nome: Ascendente
+  tipo: ponto_matematico
+  subtipo: angulo
+
+relacoes:
+
+  # ── IDENTIDADE ────────────────────────────────────────────
+  - tipo: definicao
+    alvo: ponto_de_intersecao_ecliptica_horizonte_leste
+    contexto: astronomico
+    nota: o grau da eclíptica que nasce no horizonte leste no momento do evento
+
+  - tipo: angulo_do_mapa
+    alvo: casa_1
+    contexto: ocidental_todas
+    nota: o ASC é sempre a cúspide da Casa I
+
+  - tipo: calculo_depende_de
+    alvo: latitude_do_local
+    contexto: astronomico
+
+  - tipo: calculo_depende_de
+    alvo: hora_exata
+    contexto: astronomico
+    nota: muda aproximadamente 1° a cada 4 minutos — o ponto mais sensível ao horário
+
+  # ── SIGNIFICADOS UNIVERSAIS ───────────────────────────────
+  - tipo: representa
+    alvo: mascara_social
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: aparencia_fisica
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: corpo_e_constituicao
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: primeira_impressao
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: vitalidade_manifesta
+    contexto: ocidental_todas
+
+  - tipo: representa
+    alvo: forma_de_entrar_no_mundo
+    contexto: ocidental_todas
+
+  # ── REGENTE DO ASC ────────────────────────────────────────
+  - tipo: regente_determinado_por
+    alvo: signo_na_cuspide_casa_1
+    contexto: ocidental_todas
+    nota: o planeta regente do signo do ASC é o regente do mapa inteiro
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_regiao
+    alvo: cabeca
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: cabelo
+    contexto: astromedicina_ocidental
+    nota: o signo do ASC e seu regente determinam a qualidade do cabelo e do couro cabeludo
+
+  - tipo: governa_regiao
+    alvo: couro_cabeludo
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: face
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: pele_geral
+    contexto: astromedicina_ocidental
+
+  # ── INFLUÊNCIAS NOS INDICADORES ───────────────────────────
+  - tipo: influencia_indicador
+    alvo: vitalidade
+    contexto: ocidental_todas
+    direcao: ativador
+
+  - tipo: influencia_indicador
+    alvo: saude
+    contexto: ocidental_todas
+    direcao: regulador
+
+  # ── DOMÍNIOS ──────────────────────────────────────────────
+  - tipo: atua_em_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: atua_em_dominio
+    alvo: saude_capilar
+    contexto: ocidental_todas
+
+  # ── VÉDICO ────────────────────────────────────────────────
+  - tipo: nome_vedico
+    alvo: lagna
+    contexto: vedica
+    nota: Lagna é o conceito central do Jyotisha — equivalente ao ASC ocidental

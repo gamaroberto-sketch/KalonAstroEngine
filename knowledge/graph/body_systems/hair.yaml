@@ -1,0 +1,129 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Saúde Capilar | v1.0
+# Domínio universal — não pertence ao AstroHair exclusivamente
+# Pode ser usado por AstroHair, Astromedicina, AstroPower, AstroDiet
+node:
+  id: saude_capilar
+  nome: Saúde Capilar
+  tipo: dominio_especializado
+  dominio_pai: saude_e_corpo
+
+relacoes:
+
+  # ── ESTRUTURAS CAPILARES ──────────────────────────────────
+  - tipo: compreende_estrutura
+    alvo: cabelo
+    contexto: anatomia_universal
+
+  - tipo: compreende_estrutura
+    alvo: couro_cabeludo
+    contexto: anatomia_universal
+
+  - tipo: compreende_estrutura
+    alvo: foliculo_capilar
+    contexto: anatomia_universal
+    nota: unidade fundamental do crescimento capilar — controlada por hormônios e ciclos
+
+  # ── INDICADORES DO DOMÍNIO ────────────────────────────────
+  - tipo: tem_indicador
+    alvo: crescimento_capilar
+    contexto: saude_capilar
+
+  - tipo: tem_indicador
+    alvo: queda_capilar
+    contexto: saude_capilar
+
+  - tipo: tem_indicador
+    alvo: oleosidade_capilar
+    contexto: saude_capilar
+
+  - tipo: tem_indicador
+    alvo: hidratacao_capilar
+    contexto: saude_capilar
+
+  - tipo: tem_indicador
+    alvo: espessura_do_fio
+    contexto: saude_capilar
+
+  - tipo: tem_indicador
+    alvo: pigmentacao_capilar
+    contexto: saude_capilar
+    nota: melanina — relacionada ao Sol, Saturno e vitalidade geral
+
+  # ── OBJETOS ASTROLÓGICOS QUE REGEM ───────────────────────
+  - tipo: regido_por_objeto
+    alvo: lua
+    contexto: ocidental_todas
+    nota: ciclos de crescimento capilar seguem os ciclos lunares
+
+  - tipo: regido_por_objeto
+    alvo: saturno
+    contexto: ocidental_todas
+    nota: Saturno rege a estrutura do fio, queratina, calcificação do folículo
+
+  - tipo: regido_por_objeto
+    alvo: sol
+    contexto: ocidental_todas
+    nota: Sol rege a vitalidade e pigmentação — calvície precoce associada ao Sol
+
+  - tipo: regido_por_objeto
+    alvo: venus
+    contexto: ocidental_todas
+    nota: Vênus rege a beleza, maciez e oleosidade do cabelo
+
+  - tipo: regido_por_objeto
+    alvo: marte
+    contexto: ocidental_todas
+    nota: Marte rege o couro cabeludo, inflamações, queda por estresse oxidativo
+
+  # ── SIGNOS QUE INFLUENCIAM ────────────────────────────────
+  - tipo: influenciado_por_signo
+    alvo: aries
+    contexto: ocidental_todas
+    nota: Áries rege a cabeça — cabelo fino, queda precoce, couro cabeludo sensível
+
+  - tipo: influenciado_por_signo
+    alvo: touro
+    contexto: ocidental_todas
+    nota: Touro rege o pescoço/tiroide — fios grossos, cabelo abundante, tendência à oleosidade
+
+  - tipo: influenciado_por_signo
+    alvo: leao
+    contexto: ocidental_todas
+    nota: Leão rege a vitalidade — cabelo abundante e expressivo como marca pessoal
+
+  - tipo: influenciado_por_signo
+    alvo: escorpiao
+    contexto: ocidental_todas
+    nota: Escorpião rege o sistema reprodutivo/hormonal — queda hormonal, regeneração
+
+  - tipo: influenciado_por_signo
+    alvo: capricornio
+    contexto: ocidental_todas
+    nota: Capricórnio rege estrutura óssea/queratina — fios resistentes ou quebradiços
+
+  # ── PONTOS ESPECIAIS ──────────────────────────────────────
+  - tipo: ponto_chave
+    alvo: asc
+    contexto: ocidental_todas
+    nota: o signo do ASC e seu regente definem a constituição capilar de base
+
+  - tipo: ponto_chave
+    alvo: casa_1
+    contexto: ocidental_todas
+    nota: planetas na Casa I afetam diretamente a aparência física incluindo o cabelo
+
+  - tipo: ponto_chave
+    alvo: casa_6
+    contexto: ocidental_todas
+    nota: Casa VI governa saúde e rotina — hábitos que afetam o cabelo
+
+  # ── CICLOS RELEVANTES ─────────────────────────────────────
+  - tipo: governado_por_ciclo
+    alvo: ciclo_lunar_29_5_dias
+    contexto: ocidental_todas
+    nota: ciclo lunar influencia o crescimento — lua crescente favorece crescimento
+
+  - tipo: governado_por_ciclo
+    alvo: ciclo_solar_anual
+    contexto: ocidental_todas
+    nota: estações do ano afetam a queda capilar — outono/inverno tendem à maior queda
