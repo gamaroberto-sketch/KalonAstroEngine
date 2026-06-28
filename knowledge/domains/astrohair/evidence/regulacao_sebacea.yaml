@@ -1,0 +1,26 @@
+# KALON ASTRO — EVIDÊNCIA | Regulação Sebácea | v1.0
+id: regulacao_sebacea
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - lua
+  - venus
+  - jupiter
+
+signos_relevantes:
+  - cancer
+  - touro
+
+indicadores:
+  - oleosidade_capilar
+  - hidratacao_capilar
+
+processos:
+  - regulacao_sebacea
+
+dominios:
+  - astrohair
+  - astrodiet
+
+contexto: ocidental_todas

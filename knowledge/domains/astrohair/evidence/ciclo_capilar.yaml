@@ -1,0 +1,23 @@
+# KALON ASTRO — EVIDÊNCIA | Ciclo Capilar | v1.0
+id: ciclo_capilar
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - lua
+  - sol
+  - saturno
+
+indicadores:
+  - crescimento_capilar
+  - queda_capilar
+  - espessura_do_fio
+  - envelhecimento_capilar
+
+processos:
+  - ciclo_capilar
+
+dominios:
+  - astrohair
+
+contexto: ocidental_todas

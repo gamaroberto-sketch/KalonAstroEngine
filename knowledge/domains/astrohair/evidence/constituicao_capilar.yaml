@@ -1,0 +1,41 @@
+# KALON ASTRO — EVIDÊNCIA | Constituição Capilar de Base | v1.0
+# Determinada pelo ASC e seu regente — fato estrutural permanente
+id: constituicao_capilar
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - asc
+
+nota: o signo do ASC e seu regente determinam a constituição capilar de base do indivíduo
+
+signos_relevantes:
+  - aries
+  - touro
+  - gemeos
+  - cancer
+  - leao
+  - virgem
+  - libra
+  - escorpiao
+  - sagitario
+  - capricornio
+  - aquario
+  - peixes
+
+posicoes_relevantes:
+  - casa_1
+
+indicadores:
+  - espessura_do_fio
+  - oleosidade_capilar
+  - crescimento_capilar
+
+processos:
+  - ciclo_capilar
+  - regulacao_sebacea
+
+dominios:
+  - astrohair
+
+contexto: ocidental_todas

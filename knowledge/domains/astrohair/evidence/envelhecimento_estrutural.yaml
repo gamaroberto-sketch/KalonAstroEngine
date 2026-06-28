@@ -1,0 +1,30 @@
+# KALON ASTRO — EVIDÊNCIA | Envelhecimento Estrutural | v1.0
+id: envelhecimento_estrutural
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - saturno
+  - plutao
+
+signos_relevantes:
+  - capricornio
+
+posicoes_relevantes:
+  - casa_1
+
+indicadores:
+  - envelhecimento_capilar
+  - espessura_do_fio
+  - queda_capilar
+
+processos:
+  - ciclo_capilar
+  - regulacao_hormonal
+  - pigmentacao
+
+dominios:
+  - astrohair
+  - astromedicina
+
+contexto: ocidental_todas

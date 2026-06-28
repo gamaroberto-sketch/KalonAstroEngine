@@ -1,0 +1,29 @@
+# KALON ASTRO — EVIDÊNCIA | Inflamação | v1.0
+# Unidade mínima reutilizável — não pertence ao AstroHair exclusivamente
+# Reutilizável por: AstroDiet, AstroPower, Astromedicina
+id: inflamacao
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - marte
+  - escorpiao
+
+posicoes_relevantes:
+  - casa_1
+  - casa_6
+
+indicadores:
+  - queda_capilar
+  - inflamacao_capilar
+
+processos:
+  - inflamacao
+
+dominios:
+  - astrohair
+  - astrodiet
+  - astropower
+  - astromedicina
+
+contexto: ocidental_todas

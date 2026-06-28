@@ -1,0 +1,27 @@
+# KALON ASTRO — EVIDÊNCIA | Hidratação | v1.0
+id: hidratacao
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - lua
+  - venus
+  - netuno
+
+signos_relevantes:
+  - cancer
+  - peixes
+  - escorpiao
+
+indicadores:
+  - hidratacao_capilar
+
+processos:
+  - hidratacao
+
+dominios:
+  - astrohair
+  - astrodiet
+  - astromedicina
+
+contexto: ocidental_todas

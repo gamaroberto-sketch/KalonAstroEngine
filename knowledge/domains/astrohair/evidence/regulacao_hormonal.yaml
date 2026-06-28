@@ -1,0 +1,30 @@
+# KALON ASTRO — EVIDÊNCIA | Regulação Hormonal | v1.0
+id: regulacao_hormonal
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - lua
+  - venus
+  - saturno
+
+signos_relevantes:
+  - escorpiao
+  - touro
+
+indicadores:
+  - queda_capilar
+  - crescimento_capilar
+  - oleosidade_capilar
+  - espessura_do_fio
+  - envelhecimento_capilar
+
+processos:
+  - regulacao_hormonal
+
+dominios:
+  - astrohair
+  - astrodiet
+  - astromedicina
+
+contexto: ocidental_todas

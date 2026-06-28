@@ -1,0 +1,26 @@
+# KALON ASTRO — EVIDÊNCIA | Pigmentação | v1.0
+id: pigmentacao
+tipo: evidencia
+versao: 1.0
+
+objetos:
+  - sol
+  - saturno
+  - marte
+
+signos_relevantes:
+  - leao
+  - capricornio
+
+indicadores:
+  - pigmentacao_capilar
+  - envelhecimento_capilar
+
+processos:
+  - pigmentacao
+
+dominios:
+  - astrohair
+  - astromedicina
+
+contexto: ocidental_todas
