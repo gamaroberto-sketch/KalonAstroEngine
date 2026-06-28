@@ -1,0 +1,74 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Trígono | v1.0
+node:
+  id: trigono
+  nome: Trígono
+  tipo: aspecto
+  angulo: 120
+
+relacoes:
+
+  - tipo: angulo_exato
+    alvo: 120
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 6_graus
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 8_graus
+    contexto: ocidental_moderna
+    nota: Luminares aceitam orbe maior
+
+  - tipo: familia
+    alvo: aspecto_maior
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: harmonioso
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: fluido
+    contexto: ocidental_todas
+
+  - tipo: divisor_do_circulo
+    alvo: 3
+    contexto: ocidental_todas
+    nota: 360° ÷ 3 = 120°
+
+  - tipo: harmonico
+    alvo: H3
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: feminino
+    contexto: ocidental_medieval
+
+  - tipo: elemento_conectado
+    alvo: mesmo_elemento
+    contexto: ocidental_todas
+    nota: conecta sempre signos do mesmo elemento — fogo-fogo, terra-terra, ar-ar, água-água
+
+  - tipo: dinamica
+    alvo: facilidade
+    contexto: ocidental_todas
+    nota: energia flui naturalmente — pode tornar-se passividade se não cultivado
+
+  - tipo: dinamica
+    alvo: talento_natural
+    contexto: ocidental_todas
+
+  - tipo: dinamica
+    alvo: fluxo
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: trikonasthana
+    contexto: vedica
+    nota: relação 5/9 entre signos — aspecto de Júpiter no Jyotisha
+
+  - tipo: origem_historica
+    alvo: Ptolomeu
+    contexto: ocidental_helenistica
+    fonte: Tetrabiblos

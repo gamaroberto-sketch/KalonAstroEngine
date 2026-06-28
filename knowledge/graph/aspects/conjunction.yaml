@@ -1,0 +1,91 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Conjunção | v1.0
+# Aspectos = nós que definem relacionamentos tipados entre objetos
+# O motor criará arestas "aspecta[tipo: conjuncao]" entre planetas
+node:
+  id: conjuncao
+  nome: Conjunção
+  tipo: aspecto
+  angulo: 0
+
+relacoes:
+
+  # ── IDENTIDADE DO ASPECTO ─────────────────────────────────
+  - tipo: angulo_exato
+    alvo: 0
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 8_graus
+    contexto: ocidental_todas
+    nota: varia por tradição e por planeta; Luminares aceitam até 12°
+
+  - tipo: orbe_classico
+    alvo: 12_graus
+    contexto: ocidental_todas
+    nota: quando um dos objetos é Sol ou Lua
+
+  - tipo: familia
+    alvo: aspecto_maior
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: neutra
+    contexto: ocidental_todas
+    nota: a conjunção amplifica a natureza dos planetas envolvidos — não tem qualidade própria
+
+  - tipo: natureza
+    alvo: harmonioso
+    contexto: ocidental_moderna
+    nota: tendência moderna a classificar como harmonioso por fusão
+
+  # ── CLASSIFICAÇÃO TÉCNICA ─────────────────────────────────
+  - tipo: divisor_do_circulo
+    alvo: 1
+    contexto: ocidental_todas
+    nota: 360° ÷ 1 = 0° — ponto de partida
+
+  - tipo: harmonico
+    alvo: H1
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_medieval
+    nota: aspectos de número ímpar tendem ao masculino na tradição medieval
+
+  # ── DINÂMICA ──────────────────────────────────────────────
+  - tipo: dinamica
+    alvo: fusao
+    contexto: ocidental_todas
+    nota: os dois objetos atuam como um — sem separação de energia
+
+  - tipo: dinamica
+    alvo: amplificacao
+    contexto: ocidental_todas
+
+  - tipo: dinamica
+    alvo: indistincao
+    contexto: ocidental_todas
+    nota: dificulta distinguir a influência individual de cada planeta
+
+  # ── COMBUSTÃO (caso especial Sol) ─────────────────────────
+  - tipo: caso_especial
+    alvo: combustao
+    contexto: ocidental_medieval
+    nota: planeta a menos de 8° do Sol perde força — está "queimado"
+
+  - tipo: caso_especial
+    alvo: cazimi
+    contexto: ocidental_medieval
+    nota: planeta a menos de 17' do Sol ganha força máxima — "no coração do Sol"
+
+  # ── VÉDICO ────────────────────────────────────────────────
+  - tipo: nome_vedico
+    alvo: yuti
+    contexto: vedica
+    nota: conjunção no mesmo signo; no Jyotisha o signo importa mais que o orbe exato
+
+  - tipo: orbe_vedico
+    alvo: mesmo_signo
+    contexto: vedica
+    nota: no Jyotisha dois planetas no mesmo signo estão em conjunção independente do grau

@@ -1,0 +1,70 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Sextil | v1.0
+node:
+  id: sextil
+  nome: Sextil
+  tipo: aspecto
+  angulo: 60
+
+relacoes:
+
+  - tipo: angulo_exato
+    alvo: 60
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 4_graus
+    contexto: ocidental_todas
+    nota: orbe menor que os aspectos de Ptolomeu maiores
+
+  - tipo: orbe_classico
+    alvo: 6_graus
+    contexto: ocidental_moderna
+
+  - tipo: familia
+    alvo: aspecto_maior
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: harmonioso
+    contexto: ocidental_todas
+
+  - tipo: divisor_do_circulo
+    alvo: 6
+    contexto: ocidental_todas
+    nota: 360° ÷ 6 = 60°
+
+  - tipo: harmonico
+    alvo: H6
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: feminino
+    contexto: ocidental_medieval
+
+  - tipo: elemento_conectado
+    alvo: signos_compatíveis
+    contexto: ocidental_todas
+    nota: conecta signos de elementos que se complementam — fogo/ar ou terra/água
+
+  - tipo: dinamica
+    alvo: oportunidade
+    contexto: ocidental_todas
+    nota: energia disponível mas requer ativação — não age sozinha como o trígono
+
+  - tipo: dinamica
+    alvo: cooperacao
+    contexto: ocidental_todas
+
+  - tipo: dinamica
+    alvo: comunicacao_fluida
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: sashthastama
+    contexto: vedica
+    nota: relação 6/8 entre signos; no Jyotisha geralmente não é considerado aspecto clássico
+
+  - tipo: origem_historica
+    alvo: Ptolomeu
+    contexto: ocidental_helenistica
+    fonte: Tetrabiblos

@@ -1,0 +1,85 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Oposição | v1.0
+node:
+  id: opposicao
+  nome: Oposição
+  tipo: aspecto
+  angulo: 180
+
+relacoes:
+
+  - tipo: angulo_exato
+    alvo: 180
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 8_graus
+    contexto: ocidental_todas
+
+  - tipo: orbe_classico
+    alvo: 10_graus
+    contexto: ocidental_moderna
+    nota: Luminares aceitam até 12°
+
+  - tipo: familia
+    alvo: aspecto_maior
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: tensao
+    contexto: ocidental_todas
+
+  - tipo: natureza
+    alvo: polaridade
+    contexto: ocidental_todas
+    nota: a oposição exige integração de dois princípios opostos — não é puramente negativa
+
+  - tipo: divisor_do_circulo
+    alvo: 2
+    contexto: ocidental_todas
+    nota: 360° ÷ 2 = 180°
+
+  - tipo: harmonico
+    alvo: H2
+    contexto: ocidental_todas
+
+  - tipo: polaridade
+    alvo: masculino
+    contexto: ocidental_medieval
+
+  - tipo: elemento_conectado
+    alvo: elementos_opostos
+    contexto: ocidental_todas
+    nota: conecta fogo-ar ou terra-água — polaridades complementares
+
+  - tipo: modalidade_conectada
+    alvo: mesma_modalidade
+    contexto: ocidental_todas
+    nota: sempre conecta a mesma modalidade — cardinal-cardinal, etc.
+
+  - tipo: dinamica
+    alvo: projecao
+    contexto: ocidental_todas
+    nota: o que não se integra em si mesmo é projetado no outro — tema relacional
+
+  - tipo: dinamica
+    alvo: consciencia_do_outro
+    contexto: ocidental_todas
+
+  - tipo: dinamica
+    alvo: equilibrio_sob_tensao
+    contexto: ocidental_todas
+
+  - tipo: caso_especial
+    alvo: eixo_nodal
+    contexto: ocidental_todas
+    nota: oposição entre Nodo Norte e Sul — eixo kármico do mapa
+
+  - tipo: nome_vedico
+    alvo: saptama
+    contexto: vedica
+    nota: relação 7/7 entre signos — aspecto de todos os planetas no Jyotisha
+
+  - tipo: origem_historica
+    alvo: Ptolomeu
+    contexto: ocidental_helenistica
+    fonte: Tetrabiblos
