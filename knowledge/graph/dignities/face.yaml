@@ -1,0 +1,74 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Face / Decano | v1.0
+node:
+  id: face
+  nome: Face
+  tipo: dignidade
+  categoria: dignidade_essencial
+
+relacoes:
+
+  - tipo: definicao
+    alvo: divisao_de_cada_signo_em_3_partes_de_10_graus
+    contexto: ocidental_todas
+    nota: cada signo de 30° é dividido em 3 decanos de 10° cada — a face menor dignidade essencial
+
+  - tipo: nome_alternativo
+    alvo: decano
+    contexto: ocidental_todas
+    nota: face e decano são equivalentes — decano vem da tradição egípcia (deka = dez)
+
+  - tipo: categoria
+    alvo: dignidade_essencial
+    contexto: ocidental_todas
+
+  - tipo: posicao_na_escala
+    alvo: 1
+    contexto: ocidental_medieval
+    nota: escala de Ptolomeu — face vale apenas +1 ponto; a menor dignidade essencial
+
+  # ── SISTEMAS DE DECANOS ───────────────────────────────────
+  - tipo: sistema
+    alvo: decanos_caldeus
+    contexto: ocidental_helenistica
+    nota: sequência planetária pela ordem caldeia — Saturno, Júpiter, Marte, Sol, Vênus, Mercúrio, Lua
+
+  - tipo: sistema
+    alvo: decanos_egipcios
+    contexto: ocidental_helenistica
+    nota: 36 decanos originais egípcios — cada um com deidade própria
+
+  - tipo: sistema
+    alvo: decanos_sabianos
+    contexto: ocidental_moderna
+    nota: 360 graus individuais com símbolos (Rudhyar/Jones) — extensão moderna dos decanos
+
+  - tipo: estrutura
+    alvo: 36_decanos_totais
+    contexto: ocidental_todas
+    nota: 12 signos × 3 decanos = 36 faces no zodíaco
+
+  - tipo: qualidade
+    alvo: dignidade_minima
+    contexto: ocidental_medieval
+    nota: o planeta tem apenas familiaridade superficial com a posição — "não está nu"
+
+  - tipo: aplicacao
+    alvo: peregrinidade_evitada
+    contexto: ocidental_medieval
+    nota: planeta com face não é peregrino — tem ao menos esta mínima dignidade
+
+  - tipo: efeito_na_inferencia
+    alvo: evita_peregrinidade
+    contexto: ocidental_medieval
+    nota: planeta peregrino = sem nenhuma dignidade essencial — situação de máxima fraqueza
+
+  - tipo: nome_vedico
+    alvo: drekkana
+    contexto: vedica
+    nota: divisão do signo em 3 partes de 10° — equivalente védico do decano ocidental
+    fonte: Brihat Parashara Hora Shastra
+
+  - tipo: origem_historica
+    alvo: astronomia_egipcia_antiga
+    contexto: historico
+    nota: decanos eram usados como calendário estelar no Egito — cada decano = 10 dias do ano

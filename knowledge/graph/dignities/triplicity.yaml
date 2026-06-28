@@ -1,0 +1,93 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Triplicidade | v1.0
+node:
+  id: triplicidade
+  nome: Triplicidade
+  tipo: dignidade
+  categoria: dignidade_essencial
+
+relacoes:
+
+  - tipo: definicao
+    alvo: planeta_regente_do_elemento_do_signo
+    contexto: ocidental_medieval
+    nota: cada elemento tem planetas regentes para período diurno e noturno
+
+  - tipo: categoria
+    alvo: dignidade_essencial
+    contexto: ocidental_todas
+
+  - tipo: posicao_na_escala
+    alvo: 3
+    contexto: ocidental_medieval
+    nota: escala de Ptolomeu — triplicidade vale +3 pontos
+
+  - tipo: sistema
+    alvo: dorotheus
+    contexto: ocidental_helenistica
+    nota: sistema de triplicidades de Dorotheus de Sídon — diurno/noturno/participante
+    fonte: Carmen Astrologicum
+
+  - tipo: qualidade
+    alvo: conforto_moderado
+    contexto: ocidental_medieval
+    nota: o planeta está em território aliado mas não é o regente principal
+
+  # ── TRIPLICIDADES POR ELEMENTO ────────────────────────────
+  - tipo: triplicidade_fogo
+    alvo: sol_diurno
+    contexto: ocidental_medieval
+    nota: Sol rege triplicidade de Fogo de dia
+
+  - tipo: triplicidade_fogo
+    alvo: jupiter_noturno
+    contexto: ocidental_medieval
+    nota: Júpiter rege triplicidade de Fogo de noite
+
+  - tipo: triplicidade_fogo
+    alvo: saturno_participante
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_terra
+    alvo: venus_diurno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_terra
+    alvo: lua_noturno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_terra
+    alvo: marte_participante
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_ar
+    alvo: saturno_diurno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_ar
+    alvo: mercurio_noturno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_ar
+    alvo: jupiter_participante
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_agua
+    alvo: venus_diurno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_agua
+    alvo: marte_noturno
+    contexto: ocidental_medieval
+
+  - tipo: triplicidade_agua
+    alvo: lua_participante
+    contexto: ocidental_medieval
+
+  - tipo: efeito_na_inferencia
+    alvo: fortalece_moderadamente
+    contexto: ocidental_medieval
+
+  - tipo: nome_vedico
+    alvo: sem_equivalente_direto
+    contexto: vedica
+    nota: o Jyotisha não usa triplicidades — usa Varga (divisões harmônicas) para dignidade secundária

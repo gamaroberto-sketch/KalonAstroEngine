@@ -1,0 +1,83 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Exaltação | v1.0
+node:
+  id: exaltacao
+  nome: Exaltação
+  tipo: dignidade
+  categoria: dignidade_essencial
+
+relacoes:
+
+  - tipo: definicao
+    alvo: planeta_em_signo_de_maxima_expressao
+    contexto: ocidental_todas
+    nota: o planeta atinge seu potencial máximo — mas com certa grandiosidade ou excesso
+
+  - tipo: categoria
+    alvo: dignidade_essencial
+    contexto: ocidental_todas
+
+  - tipo: posicao_na_escala
+    alvo: 4
+    contexto: ocidental_medieval
+    nota: escala de Ptolomeu — exaltação vale +4 pontos; menor que domicílio
+
+  - tipo: grau_exato
+    alvo: cada_planeta_tem_grau_de_exaltacao
+    contexto: ocidental_medieval
+    nota: ex. Sol exaltado no grau 19° de Áries; Lua no grau 3° de Touro
+
+  - tipo: qualidade
+    alvo: expressao_maxima
+    contexto: ocidental_todas
+
+  - tipo: qualidade
+    alvo: brilho_elevado
+    contexto: ocidental_todas
+    nota: o planeta brilha intensamente — pode ser excessivo ou idealizado
+
+  - tipo: qualidade
+    alvo: honra
+    contexto: ocidental_medieval
+    nota: analogia medieval — como um dignitário recebido com honras em terra estrangeira
+
+  - tipo: efeito_na_inferencia
+    alvo: amplifica_indicadores_com_intensidade
+    contexto: ocidental_todas
+    nota: mais intenso que domicílio mas menos estável — o brilho pode ser passageiro
+
+  - tipo: exemplo_de_par
+    alvo: sol_em_aries
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: lua_em_touro
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: mercurio_em_virgem
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: venus_em_peixes
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: marte_em_capricornio
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: jupiter_em_cancer
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: saturno_em_libra
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: uccha
+    contexto: vedica
+    nota: equivalente direto no Jyotisha — cada planeta tem signo e grau de uccha
+
+  - tipo: posicao_na_escala_vedica
+    alvo: contribui_positivamente_ao_shadbala
+    contexto: vedica

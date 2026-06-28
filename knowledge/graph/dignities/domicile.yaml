@@ -1,0 +1,110 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Domicílio | v1.0
+# Dignidades = nós que definem a qualidade de um planeta em uma posição
+# O motor usará: planeta.em_domicilio(signo) → dignidade: domicilio
+node:
+  id: domicilio
+  nome: Domicílio
+  tipo: dignidade
+  categoria: dignidade_essencial
+
+relacoes:
+
+  # ── IDENTIDADE ────────────────────────────────────────────
+  - tipo: definicao
+    alvo: planeta_em_signo_que_rege
+    contexto: ocidental_todas
+    nota: o planeta está no signo que governa — máxima expressão de sua natureza
+
+  - tipo: categoria
+    alvo: dignidade_essencial
+    contexto: ocidental_todas
+    nota: dignidades essenciais avaliam a posição por signo, independente do mapa
+
+  - tipo: posicao_na_escala
+    alvo: 5
+    contexto: ocidental_medieval
+    nota: escala de Ptolomeu — domicílio vale +5 pontos
+
+  # ── QUALIDADE ─────────────────────────────────────────────
+  - tipo: qualidade
+    alvo: conforto
+    contexto: ocidental_todas
+    nota: o planeta age com familiaridade e sem restrição
+
+  - tipo: qualidade
+    alvo: poder_pleno
+    contexto: ocidental_todas
+
+  - tipo: qualidade
+    alvo: autenticidade
+    contexto: ocidental_todas
+    nota: o planeta expressa sua natureza sem filtro externo
+
+  # ── EFEITO NO MOTOR ───────────────────────────────────────
+  - tipo: efeito_na_inferencia
+    alvo: amplifica_indicadores_do_planeta
+    contexto: ocidental_todas
+
+  - tipo: efeito_na_inferencia
+    alvo: fortalece_manifestacao_no_dominio
+    contexto: ocidental_todas
+
+  # ── PARES PLANETA → SIGNO (referências cruzadas) ──────────
+  - tipo: exemplo_de_par
+    alvo: sol_em_leao
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: lua_em_cancer
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: mercurio_em_gemeos
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: mercurio_em_virgem
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: venus_em_touro
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: venus_em_libra
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: marte_em_aries
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: marte_em_escorpiao
+    contexto: ocidental_medieval
+
+  - tipo: exemplo_de_par
+    alvo: jupiter_em_sagitario
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: jupiter_em_peixes
+    contexto: ocidental_medieval
+
+  - tipo: exemplo_de_par
+    alvo: saturno_em_capricornio
+    contexto: ocidental_todas
+
+  - tipo: exemplo_de_par
+    alvo: saturno_em_aquario
+    contexto: ocidental_medieval
+
+  # ── VÉDICO ────────────────────────────────────────────────
+  - tipo: nome_vedico
+    alvo: swakshetra
+    contexto: vedica
+    nota: propria casa — equivalente ao domicilio ocidental
+
+  - tipo: posicao_na_escala_vedica
+    alvo: dig_bala_variavel
+    contexto: vedica
+    nota: no Jyotisha o domicílio contribui para o Shadbala (força de 6 fatores)

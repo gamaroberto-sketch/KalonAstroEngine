@@ -1,0 +1,85 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Termos / Limites | v1.0
+node:
+  id: termos
+  nome: Termos
+  tipo: dignidade
+  categoria: dignidade_essencial
+
+relacoes:
+
+  - tipo: definicao
+    alvo: divisao_de_cada_signo_em_5_segmentos_desiguais
+    contexto: ocidental_medieval
+    nota: cada signo de 30° é dividido em 5 partes irregulares, cada uma regida por um planeta
+
+  - tipo: nome_alternativo
+    alvo: limites
+    contexto: ocidental_todas
+    nota: bounds em inglês — termos e limites são equivalentes
+
+  - tipo: categoria
+    alvo: dignidade_essencial
+    contexto: ocidental_todas
+
+  - tipo: posicao_na_escala
+    alvo: 2
+    contexto: ocidental_medieval
+    nota: escala de Ptolomeu — termos valem +2 pontos
+
+  # ── SISTEMAS DE TERMOS ────────────────────────────────────
+  - tipo: sistema
+    alvo: termos_egipcios
+    contexto: ocidental_helenistica
+    nota: sistema mais antigo — atribuído a escribas egípcios; usado por Ptolomeu e Dorotheus
+    fonte: Tetrabiblos I.20
+
+  - tipo: sistema
+    alvo: termos_de_ptolomeu
+    contexto: ocidental_helenistica
+    nota: Ptolomeu propôs variação própria — menos usada na prática
+
+  - tipo: sistema
+    alvo: termos_de_vettius_valens
+    contexto: ocidental_helenistica
+    nota: terceiro sistema helenístico — variações menores
+
+  - tipo: qualidade
+    alvo: conforto_granular
+    contexto: ocidental_medieval
+    nota: dignidade mais específica — depende do grau exato do planeta dentro do signo
+
+  - tipo: aplicacao
+    alvo: analise_de_grau
+    contexto: ocidental_todas
+    nota: os termos permitem que o mesmo signo tenha diferentes qualidades por grau
+
+  - tipo: planetas_que_tem_termos
+    alvo: mercurio
+    contexto: ocidental_medieval
+    nota: Luminares (Sol e Lua) não possuem termos
+
+  - tipo: planetas_que_tem_termos
+    alvo: venus
+    contexto: ocidental_medieval
+
+  - tipo: planetas_que_tem_termos
+    alvo: marte
+    contexto: ocidental_medieval
+
+  - tipo: planetas_que_tem_termos
+    alvo: jupiter
+    contexto: ocidental_medieval
+
+  - tipo: planetas_que_tem_termos
+    alvo: saturno
+    contexto: ocidental_medieval
+
+  - tipo: efeito_na_inferencia
+    alvo: refinamento_por_grau
+    contexto: ocidental_medieval
+    nota: o motor pode usar termos para granularidade adicional na posição planetária
+
+  - tipo: nome_vedico
+    alvo: sem_equivalente_direto
+    contexto: vedica
+    nota: o Jyotisha usa Navamsa e outros Vargas para divisões internas do signo
