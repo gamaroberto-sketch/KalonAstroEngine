@@ -1,0 +1,94 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 1 | v1.0
+# Casas = contexto de manifestação (não copiar modelo de signos)
+node:
+  id: casa_1
+  nome: Casa I
+  tipo: casa
+  numero: 1
+
+relacoes:
+
+  # ── IDENTIDADE DA CASA ────────────────────────────────────
+  - tipo: angulo
+    alvo: ascendente
+    contexto: ocidental_todas
+    nota: a cúspide da Casa I é o Ascendente — ponto mais sensível do mapa
+
+  - tipo: contexto_de_manifestacao
+    alvo: aparencia_fisica
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: identidade_publica
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: corpo_fisico
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: iniciativa_pessoal
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: primeiras_impressoes
+    contexto: ocidental_todas
+
+  # ── REGÊNCIA NATURAL ──────────────────────────────────────
+  - tipo: regente_natural
+    alvo: marte
+    contexto: ocidental_todas
+    nota: Áries é o signo natural da Casa I
+
+  - tipo: signo_natural
+    alvo: aries
+    contexto: ocidental_todas
+
+  # ── CORRESPONDÊNCIAS CORPORAIS ────────────────────────────
+  - tipo: governa_regiao
+    alvo: cabeca
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: face
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: cerebro
+    contexto: astromedicina_ocidental
+
+  # ── CLASSIFICAÇÃO TÉCNICA ─────────────────────────────────
+  - tipo: classificacao
+    alvo: casa_angular
+    contexto: ocidental_todas
+    nota: casas angulares têm maior força de manifestação
+
+  - tipo: classificacao
+    alvo: casa_pessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: leste
+    contexto: ocidental_todas
+    nota: casas do leste = self; casas do oeste = outros
+
+  # ── DOMÍNIOS DE MANIFESTAÇÃO ──────────────────────────────
+  - tipo: manifesta_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+    nota: propósito pessoal, missão encarnada
+
+  # ── VÉDICO ────────────────────────────────────────────────
+  - tipo: nome_vedico
+    alvo: tanu_bhava
+    contexto: vedica
+    nota: casa do corpo e da personalidade
+
+  - tipo: kendra
+    alvo: verdadeiro
+    contexto: vedica
+    nota: kendras são as casas angulares védicas — as mais poderosas

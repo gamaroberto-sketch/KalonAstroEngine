@@ -1,0 +1,84 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 12 | v1.0
+node:
+  id: casa_12
+  nome: Casa XII
+  tipo: casa
+  numero: 12
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: isolamento_e_retiro
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: inconsciente_e_sombra
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: instituicoes_fechadas
+    contexto: ocidental_todas
+    nota: hospitais, prisões, mosteiros, retiros
+
+  - tipo: contexto_de_manifestacao
+    alvo: inimigos_ocultos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: karma_e_dissolucao
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: espiritualidade_profunda
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: jupiter
+    contexto: ocidental_medieval
+
+  - tipo: regente_natural
+    alvo: netuno
+    contexto: ocidental_moderna
+
+  - tipo: signo_natural
+    alvo: peixes
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: pes
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: sistema_linfatico
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_cadente
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_social
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: norte
+    contexto: ocidental_todas
+    nota: Casa XII é norte apesar de ser social — zona de recolhimento
+
+  - tipo: manifesta_dominio
+    alvo: espiritualidade
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+    nota: doenças ocultas, internações, convalescência
+
+  - tipo: nome_vedico
+    alvo: vyaya_bhava
+    contexto: vedica
+    nota: casa das perdas, gastos, moksha e liberação
+
+  - tipo: dusthana
+    alvo: verdadeiro
+    contexto: vedica

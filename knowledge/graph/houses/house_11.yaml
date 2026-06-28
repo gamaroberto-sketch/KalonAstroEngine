@@ -1,0 +1,75 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 11 | v1.0
+node:
+  id: casa_11
+  nome: Casa XI
+  tipo: casa
+  numero: 11
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: amigos_e_grupos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: ideais_e_aspiracoes
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: redes_e_comunidades
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: ganhos_e_lucros
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: causas_coletivas
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: saturno
+    contexto: ocidental_medieval
+
+  - tipo: regente_natural
+    alvo: urano
+    contexto: ocidental_moderna
+
+  - tipo: signo_natural
+    alvo: aquario
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: tornozelos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: panturrilhas
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_sucedente
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_social
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: sul
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+    nota: ganhos, lucros, realizações de desejos
+
+  - tipo: manifesta_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    nota: amizades, grupos, redes
+
+  - tipo: nome_vedico
+    alvo: labha_bhava
+    contexto: vedica
+    nota: casa dos ganhos, desejos e amigos influentes

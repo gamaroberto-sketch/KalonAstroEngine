@@ -1,0 +1,80 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 4 | v1.0
+node:
+  id: casa_4
+  nome: Casa IV
+  tipo: casa
+  numero: 4
+
+relacoes:
+
+  - tipo: angulo
+    alvo: fundo_do_ceu
+    contexto: ocidental_todas
+    nota: IC — ponto mais íntimo do mapa; oposto ao MC
+
+  - tipo: contexto_de_manifestacao
+    alvo: lar_e_familia
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: raizes_e_ancestralidade
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: vida_privada
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: fim_da_vida
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: imoveis_e_terra
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: lua
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: cancer
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: peito
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: estomago
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_angular
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_pessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: norte
+    contexto: ocidental_todas
+    nota: casas do norte = vida privada; casas do sul = vida pública
+
+  - tipo: manifesta_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    nota: família de origem, vínculos primários
+
+  - tipo: manifesta_dominio
+    alvo: lugar_e_pertencimento
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: sukha_bhava
+    contexto: vedica
+    nota: casa da felicidade, lar e mãe
+
+  - tipo: kendra
+    alvo: verdadeiro
+    contexto: vedica

@@ -1,0 +1,70 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 2 | v1.0
+node:
+  id: casa_2
+  nome: Casa II
+  tipo: casa
+  numero: 2
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: recursos_materiais
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: valores_pessoais
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: autoestima
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: ganhos_e_posses
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: voz_e_fala
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: venus
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: touro
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: pescoco
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: garganta
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: tiroide
+    contexto: astromedicina_moderna
+
+  - tipo: classificacao
+    alvo: casa_sucedente
+    contexto: ocidental_todas
+    nota: casas sucedentes consolidam o que as angulares iniciaram
+
+  - tipo: classificacao
+    alvo: casa_pessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: leste
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: dhana_bhava
+    contexto: vedica
+    nota: casa da riqueza e da família

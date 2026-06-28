@@ -1,0 +1,83 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 8 | v1.0
+node:
+  id: casa_8
+  nome: Casa VIII
+  tipo: casa
+  numero: 8
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: transformacao_e_crise
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: morte_e_renascimento
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: recursos_compartilhados
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: herancas_e_legados
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: sexualidade_profunda
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: ocultismo_e_misterios
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: marte
+    contexto: ocidental_medieval
+
+  - tipo: regente_natural
+    alvo: plutao
+    contexto: ocidental_moderna
+
+  - tipo: signo_natural
+    alvo: escorpiao
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: orgaos_genitais
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: intestino_grosso
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_sucedente
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_interpessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: oeste
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: espiritualidade
+    contexto: ocidental_todas
+    nota: transformação profunda, morte e renascimento
+
+  - tipo: manifesta_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+    nota: heranças, recursos do parceiro, investimentos
+
+  - tipo: nome_vedico
+    alvo: ayur_bhava
+    contexto: vedica
+    nota: casa da longevidade, obstáculos e transformação
+
+  - tipo: dusthana
+    alvo: verdadeiro
+    contexto: vedica

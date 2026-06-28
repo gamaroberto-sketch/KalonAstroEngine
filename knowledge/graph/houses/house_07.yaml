@@ -1,0 +1,80 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 7 | v1.0
+node:
+  id: casa_7
+  nome: Casa VII
+  tipo: casa
+  numero: 7
+
+relacoes:
+
+  - tipo: angulo
+    alvo: descendente
+    contexto: ocidental_todas
+    nota: DSC — ponto do outro; oposto ao Ascendente
+
+  - tipo: contexto_de_manifestacao
+    alvo: parceiros_e_conjuges
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: contratos_e_acordos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: inimigos_declarados
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: parcerias_profissionais
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: o_outro_em_geral
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: venus
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: libra
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: rins
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: lombar
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_angular
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_interpessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: oeste
+    contexto: ocidental_todas
+    nota: casas do oeste = foco no outro, não no self
+
+  - tipo: manifesta_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+    nota: contratos, negociações, acordos
+
+  - tipo: nome_vedico
+    alvo: kalatra_bhava
+    contexto: vedica
+    nota: casa do cônjuge e parcerias
+
+  - tipo: kendra
+    alvo: verdadeiro
+    contexto: vedica

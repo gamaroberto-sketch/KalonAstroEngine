@@ -1,0 +1,71 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 5 | v1.0
+node:
+  id: casa_5
+  nome: Casa V
+  tipo: casa
+  numero: 5
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: criatividade_e_expressao
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: filhos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: romance_e_paixao
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: prazer_e_lazer
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: jogos_e_especulacao
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: sol
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: leao
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: coracao
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: coluna_vertebral
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_sucedente
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: norte
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: criatividade
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: relacionamentos
+    contexto: ocidental_todas
+    nota: romance, filhos
+
+  - tipo: nome_vedico
+    alvo: putra_bhava
+    contexto: vedica
+    nota: casa dos filhos, inteligência e méritos passados
+
+  - tipo: trikona
+    alvo: verdadeiro
+    contexto: vedica
+    nota: trikonas são as casas mais auspiciosas no Jyotisha (1, 5, 9)

@@ -1,0 +1,75 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 6 | v1.0
+node:
+  id: casa_6
+  nome: Casa VI
+  tipo: casa
+  numero: 6
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: saude_e_doenca
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: rotina_e_trabalho
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: servico_e_dever
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: animais_domesticos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: subordinados
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: mercurio
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: virgem
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: intestinos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: sistema_digestivo
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_cadente
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_interpessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: norte
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: saude_e_corpo
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+    nota: trabalho cotidiano, serviço, rotina profissional
+
+  - tipo: nome_vedico
+    alvo: ripu_bhava
+    contexto: vedica
+    nota: casa dos inimigos, doenças e obstáculos
+
+  - tipo: dusthana
+    alvo: verdadeiro
+    contexto: vedica
+    nota: dusthanas são casas de dificuldade no Jyotisha (6, 8, 12)

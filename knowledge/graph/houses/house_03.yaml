@@ -1,0 +1,70 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 3 | v1.0
+node:
+  id: casa_3
+  nome: Casa III
+  tipo: casa
+  numero: 3
+
+relacoes:
+
+  - tipo: contexto_de_manifestacao
+    alvo: comunicacao
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: irmaos_e_vizinhos
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: viagens_curtas
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: aprendizado_inicial
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: mente_cotidiana
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: mercurio
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: gemeos
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: bracos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: maos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: pulmoes
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_cadente
+    contexto: ocidental_todas
+    nota: casas cadentes dispersam energia — associadas ao aprendizado e adaptação
+
+  - tipo: classificacao
+    alvo: casa_pessoal
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: leste
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: mente_e_aprendizagem
+    contexto: ocidental_todas
+
+  - tipo: nome_vedico
+    alvo: sahaja_bhava
+    contexto: vedica
+    nota: casa dos irmãos, coragem e habilidades

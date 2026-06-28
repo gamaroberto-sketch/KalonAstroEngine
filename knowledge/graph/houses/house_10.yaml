@@ -1,0 +1,79 @@
+# KALON ASTRO — KNOWLEDGE GRAPH | Casa 10 | v1.0
+node:
+  id: casa_10
+  nome: Casa X
+  tipo: casa
+  numero: 10
+
+relacoes:
+
+  - tipo: angulo
+    alvo: meio_do_ceu
+    contexto: ocidental_todas
+    nota: MC — ponto mais público do mapa; carreira e reputação
+
+  - tipo: contexto_de_manifestacao
+    alvo: carreira_e_vocacao
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: reputacao_publica
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: autoridade_e_status
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: figura_paterna
+    contexto: ocidental_todas
+
+  - tipo: contexto_de_manifestacao
+    alvo: realizacao_social
+    contexto: ocidental_todas
+
+  - tipo: regente_natural
+    alvo: saturno
+    contexto: ocidental_todas
+
+  - tipo: signo_natural
+    alvo: capricornio
+    contexto: ocidental_todas
+
+  - tipo: governa_regiao
+    alvo: joelhos
+    contexto: astromedicina_ocidental
+
+  - tipo: governa_regiao
+    alvo: ossos
+    contexto: astromedicina_ocidental
+
+  - tipo: classificacao
+    alvo: casa_angular
+    contexto: ocidental_todas
+
+  - tipo: classificacao
+    alvo: casa_social
+    contexto: ocidental_todas
+
+  - tipo: hemisferio
+    alvo: sul
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: carreira_e_proposito
+    contexto: ocidental_todas
+
+  - tipo: manifesta_dominio
+    alvo: prosperidade
+    contexto: ocidental_todas
+    nota: status, reconhecimento, autoridade
+
+  - tipo: nome_vedico
+    alvo: karma_bhava
+    contexto: vedica
+    nota: casa das ações, profissão e karma presente
+
+  - tipo: kendra
+    alvo: verdadeiro
+    contexto: vedica
