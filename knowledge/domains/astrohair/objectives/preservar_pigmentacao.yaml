@@ -1,0 +1,16 @@
+id: preservar_pigmentacao
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - pigmentacao_capilar
+
+evidencias_de_origem:
+  - pigmentacao
+
+sistemas_fisiologicos:
+  - sistema_endocrino
+
+estruturas_alvo:
+  - melanocito
+  - cortex

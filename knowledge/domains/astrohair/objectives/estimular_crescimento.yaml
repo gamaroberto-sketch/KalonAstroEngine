@@ -1,0 +1,19 @@
+id: estimular_crescimento
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - crescimento_capilar
+  - espessura_do_fio
+
+evidencias_de_origem:
+  - ciclo_capilar
+  - regulacao_hormonal
+
+sistemas_fisiologicos:
+  - sistema_endocrino
+  - sistema_circulatorio
+
+estruturas_alvo:
+  - foliculo_capilar
+  - bulbo_capilar

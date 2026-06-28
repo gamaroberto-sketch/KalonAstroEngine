@@ -1,0 +1,18 @@
+id: reduzir_inflamacao
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - queda_capilar
+  - inflamacao_capilar
+
+evidencias_de_origem:
+  - inflamacao
+
+sistemas_fisiologicos:
+  - sistema_imunologico
+  - sistema_circulatorio
+
+estruturas_alvo:
+  - couro_cabeludo
+  - foliculo_capilar

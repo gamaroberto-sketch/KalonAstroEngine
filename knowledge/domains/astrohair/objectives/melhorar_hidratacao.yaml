@@ -1,0 +1,18 @@
+id: melhorar_hidratacao
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - hidratacao_capilar
+
+evidencias_de_origem:
+  - hidratacao
+  - regulacao_sebacea
+
+sistemas_fisiologicos:
+  - sistema_renal
+  - sistema_circulatorio
+
+estruturas_alvo:
+  - fio_de_cabelo
+  - cortex

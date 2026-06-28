@@ -1,0 +1,17 @@
+id: equilibrar_oleosidade
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - oleosidade_capilar
+
+evidencias_de_origem:
+  - regulacao_sebacea
+  - regulacao_hormonal
+
+sistemas_fisiologicos:
+  - sistema_endocrino
+
+estruturas_alvo:
+  - glandula_sebacea
+  - couro_cabeludo

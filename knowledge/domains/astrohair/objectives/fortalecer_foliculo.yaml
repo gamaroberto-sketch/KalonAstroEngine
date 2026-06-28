@@ -1,0 +1,21 @@
+id: fortalecer_foliculo
+tipo: objetivo_terapeutico
+dominio: astrohair
+
+indicadores_alvo:
+  - crescimento_capilar
+  - espessura_do_fio
+  - queda_capilar
+
+evidencias_de_origem:
+  - ciclo_capilar
+  - constituicao_capilar
+  - regulacao_hormonal
+
+sistemas_fisiologicos:
+  - sistema_circulatorio
+  - sistema_digestivo
+
+estruturas_alvo:
+  - foliculo_capilar
+  - papila_dermica
