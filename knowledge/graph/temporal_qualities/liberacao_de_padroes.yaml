@@ -1,0 +1,5 @@
+id: liberacao_de_padroes
+nome: Liberação de Padrões
+tipo: qualidade_temporal
+camada: motor_temporal
+descricao: momento propício para soltar o que não serve — limpeza e depuração
