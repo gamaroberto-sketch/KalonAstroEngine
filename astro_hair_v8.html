@@ -151,8 +151,20 @@ tr.expanded .td-chevron { color:var(--gold); }
 .leg-bar { display:flex; gap:16px; flex-wrap:wrap; font-size:11px; color:var(--dim2); margin-bottom:8px; padding:0 2px; }
 .leg-bar span { display:flex; align-items:center; gap:4px; }
 .cal-hint { font-size:11px; color:var(--dim); margin-bottom:8px; padding:0 2px; }
+.action-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.action-bar button { display:flex; align-items:center; gap:6px; background:var(--card); border:1px solid var(--border); border-radius:6px; color:var(--dim2); cursor:pointer; font-size:11px; font-weight:600; letter-spacing:.5px; padding:8px 14px; transition:border-color .15s,color .15s; }
+.action-bar button:hover { border-color:var(--gold); color:var(--text); }
+.action-bar .btn-primary { background:var(--gold); border-color:var(--gold); color:#fff; }
+[data-theme="light"] .action-bar .btn-primary { color:#000; }
+.proxima-oportunidade { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px 20px; margin-top:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.prox-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
+.prox-date { font-size:18px; font-weight:700; color:var(--text); }
+.prox-time { font-size:13px; font-family:monospace; color:var(--gold); margin-left:8px; }
+.prox-dias { font-size:11px; color:var(--dim2); margin-top:2px; }
+.analise-ts { font-size:10px; color:var(--dim); margin-left:auto; }
 .err { background:var(--red-bg); border:1px solid var(--red-border); border-radius:6px; color:var(--red); font-size:12px; padding:10px 14px; display:none; margin-bottom:10px; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -205,6 +217,13 @@ tr.expanded .td-chevron { color:var(--gold); }
   <div class="results-header">
     <div class="results-name" id="res-name"></div>
     <div class="results-sub" id="res-sub"></div>
+    <div class="analise-ts" id="analise-ts"></div>
+  </div>
+  <div class="action-bar no-print">
+    <button onclick="novaAnalise()">↩ Nova análise</button>
+    <button onclick="window.print()">🖨 Imprimir</button>
+    <button onclick="exportarPDF()">⬇ Salvar PDF</button>
+    <button onclick="salvarPNG()">📷 Salvar PNG</button>
   </div>
 
   <div class="best-day" id="best-day-block"></div>
@@ -243,6 +262,13 @@ tr.expanded .td-chevron { color:var(--gold); }
       </thead>
       <tbody id="cal-body"></tbody>
     </table>
+  </div>
+  <div class="proxima-oportunidade no-print" id="proxima-bloco" style="display:none;">
+    <div>
+      <div class="prox-label">⭐ Próxima oportunidade recomendada</div>
+      <div><span class="prox-date" id="prox-date">—</span><span class="prox-time" id="prox-time"></span></div>
+      <div class="prox-dias" id="prox-dias"></div>
+    </div>
   </div>
 </div>
 </div>
@@ -455,6 +481,11 @@ function gerar() {
       ' · ' + calFiltrado.length + ' janelas calculadas';
     renderMelhorDia(calFiltrado);
     renderTabela(calFiltrado);
+    renderProxima(calFiltrado);
+    const agora = new Date();
+    document.getElementById('analise-ts').textContent =
+      'Análise realizada em ' + agora.toLocaleDateString('pt-BR') + ' às ' +
+      agora.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     document.getElementById('loading').style.display = 'none';
     document.getElementById('results').style.display = 'block';
     btn.disabled = false;
@@ -468,6 +499,50 @@ function gerar() {
     errEl.textContent = '⚠️ Erro: ' + err.message + ' — Verifique o terminal da API.';
     errEl.style.display = 'block';
   });
+}
+
+function novaAnalise() {
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('err').style.display = 'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function exportarPDF() {
+  window.print();
+}
+
+function salvarPNG() {
+  const el = document.getElementById('best-day-block');
+  html2canvas(el, {backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--best-bg').trim() || '#1a1508', scale:2}).then(canvas => {
+    const a = document.createElement('a');
+    a.download = 'kalon-melhor-dia.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  });
+}
+
+function renderProxima(cal) {
+  const hoje = new Date();
+  hoje.setHours(0,0,0,0);
+  const MESES = {JAN:0,FEV:1,MAR:2,ABR:3,MAI:4,JUN:5,JUL:6,AGO:7,SET:8,OUT:9,NOV:10,DEZ:11};
+  const proxima = cal.find(item => {
+    const mes = MESES[item.mon];
+    if (mes === undefined) return false;
+    const ano = hoje.getFullYear() + (mes < hoje.getMonth() ? 1 : 0);
+    const d = new Date(ano, mes, parseInt(item.day));
+    return d >= hoje;
+  });
+  if (!proxima) return;
+  const bloco = document.getElementById('proxima-bloco');
+  const MESES_PT = {JAN:'Jan',FEV:'Fev',MAR:'Mar',ABR:'Abr',MAI:'Mai',JUN:'Jun',JUL:'Jul',AGO:'Ago',SET:'Set',OUT:'Out',NOV:'Nov',DEZ:'Dez'};
+  const mes = MESES[proxima.mon];
+  const ano = hoje.getFullYear() + (mes < hoje.getMonth() ? 1 : 0);
+  const dataProx = new Date(ano, mes, parseInt(proxima.day));
+  const diffDias = Math.round((dataProx - hoje) / 86400000);
+  document.getElementById('prox-date').textContent = proxima.day + ' de ' + (MESES_PT[proxima.mon] || proxima.mon);
+  document.getElementById('prox-time').textContent = proxima.pico;
+  document.getElementById('prox-dias').textContent = diffDias === 0 ? 'Hoje!' : diffDias === 1 ? 'em 1 dia' : `em ${diffDias} dias`;
+  bloco.style.display = 'flex';
 }
 
 function toggleDetail(i) {
