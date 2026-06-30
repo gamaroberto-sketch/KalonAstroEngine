@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>AstroDiet — Calendário Metabólico</title>
-<link rel="stylesheet" href="/components/agenda-kalon/agenda_kalon.css">
+<link rel="stylesheet" href="/components/kalon-report/AgendaKalon/agenda_kalon.css">
 <style>
   body { background:#0C0D0F; color:#E8E4DC; font-family:system-ui,sans-serif; padding:0 16px 80px; }
   .wrap { max-width:720px; margin:0 auto; }
@@ -46,11 +46,11 @@
 
 <script>
 async function iniciarComponente() {
-  const resp = await fetch('/components/agenda-kalon/agenda_kalon.html');
+  const resp = await fetch('/components/kalon-report/AgendaKalon/agenda_kalon.html');
   document.getElementById('agendaDiet').innerHTML = await resp.text();
 
   const script = document.createElement('script');
-  script.src = '/components/agenda-kalon/agenda_kalon.js';
+  script.src = '/components/kalon-report/AgendaKalon/agenda_kalon.js';
   script.onload = () => {
     const agenda = new AgendaKalon('#agendaDiet');
     agenda.render({

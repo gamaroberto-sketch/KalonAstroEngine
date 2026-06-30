@@ -1,0 +1,64 @@
+/* agenda_kalon.css */
+.agenda-kalon-container .cal-wrap { overflow-x:auto; margin-bottom:20px; border-radius:8px; border:1px solid var(--border); }
+.agenda-kalon-container table { width:100%; border-collapse:collapse; font-size:13px; background:var(--card); }
+.agenda-kalon-container thead th { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); background:var(--card); white-space:nowrap; }
+.agenda-kalon-container thead th.center { text-align:center; }
+.agenda-kalon-container tbody tr { border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; }
+.agenda-kalon-container tbody tr:last-child { border-bottom:none; }
+.agenda-kalon-container tbody tr:hover { background:var(--muted); }
+.agenda-kalon-container tbody tr.expanded { background:var(--muted); }
+
+.agenda-kalon-container td { padding:11px 10px; vertical-align:middle; }
+.agenda-kalon-container .date-day { font-size:16px; font-weight:700; color:var(--text); line-height:1; }
+.agenda-kalon-container .date-mon { font-size:9px; color:var(--dim); text-transform:uppercase; letter-spacing:1px; }
+.agenda-kalon-container .time-peak { font-size:14px; font-weight:700; font-family:monospace; color:var(--text); }
+.agenda-kalon-container .time-win { font-size:10px; color:var(--dim2); font-family:monospace; margin-top:2px; white-space:nowrap; }
+.agenda-kalon-container .td-sym { text-align:center; font-size:15px; }
+
+.agenda-kalon-container .sym-gold { color:var(--gold); font-weight:700; font-size:14px; }
+.agenda-kalon-container .sym-green { color:var(--green); font-weight:700; }
+.agenda-kalon-container .sym-red { color:var(--red); font-weight:700; font-size:15px; }
+.agenda-kalon-container .sym-dim { color:var(--dim); }
+
+.agenda-kalon-container .td-obj { color:var(--dim2); font-size:12px; }
+.agenda-kalon-container .td-chevron { transition:transform .2s; font-size:16px; color:var(--dim2); padding-right:14px; text-align:right;}
+.agenda-kalon-container tr.expanded .td-chevron { transform:rotate(180deg); color:var(--gold); }
+
+/* DETALHE */
+.agenda-kalon-container .detail-row { display:none; cursor:default; }
+.agenda-kalon-container .detail-row:hover { background:var(--card); }
+.agenda-kalon-container .detail-row.open { display:table-row; }
+.agenda-kalon-container .detail-cell { padding:0; }
+.agenda-kalon-container .detail-box { background:var(--bg); border:1px solid var(--border); border-radius:6px; overflow:hidden; padding:14px; margin:0 10px 12px; }
+.agenda-kalon-container .campo-bloco { margin-bottom: 16px; }
+.agenda-kalon-container .campo-bloco:last-child { margin-bottom: 0; }
+.agenda-kalon-container .campo-bloco h4 { font-size:13px; color:var(--text); margin-bottom:10px; border-bottom:1px solid var(--border); padding-bottom:5px; }
+.agenda-kalon-container .prof-sec { margin-bottom:12px; }
+.agenda-kalon-container .prof-sec-lbl { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); border-bottom:1px solid var(--border); padding-bottom:3px; margin-bottom:7px; }
+.agenda-kalon-container .prof-row { display:flex; justify-content:space-between; padding:2px 0; font-size:12px; }
+.agenda-kalon-container .pk { color:var(--dim2); }
+.agenda-kalon-container .pv { color:var(--text); font-family:monospace; font-size:11px; }
+
+.agenda-kalon-container .proxima-oportunidade { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px 20px; margin-top:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.agenda-kalon-container .prox-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
+.agenda-kalon-container .prox-date { font-size:18px; font-weight:700; color:var(--text); }
+.agenda-kalon-container .prox-time { font-size:13px; font-family:monospace; color:var(--gold); margin-left:8px; }
+.agenda-kalon-container .prox-dias { font-size:11px; color:var(--dim2); margin-top:2px; }
+
+.agenda-kalon-container .results-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+.agenda-kalon-container .results-name { font-size:14px; font-weight:600; color:var(--text); }
+.agenda-kalon-container .results-sub { font-size:11px; color:var(--dim); }
+
+/* KALON REPORT BLOCKS */
+.agenda-kalon-container .report-section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px 20px; margin-bottom:16px; }
+.agenda-kalon-container .report-section h3 { font-size:14px; color:var(--gold); margin-bottom:10px; font-weight:600; margin-top:0; }
+.agenda-kalon-container .report-section h4 { font-size:12px; color:var(--text); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-top:0; }
+.agenda-kalon-container .report-section p { font-size:13px; color:var(--dim2); line-height:1.5; margin-bottom:0; margin-top:0; }
+.agenda-kalon-container .report-section ul { margin:0; padding-left:20px; font-size:13px; color:var(--dim2); line-height:1.6; }
+.agenda-kalon-container .report-section li { margin-bottom:4px; }
+.agenda-kalon-container .legenda-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; }
+.agenda-kalon-container .legenda-item { display:flex; gap:12px; align-items:flex-start; }
+.agenda-kalon-container .legenda-icone { font-size:16px; margin-top:2px; }
+.agenda-kalon-container .legenda-item strong { display:block; font-size:13px; color:var(--text); margin-bottom:2px; }
+.agenda-kalon-container .legenda-item p { font-size:11px; color:var(--dim); line-height:1.4; }
+.agenda-kalon-container .observacoes-box { border-left:3px solid var(--gold); }

@@ -1,0 +1,44 @@
+<div class="agenda-kalon-container">
+  <div data-results style="display:none;">
+    <div class="results-header">
+      <div class="results-name" data-res-name></div>
+      <div class="results-sub" data-agenda-titulo></div>
+    </div>
+    
+    <div class="action-bar no-print">
+      <button data-action="nova">↩ Nova análise</button>
+      <button data-action="print">🖨 Imprimir</button>
+      <button data-action="pdf">⬇ Salvar PDF</button>
+      <button data-action="png">📷 Salvar PNG</button>
+    </div>
+
+    <!-- BLOCO 1: O QUE É -->
+    <div class="report-section" data-o-que-e></div>
+
+    <!-- BLOCO 2: COMO USAR -->
+    <div class="report-section" data-como-usar></div>
+
+    <!-- BLOCO 3: AGENDA (tabela) -->
+    <div class="cal-wrap">
+      <table>
+        <thead data-cal-head-row>
+        </thead>
+        <tbody data-cal-body></tbody>
+      </table>
+    </div>
+
+    <!-- BLOCO 4: LEGENDA -->
+    <div class="report-section legenda-grid" data-legenda-completa></div>
+
+    <!-- BLOCO 5: OBSERVAÇÕES -->
+    <div class="report-section observacoes-box" data-observacoes></div>
+
+    <div class="proxima-oportunidade no-print" data-proxima style="display:none;">
+      <div>
+        <div class="prox-label">⭐ Próxima oportunidade recomendada</div>
+        <div><span class="prox-date" data-prox-date>—</span><span class="prox-time" data-prox-time></span></div>
+        <div class="prox-dias" data-prox-dias></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -164,8 +164,8 @@ tr.expanded .td-chevron { color:var(--gold); }
 .analise-ts { font-size:10px; color:var(--dim); margin-left:auto; }
 .err { background:var(--red-bg); border:1px solid var(--red-border); border-radius:6px; color:var(--red); font-size:12px; padding:10px 14px; display:none; margin-bottom:10px; }
 </style>
-<link rel="stylesheet" href="components/agenda-kalon/agenda_kalon.css">
-<script src="components/agenda-kalon/agenda_kalon.js"></script>
+<link rel="stylesheet" href="components/kalon-report/AgendaKalon/agenda_kalon.css">
+<script src="components/kalon-report/AgendaKalon/agenda_kalon.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
@@ -261,7 +261,7 @@ function gerar() {
   };
 
   if (!container.innerHTML.trim()) {
-    fetch('components/agenda-kalon/agenda_kalon.html')
+    fetch('components/kalon-report/AgendaKalon/agenda_kalon.html')
       .then(r => r.text())
       .then(html => {
         container.innerHTML = html;
