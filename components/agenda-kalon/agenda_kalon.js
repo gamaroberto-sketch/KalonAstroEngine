@@ -26,11 +26,47 @@ AgendaKalon.prototype._draw = function(dados) {
   const colunas = this._descobrirColunas(dados.janelas);
   this.el.querySelector('[data-res-name]').textContent = dados.nome;
   this.el.querySelector('[data-agenda-titulo]').textContent = dados.estrategia_nome;
-  this._renderCabecalho(colunas, dados.janelas);
-  this._renderAgenda(dados.janelas, colunas);
+
+  // Renderização na ordem correta dos blocos:
+  this._renderOQueE(dados.o_que_e);                                // Bloco 1
+  this._renderComoUsar(dados.como_usar);                           // Bloco 2
+  this._renderCabecalho(colunas, dados.janelas);                   // Cabeçalho da tabela
+  this._renderAgenda(dados.janelas, colunas);                      // Bloco 3: Agenda (corpo da tabela)
+  this._renderLegendaCompleta(dados.legenda);                      // Bloco 4
+  this._renderObservacoes(dados.observacoes);                      // Bloco 5
   this._renderProxima(dados.janelas);
   this._bindAcoes();
+  
   this.el.querySelector('[data-results]').style.display = 'block';
+};
+
+AgendaKalon.prototype._renderOQueE = function(bloco) {
+  if (!bloco) return;
+  const container = this.el.querySelector('[data-o-que-e]');
+  if(container) container.innerHTML = `<h3>${bloco.titulo}</h3><p>${bloco.texto}</p>`;
+};
+
+AgendaKalon.prototype._renderComoUsar = function(bloco) {
+  if (!bloco) return;
+  const itens = bloco.passos.map(p => `<li>${p}</li>`).join('');
+  const container = this.el.querySelector('[data-como-usar]');
+  if(container) container.innerHTML = `<h3>${bloco.titulo}</h3><ul>${itens}</ul>`;
+};
+
+AgendaKalon.prototype._renderLegendaCompleta = function(legenda) {
+  if (!legenda) return;
+  const itens = legenda.map(l =>
+    `<div class="legenda-item"><span class="legenda-icone">${l.icone}</span>
+     <div><strong>${l.titulo}</strong><p>${l.descricao}</p></div></div>`
+  ).join('');
+  const container = this.el.querySelector('[data-legenda-completa]');
+  if(container) container.innerHTML = itens;
+};
+
+AgendaKalon.prototype._renderObservacoes = function(bloco) {
+  if (!bloco) return;
+  const container = this.el.querySelector('[data-observacoes]');
+  if(container) container.innerHTML = `<h4>${bloco.titulo}</h4><p>${bloco.texto}</p>`;
 };
 
 AgendaKalon.prototype._bindAcoes = function() {
@@ -167,6 +203,6 @@ AgendaKalon.prototype._renderProxima = function(janelas) {
   
   this.el.querySelector('[data-prox-date]').textContent = proxima.day + ' de ' + (MESES_PT[proxima.mon] || proxima.mon);
   this.el.querySelector('[data-prox-time]').textContent = proxima.pico;
-  this.el.querySelector('[data-prox-dias]').textContent = diffDias === 0 ? 'Hoje!' : diffDias === 1 ? 'em 1 dia' : \`em \${diffDias} dias\`;
+  this.el.querySelector('[data-prox-dias]').textContent = diffDias === 0 ? 'Hoje!' : diffDias === 1 ? 'em 1 dia' : `em ${diffDias} dias`;
   bloco.style.display = 'flex';
 };

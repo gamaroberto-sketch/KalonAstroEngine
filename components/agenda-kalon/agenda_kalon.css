@@ -48,3 +48,17 @@
 .agenda-kalon-container .results-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
 .agenda-kalon-container .results-name { font-size:14px; font-weight:600; color:var(--text); }
 .agenda-kalon-container .results-sub { font-size:11px; color:var(--dim); }
+
+/* KALON REPORT BLOCKS */
+.agenda-kalon-container .report-section { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px 20px; margin-bottom:16px; }
+.agenda-kalon-container .report-section h3 { font-size:14px; color:var(--gold); margin-bottom:10px; font-weight:600; margin-top:0; }
+.agenda-kalon-container .report-section h4 { font-size:12px; color:var(--text); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-top:0; }
+.agenda-kalon-container .report-section p { font-size:13px; color:var(--dim2); line-height:1.5; margin-bottom:0; margin-top:0; }
+.agenda-kalon-container .report-section ul { margin:0; padding-left:20px; font-size:13px; color:var(--dim2); line-height:1.6; }
+.agenda-kalon-container .report-section li { margin-bottom:4px; }
+.agenda-kalon-container .legenda-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; }
+.agenda-kalon-container .legenda-item { display:flex; gap:12px; align-items:flex-start; }
+.agenda-kalon-container .legenda-icone { font-size:16px; margin-top:2px; }
+.agenda-kalon-container .legenda-item strong { display:block; font-size:13px; color:var(--text); margin-bottom:2px; }
+.agenda-kalon-container .legenda-item p { font-size:11px; color:var(--dim); line-height:1.4; }
+.agenda-kalon-container .observacoes-box { border-left:3px solid var(--gold); }
