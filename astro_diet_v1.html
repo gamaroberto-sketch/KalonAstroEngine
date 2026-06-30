@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<title>AstroDiet — Calendário Metabólico</title>
+<link rel="stylesheet" href="/components/agenda-kalon/agenda_kalon.css">
+<style>
+  body { background:#0C0D0F; color:#E8E4DC; font-family:system-ui,sans-serif; padding:0 16px 80px; }
+  .wrap { max-width:720px; margin:0 auto; }
+  header { padding:24px 0 18px; border-bottom:1px solid #1E2228; margin-bottom:24px; }
+  .eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#C9A84C; margin-bottom:8px; }
+  h1 { font-size:24px; font-weight:300; }
+  .form-card { background:#13151A; border:1px solid #1E2228; border-radius:8px; padding:20px; margin-bottom:14px; }
+  .fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+  .full { grid-column:1/-1; }
+  label { display:block; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#7A8290; margin-bottom:5px; }
+  input { width:100%; background:#272B34; border:1px solid #1E2228; border-radius:6px; color:#E8E4DC; font-size:14px; padding:9px 11px; }
+  .btn { width:100%; background:#C9A84C; border:none; border-radius:6px; color:#fff; cursor:pointer; font-size:12px; font-weight:700; letter-spacing:1px; padding:12px; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Kalon Astro · AstroDiet</div>
+    <h1>Calendário Metabólico</h1>
+  </header>
+
+  <div class="form-card">
+    <div class="fields">
+      <div class="full"><label>Nome</label><input id="nome" placeholder="Nome completo"></div>
+      <div><label>Data de nascimento</label><input id="data" type="date"></div>
+      <div><label>Hora (local)</label><input id="hora" type="time" value="00:00"></div>
+      <div class="full"><label>Cidade de nascimento</label><input id="cidade" placeholder="Cidade, Estado"></div>
+      <div><label>Data de início</label><input id="data-inicio" type="date" value="2026-07-01"></div>
+      <div><label>Período</label>
+        <select id="periodo" style="width:100%;background:#272B34;border:1px solid #1E2228;border-radius:6px;color:#E8E4DC;padding:9px 11px;">
+          <option value="1">1 mês</option><option value="3">3 meses</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" onclick="iniciarComponente()">Gerar calendário</button>
+  </div>
+
+  <div id="agendaDiet"></div>
+</div>
+
+<script>
+async function iniciarComponente() {
+  const resp = await fetch('/components/agenda-kalon/agenda_kalon.html');
+  document.getElementById('agendaDiet').innerHTML = await resp.text();
+
+  const script = document.createElement('script');
+  script.src = '/components/agenda-kalon/agenda_kalon.js';
+  script.onload = () => {
+    const agenda = new AgendaKalon('#agendaDiet');
+    agenda.render({
+      estrategia: 'diet_metabolico',
+      nome: document.getElementById('nome').value,
+      data_nascimento: document.getElementById('data').value,
+      hora_nascimento: document.getElementById('hora').value,
+      cidade: document.getElementById('cidade').value,
+      data_inicio: document.getElementById('data-inicio').value,
+      periodo_meses: parseInt(document.getElementById('periodo').value)
+    });
+  };
+  document.body.appendChild(script);
+}
+</script>
+</body>
+</html>
