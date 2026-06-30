@@ -1,0 +1,68 @@
+versao: "1.0"
+targets:
+  asc:
+    tipo: angulo
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Ascendente natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  mc:
+    tipo: angulo
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Meio do Céu natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  sol:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Sol natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  lua:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Lua natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  mercurio:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Mercúrio natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  venus:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Vênus natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  marte:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Marte natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  jupiter:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Júpiter natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  saturno:
+    tipo: planeta
+    implementado: true
+    calculado_por: calcular_natal
+    descricao: Saturno natal
+    disponivel_para: [calendario_temporal, inferencia, transitos, sinastria]
+  urano:
+    tipo: planeta_moderno
+    implementado: false
+    descricao: Urano natal — ainda não calculado pelo Engine
+  netuno:
+    tipo: planeta_moderno
+    implementado: false
+    descricao: Netuno natal — ainda não calculado pelo Engine
+  plutao:
+    tipo: planeta_moderno
+    implementado: false
+    descricao: Plutão natal — ainda não calculado pelo Engine
