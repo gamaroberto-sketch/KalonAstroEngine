@@ -519,6 +519,8 @@ def calcular(req: RequisicaoCalculo):
         "janelas": janelas,
     }
 
+from astro_identity import montar_identity, formatar_utc_offset
+
 @app.post("/api/v1/agenda")
 def agenda(req: RequisicaoAgenda):
     cfg = carregar_estrategia(req.estrategia_id)
@@ -527,6 +529,17 @@ def agenda(req: RequisicaoAgenda):
     natal = calcular_natal(req.data_nascimento, req.hora_nascimento, lat, lon, fuso)
     janelas = calcular_janelas(natal, req.data_inicio, req.periodo_meses, fuso, cfg['calculo'])
     janelas = aplicar_apresentacao(janelas, cfg['apresentacao'], i18n)
+
+    identity = montar_identity(
+        natal=natal,
+        tradicao="classica",
+        cidade=req.cidade,
+        latitude=lat,
+        longitude=lon,
+        utc_offset=formatar_utc_offset(fuso),
+        strategy_id=cfg.get('id'),
+        strategy_versao=cfg.get('versao')
+    )
 
     return {
         "estrategia_id": req.estrategia_id,
@@ -541,6 +554,7 @@ def agenda(req: RequisicaoAgenda):
         "nome": req.nome,
         "janelas": janelas,
         "natal": {k: round(v,4) for k,v in natal.items()},
+        "identity": identity["identity"],
     }
 
 @app.post("/api/v1/validar-estrategia")

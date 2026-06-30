@@ -18,6 +18,10 @@ NOMES_PLANETAS = {
     'urano': 'Urano', 'netuno': 'Netuno', 'plutao': 'Plutão'
 }
 
+def formatar_utc_offset(offset: int) -> str:
+    sinal = "+" if offset >= 0 else "-"
+    return f"{sinal}{abs(offset):02d}:00"
+
 def _grau_para_signo(longitude: float) -> dict:
     indice_signo = int(longitude // 30) % 12
     signo = SIGNOS[indice_signo]
