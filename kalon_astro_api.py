@@ -18,8 +18,44 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional
 import swisseph as swe
 import os, sys
+import yaml
 
 app = FastAPI(title="Kalon Astro Engine", version="1.0.0")
+
+STRATEGIES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'strategies')
+I18N_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'i18n')
+MOTOR_VERSAO = "1.0.0"
+
+def carregar_i18n(idioma: str = 'pt-BR') -> dict:
+    path = os.path.join(I18N_DIR, f'{idioma}.yaml')
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding='utf-8') as f:
+        return yaml.safe_load(f)
+
+def localizar_arquivo_estrategia(estrategia_id: str) -> str:
+    for root, _, files in os.walk(STRATEGIES_DIR):
+        for fname in files:
+            if fname.endswith('.yaml'):
+                fpath = os.path.join(root, fname)
+                with open(fpath, encoding='utf-8') as f:
+                    data = yaml.safe_load(f)
+                if data and data.get('id') == estrategia_id:
+                    return fpath
+    raise ValueError(f"Estratégia com id '{estrategia_id}' não encontrada")
+
+def validar_schema_estrategia(cfg: dict):
+    obrigatorios = ['id', 'tipo', 'categoria', 'nome', 'versao', 'descricao', 'calculo', 'apresentacao']
+    faltando = [c for c in obrigatorios if c not in cfg]
+    if faltando:
+        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos faltando: {faltando}")
+
+def carregar_estrategia(estrategia_id: str) -> dict:
+    path = localizar_arquivo_estrategia(estrategia_id)
+    with open(path, encoding='utf-8') as f:
+        cfg = yaml.safe_load(f)
+    validar_schema_estrategia(cfg)
+    return cfg
 
 # CORS — permite que o HTML local chame a API
 app.add_middleware(
@@ -54,6 +90,19 @@ class RequisicaoCalculo(BaseModel):
     fuso_offset: Optional[int] = -3    # BRT padrão
     data_inicio: str            # "2026-07-29"
     periodo_meses: int = 1      # 1, 3, 6 ou 12
+
+class RequisicaoAgenda(BaseModel):
+    estrategia_id: str
+    nome: str
+    data_nascimento: str
+    hora_nascimento: str
+    cidade: str
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    fuso_offset: Optional[int] = -3
+    data_inicio: str
+    periodo_meses: int = 1
+    idioma: Optional[str] = 'pt-BR'
 
 # ── LOOKUP DE CIDADES ─────────────────────────────────────────────────────────
 
@@ -207,7 +256,7 @@ SYM_MAP = {
     'vigor':       {'conjuncao': 'star', 'trigono': 'star', 'sextil': 'ok'},
 }
 
-def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: int) -> list:
+def calcular_janelas_legacy(natal: dict, data_inicio: str, periodo_meses: int, fuso: int) -> list:
     """Calcula todas as janelas temporais para o período."""
     dt_ini = datetime.fromisoformat(data_inicio + 'T00:00:00').replace(tzinfo=timezone.utc)
     dt_fim = dt_ini.replace(month=((dt_ini.month - 1 + periodo_meses) % 12) + 1)
@@ -321,6 +370,106 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
     return lista
 
 
+def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: int, calculo_cfg: dict) -> list:
+    """Calcula janelas temporais baseadas no calculo_cfg da estratégia."""
+    dt_ini = datetime.fromisoformat(data_inicio + 'T00:00:00').replace(tzinfo=timezone.utc)
+    dt_fim = dt_ini.replace(month=((dt_ini.month - 1 + periodo_meses) % 12) + 1)
+    if periodo_meses >= 12:
+        dt_fim = dt_ini.replace(year=dt_ini.year + 1)
+    elif dt_ini.month + periodo_meses > 12:
+        dt_fim = dt_ini.replace(year=dt_ini.year + 1,
+                                month=(dt_ini.month + periodo_meses) % 12 or 12)
+    else:
+        dt_fim = dt_ini.replace(month=dt_ini.month + periodo_meses)
+
+    step = timedelta(minutes=STEP_MIN)
+    resultados = {}
+
+    for nome_sub, est in calculo_cfg['estrategias'].items():
+        alvo_lon = natal[est['alvo_natal']]
+        janela_h = est.get('janela_h', 6)
+        em_asp = {}
+        dt = dt_ini
+
+        while dt < dt_fim:
+            jd = datetime_para_jd(dt)
+            pos, _ = swe.calc_ut(jd, swe.MOON)
+            lon_lua = pos[0]
+            diff = diff_angular(lon_lua, alvo_lon)
+
+            for nome_asp, angulo in est['aspectos'].items():
+                orbe = abs(diff - angulo)
+                if orbe <= ORBE:
+                    if nome_asp not in em_asp or orbe < em_asp[nome_asp]['orbe']:
+                        em_asp[nome_asp] = {'jd': jd, 'orbe': orbe, 'asp': nome_asp}
+                else:
+                    if nome_asp in em_asp:
+                        ev = em_asp.pop(nome_asp)
+                        local_pico = jd_para_local(ev['jd'], fuso)
+                        local_ini  = jd_para_local(ev['jd'] - janela_h/24, fuso)
+                        local_fim  = jd_para_local(ev['jd'] + janela_h/24, fuso)
+
+                        chave = local_pico.strftime('%Y-%m-%d')
+                        if chave not in resultados:
+                            resultados[chave] = {
+                                'date_key': chave,
+                                'day':   local_pico.strftime('%d'),
+                                'mon':   local_pico.strftime('%b').upper()[:3],
+                                'pico':  local_pico.strftime('%H:%M'),
+                                'inicio':local_ini.strftime('%H:%M'),
+                                'fim':   local_fim.strftime('%H:%M'),
+                                'campos': {}
+                            }
+
+                        resultados[chave]['campos'][nome_sub] = {
+                            'aspecto': ev['asp'],
+                            'orbe': f"{ev['orbe']:.2f}°",
+                            'lua': f"{lon_lua:.1f}°",
+                            'natal': f"{alvo_lon:.2f}° ({est['alvo_natal']})",
+                            'aplic': 'Aplicante' if ev['asp'] else ''
+                        }
+            dt += step
+
+    MESES_PT = {'JAN':'JAN','FEB':'FEV','MAR':'MAR','APR':'ABR','MAY':'MAI',
+                'JUN':'JUN','JUL':'JUL','AUG':'AGO','SEP':'SET','OCT':'OUT',
+                'NOV':'NOV','DEC':'DEZ'}
+
+    lista = []
+    for chave in sorted(resultados.keys()):
+        r = resultados[chave]
+        r['mon'] = MESES_PT.get(r['mon'], r['mon'])
+        lista.append(r)
+
+    return lista
+
+def aplicar_apresentacao(janelas: list, apresentacao_cfg: dict, i18n: dict) -> list:
+    for j in janelas:
+        for nome_sub, dados in j['campos'].items():
+            apres = apresentacao_cfg.get(nome_sub, {})
+            icone_map = apres.get('icones', {})
+            cor_map = apres.get('cores', {})
+            prioridade_map = apres.get('prioridades', {})
+
+            dados['icone'] = icone_map.get(dados['aspecto'], '—')      # já o glifo pronto
+            dados['cor'] = cor_map.get(dados['aspecto'], 'dim')
+            dados['prioridade'] = prioridade_map.get(dados['aspecto'], 'baixa')
+            label_key = apres.get('label', nome_sub)
+            dados['label'] = i18n.get(label_key, label_key)
+
+            dados['auditoria'] = [
+                {
+                    "titulo": "Cálculo Astronômico",
+                    "itens": [
+                        {"label": "Aspecto", "valor": dados['aspecto'].capitalize()},
+                        {"label": "Orbe", "valor": dados['orbe']},
+                        {"label": "Lua", "valor": dados['lua']},
+                        {"label": "Natal", "valor": dados['natal']},
+                        {"label": "Aplicação", "valor": dados['aplic']},
+                    ]
+                }
+            ]
+    return janelas
+
 # ── ENDPOINTS ─────────────────────────────────────────────────────────────────
 
 @app.get("/ping")
@@ -349,7 +498,7 @@ def calcular(req: RequisicaoCalculo):
     natal = calcular_natal(req.data_nascimento, req.hora_nascimento, lat, lon, fuso)
 
     # Janelas temporais
-    janelas = calcular_janelas(natal, req.data_inicio, req.periodo_meses, fuso)
+    janelas = calcular_janelas_legacy(natal, req.data_inicio, req.periodo_meses, fuso)
 
     return {
         "nome": req.nome,
@@ -359,5 +508,25 @@ def calcular(req: RequisicaoCalculo):
         "total_janelas": len(janelas),
         "natal": {k: round(v, 4) for k, v in natal.items()},
         "janelas": janelas,
+    }
+
+@app.post("/api/v1/agenda")
+def agenda(req: RequisicaoAgenda):
+    cfg = carregar_estrategia(req.estrategia_id)
+    i18n = carregar_i18n(req.idioma)
+    lat, lon, fuso = (req.latitude, req.longitude, req.fuso_offset) if req.latitude else lookup_cidade(req.cidade)
+    natal = calcular_natal(req.data_nascimento, req.hora_nascimento, lat, lon, fuso)
+    janelas = calcular_janelas(natal, req.data_inicio, req.periodo_meses, fuso, cfg['calculo'])
+    janelas = aplicar_apresentacao(janelas, cfg['apresentacao'], i18n)
+
+    return {
+        "estrategia_id": req.estrategia_id,
+        "estrategia_nome": cfg['nome'],
+        "versao": cfg['versao'],
+        "motor_temporal": MOTOR_VERSAO,
+        "calculado_em": datetime.now(timezone.utc).isoformat(),
+        "nome": req.nome,
+        "janelas": janelas,
+        "natal": {k: round(v,4) for k,v in natal.items()},
     }
 

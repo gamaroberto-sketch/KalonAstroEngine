@@ -164,6 +164,8 @@ tr.expanded .td-chevron { color:var(--gold); }
 .analise-ts { font-size:10px; color:var(--dim); margin-left:auto; }
 .err { background:var(--red-bg); border:1px solid var(--red-border); border-radius:6px; color:var(--red); font-size:12px; padding:10px 14px; display:none; margin-bottom:10px; }
 </style>
+<link rel="stylesheet" href="components/agenda-kalon/agenda_kalon.css">
+<script src="components/agenda-kalon/agenda_kalon.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
@@ -213,210 +215,9 @@ tr.expanded .td-chevron { color:var(--gold); }
   Calculando posições planetárias e montando seu calendário…
 </div>
 
-<div id="results">
-  <div class="results-header">
-    <div class="results-name" id="res-name"></div>
-    <div class="results-sub" id="res-sub"></div>
-    <div class="analise-ts" id="analise-ts"></div>
-  </div>
-  <div class="action-bar no-print">
-    <button onclick="novaAnalise()">↩ Nova análise</button>
-    <button onclick="window.print()">🖨 Imprimir</button>
-    <button onclick="exportarPDF()">⬇ Salvar PDF</button>
-    <button onclick="salvarPNG()">📷 Salvar PNG</button>
-  </div>
-
-  <div class="best-day" id="best-day-block"></div>
-
-  <details class="legenda no-print"><summary style="cursor:pointer;font-size:11px;color:var(--dim);list-style:none;display:flex;align-items:center;gap:6px;"><span style="font-size:13px">ⓘ</span> Legenda</summary><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
-    <div class="leg-item"><span style="color:var(--gold);font-weight:700">★</span> Melhor do mês</div>
-    <div class="leg-item"><span style="color:var(--gold);font-weight:700">◆</span> Excelente</div>
-    <div class="leg-item"><span style="color:var(--green);font-weight:700">●</span> Bom</div>
-    <div class="leg-item"><span style="color:var(--gold)">▲</span> Abaixo da média</div>
-    <div class="leg-item"><span style="color:var(--red);font-weight:700">✕</span> Evite cortar</div>
-    <div class="leg-item"><span style="color:var(--dim)">—</span> Neutro</div>
-  </div>
-</details>
-
-  <div class="leg-bar no-print">
-    <span><span class="sym-crown">★</span> Melhor do mês</span>
-    <span><span class="sym-star">◆</span> Excelente</span>
-    <span><span class="sym-ok">●</span> Bom</span>
-    <span><span class="sym-warn">▲</span> Abaixo da média</span>
-    <span style="color:var(--dim)">— Neutro</span>
-  </div>
-  <div class="cal-hint no-print">Toque em qualquer data para ver os detalhes do cálculo astrológico</div>
-  <div class="cal-wrap">
-    <table id="cal-table">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Melhor horário</th>
-          <th>Janela</th>
-          <th class="center">Crescimento</th>
-          <th class="center">Força</th>
-          <th class="center">Beleza</th>
-          <th>Objetivo</th>
-          <th class="center">+</th>
-        </tr>
-      </thead>
-      <tbody id="cal-body"></tbody>
-    </table>
-  </div>
-  <div class="proxima-oportunidade no-print" id="proxima-bloco" style="display:none;">
-    <div>
-      <div class="prox-label">⭐ Próxima oportunidade recomendada</div>
-      <div><span class="prox-date" id="prox-date">—</span><span class="prox-time" id="prox-time"></span></div>
-      <div class="prox-dias" id="prox-dias"></div>
-    </div>
-  </div>
-</div>
-</div>
+<div id="agendaHair"></div>
 
 <script>
-const SYM = {
-  crown: '<span class="sym-crown">★</span>',
-  star:  '<span class="sym-star">◆</span>',
-  ok:    '<span class="sym-ok">●</span>',
-  warn:  '<span class="sym-warn">▲</span>',
-  no:    '<span class="sym-no">✕</span>',
-  dash:  '<span class="sym-dash">—</span>',
-};
-
-const CALENDARIO = [
-  { day:"03", mon:"JUL", pico:"05:29", inicio:"03:29", fim:"07:29",
-    cresc:"ok", forca:"dash", beleza:"dash", objs:"Crescimento", classe:"",
-    ast:{ lua:"14°42' Gêmeos", natal:"Júpiter 14°27' Libra", aspecto:"Sextil", orbe:"0°15'", aplic:"Aplicante", est:"Lua + Júpiter → Júpiter natal · Sextil e Trígono" },
-    qualidades:["vitalidade elevada","regeneração favorecida","fluxo harmonioso"],
-    porque:"Lua em sextil a Júpiter natal. Aspecto harmonioso que expande o potencial de crescimento — Júpiter amplifica a fase anágena do ciclo capilar." },
-
-  { day:"08", mon:"JUL", pico:"14:19", inicio:"12:19", fim:"16:19",
-    cresc:"dash", forca:"dash", beleza:"star", objs:"Beleza", classe:"",
-    ast:{ lua:"26°24' Câncer", natal:"ASC 26°24' Touro", aspecto:"Conjunção", orbe:"0°00'", aplic:"Exata", est:"Lua → ASC natal · Todos os aspectos maiores" },
-    qualidades:["vitalidade elevada","impulso de ação","sensibilidade elevada"],
-    porque:"Lua em conjunção exata ao ASC (orbe 0°00'). Intensidade máxima para expressão estética. O corte terá impacto visual imediato. Atenção à sensibilidade elevada do couro cabeludo." },
-
-  { day:"09", mon:"JUL", pico:"10:49", inicio:"08:49", fim:"12:49",
-    cresc:"dash", forca:"ok", beleza:"dash", objs:"Força", classe:"",
-    ast:{ lua:"5°42' Escorpião", natal:"Sol 5°56' Virgem", aspecto:"Sextil", orbe:"0°14'", aplic:"Aplicante", est:"Lua + Sol → Sol natal · Conjunção, Sextil e Trígono" },
-    qualidades:["fluxo harmonioso","receptividade elevada","assimilação favorecida"],
-    porque:"Lua em sextil ao Sol natal. Boa janela para corte com intenção de fortalecer e dar resistência aos fios." },
-
-  { day:"14", mon:"JUL", pico:"06:49", inicio:"18:49*", fim:"18:49**",
-    cresc:"ok", forca:"star", beleza:"ok", objs:"Crescimento + Força + Beleza", classe:"",
-    ast:{ lua:"5°56' Sagitário", natal:"Sol 5°56' Virgem", aspecto:"Conjunção", orbe:"0°00'", aplic:"Exata", est:"Lua + Sol → Sol natal · Lua Nova coincidente" },
-    qualidades:["renovação de ciclo","impulso de ação","receptividade elevada"],
-    porque:"Conjunção exata Lua–Sol natal coincidindo com Lua Nova. Dupla intensidade máxima — início de ciclo com vitalidade elevada. Favorece os três objetivos simultaneamente." },
-
-  { day:"16", mon:"JUL", pico:"14:59", inicio:"12:59", fim:"16:59",
-    cresc:"crown", forca:"star", beleza:"star", objs:"Melhor dia do mês", classe:"best-row",
-    ast:{ lua:"26°18' Leão", natal:"ASC 26°24' Touro", aspecto:"Trígono", orbe:"0°06'", aplic:"Aplicante", est:"Múltiplas estratégias convergentes · Orbe 0°06'" },
-    qualidades:["vitalidade elevada","regeneração favorecida","assimilação favorecida","fluxo harmonioso"],
-    porque:"Trígono Lua–ASC com orbe de apenas 0°06' — janela mais precisa do mês. Confluência de três estratégias temporais. Melhor corte do mês para qualquer objetivo." },
-
-  { day:"21", mon:"JUL", pico:"09:22", inicio:"07:22", fim:"11:22",
-    cresc:"warn", forca:"dash", beleza:"dash", objs:"Pode cortar, mas não é o momento ideal", classe:"",
-    ast:{ lua:"22°12' Escorpião", natal:"Lua 18°42' Libra", aspecto:"Quadratura", orbe:"0°30'", aplic:"Separante", est:"Lua → Lua natal · Aspecto de tensão" },
-    qualidades:["impulso de ação","sensibilidade elevada","resistência reduzida"],
-    porque:"Lua em quadratura à Lua natal — aspecto de tensão. Crescimento possível mas com resistência. Resultado esperado abaixo das janelas harmoniosas do mês." },
-
-  { day:"22", mon:"JUL", pico:"11:49", inicio:"09:49", fim:"13:49",
-    cresc:"no", forca:"no", beleza:"no", objs:"Evite cortar", classe:"avoid-row",
-    ast:{ lua:"Void of Course", natal:"—", aspecto:"Sem aspectos", orbe:"—", aplic:"—", est:"Lua sem aspectos válidos até mudar de signo" },
-    qualidades:["recolhimento indicado"],
-    porque:"Lua Void of Course — sem aspectos válidos. Cortes realizados nesta janela tendem a não produzir o resultado esperado. Aguarde a próxima janela." },
-
-  { day:"24", mon:"JUL", pico:"12:19", inicio:"10:19", fim:"14:19",
-    cresc:"dash", forca:"star", beleza:"dash", objs:"Força", classe:"",
-    ast:{ lua:"5°42' Capricórnio", natal:"Sol 5°56' Virgem", aspecto:"Trígono", orbe:"0°14'", aplic:"Aplicante", est:"Lua + Sol → Sol natal · Trígono" },
-    qualidades:["vitalidade elevada","regeneração favorecida","fluxo harmonioso"],
-    porque:"Trígono Lua–Sol natal — aspecto mais fluido da estratégia de vigor. Alta vitalidade com fluxo harmonioso. Excelente para corte de fortalecimento." },
-
-  { day:"26", mon:"JUL", pico:"03:29", inicio:"01:29", fim:"05:29",
-    cresc:"ok", forca:"dash", beleza:"dash", objs:"Crescimento", classe:"",
-    ast:{ lua:"14°18' Aquário", natal:"Júpiter 14°27' Libra", aspecto:"Trígono", orbe:"0°09'", aplic:"Aplicante", est:"Lua + Júpiter → Júpiter natal · Trígono" },
-    qualidades:["vitalidade elevada","regeneração favorecida","assimilação favorecida","fluxo harmonioso"],
-    porque:"Trígono Lua–Júpiter com orbe preciso. Fluxo expansivo favorável ao crescimento." },
-
-  { day:"28", mon:"JUL", pico:"16:39", inicio:"14:39", fim:"18:39",
-    cresc:"no", forca:"no", beleza:"no", objs:"Evite cortar", classe:"avoid-row",
-    ast:{ lua:"26°00' Aquário", natal:"ASC 26°24' Touro", aspecto:"Quadratura", orbe:"0°24'", aplic:"Aplicante", est:"Lua → ASC natal · Aspecto de tensão" },
-    qualidades:["sensibilidade elevada","resistência reduzida"],
-    porque:"Lua em quadratura ao ASC — couro cabeludo sensível com resistência reduzida. Evitar corte e procedimentos." },
-
-  { day:"30", mon:"JUL", pico:"11:29", inicio:"09:29", fim:"13:29",
-    cresc:"ok", forca:"dash", beleza:"dash", objs:"Crescimento", classe:"",
-    ast:{ lua:"14°42' Peixes", natal:"Júpiter 14°27' Libra", aspecto:"Sextil", orbe:"0°15'", aplic:"Aplicante", est:"Lua + Júpiter → Júpiter natal · Sextil" },
-    qualidades:["vitalidade elevada","regeneração favorecida","fluxo harmonioso"],
-    porque:"Sextil Lua–Júpiter — encerramento do mês com janela favorável a crescimento." },
-];
-
-const MELHOR = CALENDARIO.find(r => r.cresc === "crown");
-
-function renderMelhorDia(cal) {
-  const MELHOR_LOCAL = cal.find(r => r.cresc === "crown") || cal[0];
-  document.getElementById('best-day-block').innerHTML = `
-    <div class="best-label">★ Melhor oportunidade do período</div>
-    <div class="best-main">
-      <div class="best-date">${MELHOR_LOCAL.day} de ${MELHOR_LOCAL.mon.charAt(0)+MELHOR_LOCAL.mon.slice(1).toLowerCase()}</div>
-      <div>
-        <div class="best-peak">${MELHOR_LOCAL.pico}</div>
-        <div class="best-window">Início ${MELHOR_LOCAL.inicio} &nbsp;·&nbsp; Fim ${MELHOR_LOCAL.fim}</div>
-      </div>
-    </div>
-    <div style="font-size:11px;color:var(--dim2);margin-bottom:10px;">Ideal para todos os objetivos de corte deste mês</div>
-    <div class="best-objs">
-      <span class="best-obj">✓ Crescimento</span>
-      <span class="best-obj">✓ Força</span>
-      <span class="best-obj">✓ Beleza</span>
-    </div>`;
-}
-
-function renderTabela(cal) {
-  document.getElementById('cal-body').innerHTML = cal.map((item, i) => {
-    const objCls = item.objs === "Evite cortar" ? "avoid" : item.objs.includes("+") ? "multi" : "";
-    return `
-    <tr class="${item.classe}" onclick="toggleDetail(${i})" id="row-${i}">
-      <td><div class="date-day">${item.day}</div><div class="date-mon">${item.mon}</div></td>
-      <td><div class="time-peak">${item.pico}</div></td>
-      <td><div class="time-win">${item.inicio} → ${item.fim}</div></td>
-      <td class="td-sym">${SYM[item.cresc]}</td>
-      <td class="td-sym">${SYM[item.forca]}</td>
-      <td class="td-sym">${SYM[item.beleza]}</td>
-      <td class="td-obj ${objCls}">${item.objs}</td>
-      <td class="td-chevron no-print" id="chev-${i}">›</td>
-    </tr>
-    <tr class="detail-row no-print" id="detail-${i}">
-      <td class="detail-cell" colspan="8">
-        <div class="detail-box">
-          <div class="detail-tabs">
-            <button class="dtab active" onclick="setTab(${i},'explorador',event)">Por que?</button>
-            <button class="dtab" onclick="setTab(${i},'profissional',event)">Cálculo astrológico</button>
-          </div>
-          <div class="dpanel active" id="dp-${i}-explorador">
-            <div class="expl-text">${item.porque||'—'}</div>
-            <div class="q-chips">${(item.qualidades||[]).map(q=>`<span class="q-chip">${q}</span>`).join('')}</div>
-          </div>
-          <div class="dpanel" id="dp-${i}-profissional">
-            <div class="prof-sec">
-              <div class="prof-sec-lbl">Evento astronômico</div>
-              <div class="prof-row"><span class="pk">Lua (transitante)</span><span class="pv">${(item.ast||{}).lua||'—'}</span></div>
-              <div class="prof-row"><span class="pk">Ponto natal</span><span class="pv">${item.ast.natal}</span></div>
-              <div class="prof-row"><span class="pk">Aspecto</span><span class="pv hi">${item.ast.aspecto}</span></div>
-              <div class="prof-row"><span class="pk">Orbe</span><span class="pv">${item.ast.orbe}</span></div>
-              <div class="prof-row"><span class="pk">Aplicação</span><span class="pv">${item.ast.aplic}</span></div>
-            </div>
-            <div class="prof-sec">
-              <div class="prof-sec-lbl">Estratégia temporal · Knowledge Graph v1.0</div>
-              <div class="prof-row"><span class="pk">Método</span><span class="pv">${item.ast.est}</span></div>
-              <div class="prof-row"><span class="pk">Motor Temporal</span><span class="pv">047bfa3</span></div>
-            </div>
-          </div>
-        </div>
-      </td>
-    </tr>`}).join('');
-}
-
 function gerar() {
   const nome = document.getElementById('nome').value.trim();
   const data = document.getElementById('data').value;
@@ -425,145 +226,50 @@ function gerar() {
   const periodo = parseInt(document.getElementById('periodo').value);
   const err = document.getElementById('err');
   err.style.display = 'none';
+  
   if (!nome||!data||!cidade) { err.textContent='Preencha nome, data e cidade.'; err.style.display='block'; return; }
   if (!dataInicio) { err.textContent='Preencha a data de início.'; err.style.display='block'; return; }
+  
   const btn = document.getElementById('btn');
   btn.disabled = true;
   document.getElementById('loading').style.display = 'block';
-  document.getElementById('results').style.display = 'none';
 
-  // Calcular range de datas
-  const dtInicio = new Date(dataInicio + 'T00:00:00');
-  const dtFim = new Date(dtInicio);
-  dtFim.setMonth(dtFim.getMonth() + periodo);
-
-  const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-  const mesesFull = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
-                     'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-  const anoInicio = dtInicio.getFullYear();
-  const mesFimD = new Date(dtFim); mesFimD.setDate(mesFimD.getDate()-1);
-  const periodoLabel = periodo === 1
-    ? mesesFull[dtInicio.getMonth()] + ' ' + anoInicio
-    : mesesFull[dtInicio.getMonth()] + ' a ' + mesesFull[mesFimD.getMonth()] + ' ' + mesFimD.getFullYear();
-
-  // Mapa de mon do calendário para número do mês
-  const MON_MAP = {JAN:1,FEV:2,MAR:3,ABR:4,MAI:5,JUN:6,JUL:7,AGO:8,SET:9,OUT:10,NOV:11,DEZ:12};
-
-  // Filtrar: para o alpha, usar todos os dados disponíveis (calendário tem só JUL)
-  // No futuro o backend retorna dados para qualquer período
-  const calFiltrado = CALENDARIO; // alpha: sempre mostra todos os dados disponíveis
-
-  // Chamar a API local
-  fetch('http://localhost:8000/calcular', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
+  const container = document.getElementById('agendaHair');
+  
+  const iniciarComponente = () => {
+    const agenda = new AgendaKalon(container);
+    agenda.render({
+      estrategia: 'hair_corte',
       nome: nome,
       data_nascimento: data,
       hora_nascimento: document.getElementById('hora').value || '00:00',
       cidade: cidade,
       data_inicio: dataInicio,
       periodo_meses: periodo
-    })
-  })
-  .then(r => {
-    if (!r.ok) throw new Error('API retornou ' + r.status);
-    return r.json();
-  })
-  .then(dados => {
-    const calFiltrado = dados.janelas;
-    const diaInicio = dtInicio.getDate().toString().padStart(2,'0');
-    const mesInicioStr = (dtInicio.getMonth()+1).toString().padStart(2,'0');
-    document.getElementById('res-name').textContent = nome;
-    document.getElementById('res-sub').textContent =
-      'A partir de ' + diaInicio + '/' + mesInicioStr + '/' + dtInicio.getFullYear() +
-      ' · ' + periodo + (periodo===1?' mês':' meses') +
-      ' · ' + calFiltrado.length + ' janelas calculadas';
-    renderMelhorDia(calFiltrado);
-    renderTabela(calFiltrado);
-    renderProxima(calFiltrado);
-    const agora = new Date();
-    document.getElementById('analise-ts').textContent =
-      'Análise realizada em ' + agora.toLocaleDateString('pt-BR') + ' às ' +
-      agora.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('results').style.display = 'block';
-    btn.disabled = false;
-    document.getElementById('results').scrollIntoView({behavior:'smooth'});
-  })
-  .catch(err => {
-    document.getElementById('loading').style.display = 'none';
-    btn.disabled = false;
-    const errEl = document.getElementById('err');
-    console.error('Kalon Astro erro:', err);
-    errEl.textContent = '⚠️ Erro: ' + err.message + ' — Verifique o terminal da API.';
-    errEl.style.display = 'block';
-  });
-}
+    });
+    
+    // Escuta o custom event para voltar a habilitar o form, caso clique em "nova análise"
+    container.addEventListener('agenda:nova', () => {
+      document.getElementById('err').style.display = 'none';
+      btn.disabled = false;
+    });
 
-function novaAnalise() {
-  document.getElementById('results').style.display = 'none';
-  document.getElementById('err').style.display = 'none';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+      btn.disabled = false;
+    }, 800);
+  };
 
-function exportarPDF() {
-  window.print();
-}
-
-function salvarPNG() {
-  const el = document.getElementById('best-day-block');
-  html2canvas(el, {backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--best-bg').trim() || '#1a1508', scale:2}).then(canvas => {
-    const a = document.createElement('a');
-    a.download = 'kalon-melhor-dia.png';
-    a.href = canvas.toDataURL('image/png');
-    a.click();
-  });
-}
-
-function renderProxima(cal) {
-  const hoje = new Date();
-  hoje.setHours(0,0,0,0);
-  const MESES = {JAN:0,FEV:1,MAR:2,ABR:3,MAI:4,JUN:5,JUL:6,AGO:7,SET:8,OUT:9,NOV:10,DEZ:11};
-  const proxima = cal.find(item => {
-    const mes = MESES[item.mon];
-    if (mes === undefined) return false;
-    const ano = hoje.getFullYear() + (mes < hoje.getMonth() ? 1 : 0);
-    const d = new Date(ano, mes, parseInt(item.day));
-    return d >= hoje;
-  });
-  if (!proxima) return;
-  const bloco = document.getElementById('proxima-bloco');
-  const MESES_PT = {JAN:'Jan',FEV:'Fev',MAR:'Mar',ABR:'Abr',MAI:'Mai',JUN:'Jun',JUL:'Jul',AGO:'Ago',SET:'Set',OUT:'Out',NOV:'Nov',DEZ:'Dez'};
-  const mes = MESES[proxima.mon];
-  const ano = hoje.getFullYear() + (mes < hoje.getMonth() ? 1 : 0);
-  const dataProx = new Date(ano, mes, parseInt(proxima.day));
-  const diffDias = Math.round((dataProx - hoje) / 86400000);
-  document.getElementById('prox-date').textContent = proxima.day + ' de ' + (MESES_PT[proxima.mon] || proxima.mon);
-  document.getElementById('prox-time').textContent = proxima.pico;
-  document.getElementById('prox-dias').textContent = diffDias === 0 ? 'Hoje!' : diffDias === 1 ? 'em 1 dia' : `em ${diffDias} dias`;
-  bloco.style.display = 'flex';
-}
-
-function toggleDetail(i) {
-  const dr = document.getElementById(`detail-${i}`);
-  const row = document.getElementById(`row-${i}`);
-  const chev = document.getElementById(`chev-${i}`);
-  const isOpen = dr.classList.contains('open');
-  document.querySelectorAll('.detail-row').forEach(r=>r.classList.remove('open'));
-  document.querySelectorAll('tbody tr:not(.detail-row)').forEach(r=>r.classList.remove('expanded'));
-  
-  if (!isOpen) { dr.classList.add('open'); row.classList.add('expanded'); chev.textContent='‹'; chev.style.color='var(--gold)'; } else { chev.textContent='›'; chev.style.color=''; }
-}
-
-function setTab(i, tab, e) {
-  e.stopPropagation();
-  ['explorador','profissional'].forEach(t=>{
-    document.getElementById(`dp-${i}-${t}`).classList.toggle('active',t===tab);
-  });
-  document.getElementById(`detail-${i}`).querySelectorAll('.dtab').forEach((t,j)=>{
-    t.classList.toggle('active',['explorador','profissional'][j]===tab);
-  });
+  if (!container.innerHTML.trim()) {
+    fetch('components/agenda-kalon/agenda_kalon.html')
+      .then(r => r.text())
+      .then(html => {
+        container.innerHTML = html;
+        iniciarComponente();
+      });
+  } else {
+    iniciarComponente();
+  }
 }
 
 function toggleTheme() {

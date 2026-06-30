@@ -1,0 +1,31 @@
+id: diet_metabolico
+tipo: calendario_temporal
+categoria: astrodiet
+nome: AstroDiet — Calendário Metabólico
+versao: "1.0.0"
+descricao: Janelas de Pouca Caloria e Jejum baseadas na Lua x Ascendente natal
+
+calculo:
+  estrategias:
+    pouca_caloria:
+      alvo_natal: asc
+      aspectos: { sextil: 60, trigono: 120 }
+      janela_h: 2
+      plus: null
+    jejum:
+      alvo_natal: asc
+      aspectos: { quadratura: 90, opposicao: 180 }
+      janela_h: 2
+      plus: null
+
+apresentacao:
+  pouca_caloria:
+    label: pouca_caloria
+    icones:     { sextil: "●", trigono: "●" }
+    cores:      { sextil: green, trigono: green }
+    prioridades:{ sextil: media, trigono: media }
+  jejum:
+    label: jejum
+    icones:     { quadratura: "▲", opposicao: "▲" }
+    cores:      { quadratura: gold, opposicao: gold }
+    prioridades:{ quadratura: media, opposicao: media }

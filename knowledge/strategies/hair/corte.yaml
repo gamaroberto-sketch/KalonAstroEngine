@@ -1,0 +1,41 @@
+id: hair_corte
+tipo: calendario_temporal
+categoria: astrohair
+nome: AstroHair — Calendário de Corte
+versao: "1.0.0"
+descricao: Janelas para cortes de cabelo combinando Crescimento, Vigor e Beleza
+
+calculo:
+  estrategias:
+    crescimento:
+      alvo_natal: jupiter
+      aspectos: { sextil: 60, trigono: 120 }
+      janela_h: 6
+      plus: trigono
+    beleza:
+      alvo_natal: venus
+      aspectos: { conjuncao: 0, sextil: 60, quadratura: 90, trigono: 120, opposicao: 180 }
+      janela_h: 6
+      plus: conjuncao
+    vigor:
+      alvo_natal: sol
+      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      janela_h: 6
+      plus: conjuncao
+
+apresentacao:
+  crescimento:
+    label: crescimento
+    icones:     { trigono: "★", sextil: "●" }
+    cores:      { trigono: gold, sextil: green }
+    prioridades:{ trigono: alta, sextil: media }
+  beleza:
+    label: beleza
+    icones:     { conjuncao: "★", trigono: "★", sextil: "●", quadratura: "▲", opposicao: "▲" }
+    cores:      { conjuncao: gold, trigono: gold, sextil: green, quadratura: gold, opposicao: gold }
+    prioridades:{ conjuncao: alta, trigono: alta, sextil: media, quadratura: media, opposicao: media }
+  vigor:
+    label: forca
+    icones:     { conjuncao: "★", trigono: "★", sextil: "●" }
+    cores:      { conjuncao: gold, trigono: gold, sextil: green }
+    prioridades:{ conjuncao: alta, trigono: alta, sextil: media }
