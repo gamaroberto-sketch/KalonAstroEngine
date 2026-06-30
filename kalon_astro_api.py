@@ -9,7 +9,7 @@ Endpoint principal:
   Return: { janelas: [...] }
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -44,55 +44,7 @@ def localizar_arquivo_estrategia(estrategia_id: str) -> str:
                     return fpath
     raise ValueError(f"Estratégia com id '{estrategia_id}' não encontrada")
 
-SCHEMA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'schema', 'estrategia.schema.yaml')
-
-def validar_schema_estrategia(cfg: dict):
-    if not os.path.exists(SCHEMA_PATH):
-        raise ValueError(f"Schema não encontrado: {SCHEMA_PATH}")
-    with open(SCHEMA_PATH, encoding='utf-8') as f:
-        schema = yaml.safe_load(f)
-        
-    obrigatorios = schema.get('fields', {}).get('required', [])
-    faltando = [c for c in obrigatorios if c not in cfg]
-    if faltando:
-        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos faltando: {faltando}")
-        
-    has_suite = 'suite' in cfg
-    has_modulo = 'modulo' in cfg
-    if has_suite != has_modulo:
-        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — 'suite' e 'modulo' devem ser informados juntos.")
-        
-    has_categoria = 'categoria' in cfg
-    if not (has_suite or has_categoria):
-        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — requer 'suite' e 'modulo', ou 'categoria'")
-        
-    # Validar engine
-    if 'engine' in cfg:
-        engine_opt = schema.get('structures', {}).get('engine', {}).get('optional', [])
-        desconhecidos = [k for k in cfg['engine'] if k not in engine_opt]
-        if desconhecidos:
-            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos desconhecidos em 'engine': {desconhecidos}")
-
-    # Validar metadata
-    if 'metadata' in cfg:
-        meta_opt = schema.get('structures', {}).get('metadata', {}).get('optional', [])
-        desconhecidos = [k for k in cfg['metadata'] if k not in meta_opt]
-        if desconhecidos:
-            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos desconhecidos em 'metadata': {desconhecidos}")
-        
-    # Validar calculo.estrategias
-    calc_req = schema.get('structures', {}).get('calculo_estrategia', {}).get('required', [])
-    for nome, est in cfg.get('calculo', {}).get('estrategias', {}).items():
-        faltando_calc = [c for c in calc_req if c not in est]
-        if faltando_calc:
-            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — calculo '{nome}' com campos faltando: {faltando_calc}")
-
-    # Validar apresentacao
-    apres_req = schema.get('structures', {}).get('apresentacao_estrategia', {}).get('required', [])
-    for nome, apres in cfg.get('apresentacao', {}).items():
-        faltando_apres = [c for c in apres_req if c not in apres]
-        if faltando_apres:
-            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — apresentacao '{nome}' com campos faltando: {faltando_apres}")
+from strategy_validator import validar_schema_estrategia, validar_estrategia
 
 def carregar_estrategia(estrategia_id: str) -> dict:
     path = localizar_arquivo_estrategia(estrategia_id)
@@ -591,3 +543,22 @@ def agenda(req: RequisicaoAgenda):
         "natal": {k: round(v,4) for k,v in natal.items()},
     }
 
+@app.post("/api/v1/validar-estrategia")
+async def validar_estrategia_endpoint(request: Request):
+    body_bytes = await request.body()
+    body = None
+    try:
+        import json
+        body = json.loads(body_bytes)
+    except json.JSONDecodeError:
+        try:
+            import yaml
+            body = yaml.safe_load(body_bytes)
+        except yaml.YAMLError as e:
+            raise HTTPException(status_code=400,
+                detail=f"Corpo da requisição não é JSON nem YAML válido: {str(e)}")
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400,
+            detail="Corpo da requisição deve ser um objeto/dicionário válido")
+    resultado = validar_estrategia(body)
+    return resultado
