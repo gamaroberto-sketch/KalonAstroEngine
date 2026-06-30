@@ -1,0 +1,32 @@
+version: "1.0"
+description: Schema Definition for Kalon Astro Strategies
+fields:
+  required:
+    - id
+    - tipo
+    - nome
+    - versao
+    - descricao
+    - calculo
+    - apresentacao
+  optional:
+    - categoria
+    - suite
+    - modulo
+    - engine
+    - metadata
+    - o_que_e
+    - como_usar
+    - legenda
+    - observacoes
+
+structures:
+  engine:
+    optional: [tipo, versao_minima, versao_maxima]
+  metadata:
+    optional: [autor, criado_em, atualizado_em, status, foundation]
+  calculo_estrategia:
+    required: [alvo_natal, aspectos, janela_h]
+    optional: [plus]
+  apresentacao_estrategia:
+    required: [label, icones, cores, prioridades]

@@ -9,13 +9,13 @@ Endpoint principal:
   Return: { janelas: [...] }
 """
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime, timezone, timedelta
-from typing import Optional
+from typing import Optional, Dict
 import swisseph as swe
 import os, sys
 import yaml
@@ -44,11 +44,55 @@ def localizar_arquivo_estrategia(estrategia_id: str) -> str:
                     return fpath
     raise ValueError(f"Estratégia com id '{estrategia_id}' não encontrada")
 
+SCHEMA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'schema', 'estrategia.schema.yaml')
+
 def validar_schema_estrategia(cfg: dict):
-    obrigatorios = ['id', 'tipo', 'categoria', 'nome', 'versao', 'descricao', 'calculo', 'apresentacao']
+    if not os.path.exists(SCHEMA_PATH):
+        raise ValueError(f"Schema não encontrado: {SCHEMA_PATH}")
+    with open(SCHEMA_PATH, encoding='utf-8') as f:
+        schema = yaml.safe_load(f)
+        
+    obrigatorios = schema.get('fields', {}).get('required', [])
     faltando = [c for c in obrigatorios if c not in cfg]
     if faltando:
         raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos faltando: {faltando}")
+        
+    has_suite = 'suite' in cfg
+    has_modulo = 'modulo' in cfg
+    if has_suite != has_modulo:
+        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — 'suite' e 'modulo' devem ser informados juntos.")
+        
+    has_categoria = 'categoria' in cfg
+    if not (has_suite or has_categoria):
+        raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — requer 'suite' e 'modulo', ou 'categoria'")
+        
+    # Validar engine
+    if 'engine' in cfg:
+        engine_opt = schema.get('structures', {}).get('engine', {}).get('optional', [])
+        desconhecidos = [k for k in cfg['engine'] if k not in engine_opt]
+        if desconhecidos:
+            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos desconhecidos em 'engine': {desconhecidos}")
+
+    # Validar metadata
+    if 'metadata' in cfg:
+        meta_opt = schema.get('structures', {}).get('metadata', {}).get('optional', [])
+        desconhecidos = [k for k in cfg['metadata'] if k not in meta_opt]
+        if desconhecidos:
+            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — campos desconhecidos em 'metadata': {desconhecidos}")
+        
+    # Validar calculo.estrategias
+    calc_req = schema.get('structures', {}).get('calculo_estrategia', {}).get('required', [])
+    for nome, est in cfg.get('calculo', {}).get('estrategias', {}).items():
+        faltando_calc = [c for c in calc_req if c not in est]
+        if faltando_calc:
+            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — calculo '{nome}' com campos faltando: {faltando_calc}")
+
+    # Validar apresentacao
+    apres_req = schema.get('structures', {}).get('apresentacao_estrategia', {}).get('required', [])
+    for nome, apres in cfg.get('apresentacao', {}).items():
+        faltando_apres = [c for c in apres_req if c not in apres]
+        if faltando_apres:
+            raise ValueError(f"Estratégia '{cfg.get('id','?')}' inválida — apresentacao '{nome}' com campos faltando: {faltando_apres}")
 
 def carregar_estrategia(estrategia_id: str) -> dict:
     path = localizar_arquivo_estrategia(estrategia_id)
@@ -56,6 +100,11 @@ def carregar_estrategia(estrategia_id: str) -> dict:
         cfg = yaml.safe_load(f)
     validar_schema_estrategia(cfg)
     return cfg
+
+# Servir componentes estáticos (Agenda Kalon, CSS, JS)
+_components_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'components')
+if os.path.isdir(_components_path):
+    app.mount("/components", StaticFiles(directory=_components_path), name="components")
 
 # CORS — permite que o HTML local chame a API
 app.add_middleware(
@@ -486,6 +535,14 @@ def home():
             return f.read()
     return "<h1>Copie astro_hair_v8.html para C:\KalonAstroEngine\</h1>"
 
+@app.get("/diet", response_class=HTMLResponse)
+def diet_page():
+    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "astro_diet_v1.html")
+    if os.path.exists(html_path):
+        with open(html_path, encoding="utf-8") as f:
+            return f.read()
+    return "<h1>astro_diet_v1.html não encontrado</h1>"
+
 @app.post("/calcular")
 def calcular(req: RequisicaoCalculo):
     # Coordenadas
@@ -525,6 +582,10 @@ def agenda(req: RequisicaoAgenda):
         "versao": cfg['versao'],
         "motor_temporal": MOTOR_VERSAO,
         "calculado_em": datetime.now(timezone.utc).isoformat(),
+        "o_que_e": cfg.get('o_que_e'),
+        "como_usar": cfg.get('como_usar'),
+        "legenda": cfg.get('legenda'),
+        "observacoes": cfg.get('observacoes'),
         "nome": req.nome,
         "janelas": janelas,
         "natal": {k: round(v,4) for k,v in natal.items()},
