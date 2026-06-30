@@ -165,7 +165,10 @@ tr.expanded .td-chevron { color:var(--gold); }
 .err { background:var(--red-bg); border:1px solid var(--red-border); border-radius:6px; color:var(--red); font-size:12px; padding:10px 14px; display:none; margin-bottom:10px; }
 </style>
 <link rel="stylesheet" href="components/kalon-report/AgendaKalon/agenda_kalon.css">
+<link rel="stylesheet" href="components/kalon-report/KalonIdentity/kalon_identity.css">
 <script src="components/kalon-report/AgendaKalon/agenda_kalon.js"></script>
+<script src="components/kalon-report/KalonIdentity/kalon_identity.js"></script>
+<script src="components/kalon-report/KalonReport/kalon_report.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
@@ -185,10 +188,11 @@ tr.expanded .td-chevron { color:var(--gold); }
     <div><label>Data de nascimento</label><input id="data" type="date" value="1957-08-29"></div>
     <div><label>Hora (local)</label><input id="hora" type="time" value="00:00"></div>
     <div class="full" style="position:relative;">
-    <label>Cidade de nascimento</label>
-    <input id="cidade" value="Ourinhos, SP" autocomplete="off" oninput="filtrarCidades()" onfocus="filtrarCidades()" onblur="setTimeout(()=>document.getElementById('cidade-lista').style.display='none',200)" placeholder="Digite o nome da cidade...">
-    <div id="cidade-lista" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--gold);border-top:none;border-radius:0 0 6px 6px;max-height:200px;overflow-y:auto;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.3);"></div>
-  </div>
+      <label>Cidade de nascimento</label>
+      <input id="cidade" autocomplete="off" oninput="filtrarCidades()" onfocus="filtrarCidades()" onblur="setTimeout(()=>document.getElementById('cidade-lista').style.display='none',200)" placeholder="Digite o nome da cidade...">
+      <div id="cidade-lista" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--gold);border-radius:6px;max-height:200px;overflow-y:auto;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.3);margin-top:4px;"></div>
+    </div>
+
   </div>
   <!-- DATA INÍCIO E PERÍODO -->
   <div class="fields" style="margin-bottom:14px;">
@@ -204,6 +208,21 @@ tr.expanded .td-chevron { color:var(--gold); }
         <option value="6">6 meses</option>
         <option value="12">12 meses</option>
       </select>
+    </div>
+    <div id="coords-manual" style="display:none;grid-column:1/-1;grid-template-columns:1fr 1fr;gap:10px;">
+      <div>
+        <label>Latitude (opcional)</label>
+        <input id="latitude" type="number" step="0.0001" placeholder="ex: -22.9835">
+      </div>
+      <div>
+        <label>Longitude (opcional)</label>
+        <input id="longitude" type="number" step="0.0001" placeholder="ex: -49.8672">
+      </div>
+    </div>
+    <div style="grid-column:1/-1;font-size:11px;color:var(--dim);margin-top:-6px;">
+      <a href="#" onclick="toggleCoords();return false;" style="color:var(--gold);text-decoration:none;">
+        🌍 Cidade fora do Brasil? Informe coordenadas manualmente
+      </a>
     </div>
   </div>
   <div class="err" id="err"></div>
@@ -237,16 +256,19 @@ function gerar() {
   const container = document.getElementById('agendaHair');
   
   const iniciarComponente = () => {
-    const agenda = new AgendaKalon(container);
-    agenda.render({
+    new KalonReport({
       estrategia: 'hair_corte',
+      container: container,
+      nivel: 'essencial',
       nome: nome,
       data_nascimento: data,
       hora_nascimento: document.getElementById('hora').value || '00:00',
       cidade: cidade,
+      latitude: parseFloat(document.getElementById('latitude')?.value) || null,
+      longitude: parseFloat(document.getElementById('longitude')?.value) || null,
       data_inicio: dataInicio,
       periodo_meses: periodo
-    });
+    }).render();
     
     // Escuta o custom event para voltar a habilitar o form, caso clique em "nova análise"
     container.addEventListener('agenda:nova', () => {
@@ -260,16 +282,7 @@ function gerar() {
     }, 800);
   };
 
-  if (!container.innerHTML.trim()) {
-    fetch('components/kalon-report/AgendaKalon/agenda_kalon.html')
-      .then(r => r.text())
-      .then(html => {
-        container.innerHTML = html;
-        iniciarComponente();
-      });
-  } else {
-    iniciarComponente();
-  }
+  iniciarComponente();
 }
 
 function toggleTheme() {
@@ -337,6 +350,11 @@ function filtrarCidades() {
 function selecionarCidade(cidade) {
   document.getElementById('cidade').value = cidade;
   document.getElementById('cidade-lista').style.display = 'none';
+}
+
+function toggleCoords() {
+  const el = document.getElementById('coords-manual');
+  el.style.display = el.style.display === 'none' ? 'grid' : 'none';
 }
 
 </script>

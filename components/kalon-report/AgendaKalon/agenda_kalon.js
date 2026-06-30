@@ -1,25 +1,9 @@
 function AgendaKalon(container) {
   this.el = typeof container === 'string' ? document.querySelector(container) : container;
-  this.apiBase = 'http://localhost:8000';
 }
 
-AgendaKalon.prototype.render = function(opts) {
-  this.formData = opts;
-  this._fetch(opts.estrategia);
-};
-
-AgendaKalon.prototype._fetch = function(estrategiaId) {
-  fetch(`${this.apiBase}/api/v1/agenda`, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({...this.formData, estrategia_id: estrategiaId})
-  })
-  .then(r => r.json())
-  .then(dados => this._draw(dados))
-  .catch(err => {
-    console.error('Kalon Astro erro:', err);
-    // Erro básico que pode ser expandido depois
-  });
+AgendaKalon.prototype.desenhar = function(dados) {
+  this._draw(dados);
 };
 
 AgendaKalon.prototype._draw = function(dados) {
@@ -53,12 +37,17 @@ AgendaKalon.prototype._renderComoUsar = function(bloco) {
   if(container) container.innerHTML = `<h3>${bloco.titulo}</h3><ul>${itens}</ul>`;
 };
 
+const COR_ICONE = { '★': 'gold', '●': 'green', '▲': 'gold', '✕': 'red' };
+
 AgendaKalon.prototype._renderLegendaCompleta = function(legenda) {
   if (!legenda) return;
-  const itens = legenda.map(l =>
-    `<div class="legenda-item"><span class="legenda-icone">${l.icone}</span>
-     <div><strong>${l.titulo}</strong><p>${l.descricao}</p></div></div>`
-  ).join('');
+  const itens = legenda.map(l => {
+    const cor = COR_ICONE[l.icone] || 'dim';
+    return `<div class="legenda-item">
+      <span class="legenda-icone td-sym sym-${cor}">${l.icone}</span>
+      <div><strong>${l.titulo}</strong><p>${l.descricao}</p></div>
+    </div>`;
+  }).join('');
   const container = this.el.querySelector('[data-legenda-completa]');
   if(container) container.innerHTML = itens;
 };
@@ -150,9 +139,15 @@ AgendaKalon.prototype._renderAgenda = function(janelas, colunas) {
     </tr>`;
   }).join('');
 
-  this.el.querySelectorAll('[data-row]').forEach(tr => {
-    tr.addEventListener('click', () => self._toggleDetail(tr.dataset.row));
-  });
+  // Remover listener anterior se existir (evitar duplicação em re-renders)
+  if (this._agendaClickHandler) {
+    this.el.removeEventListener('click', this._agendaClickHandler);
+  }
+  this._agendaClickHandler = function(e) {
+    const tr = e.target.closest('[data-row]');
+    if (tr) self._toggleDetail(tr.dataset.row);
+  };
+  this.el.addEventListener('click', this._agendaClickHandler);
 };
 
 AgendaKalon.prototype._renderDetalhe = function(item, colunas) {
