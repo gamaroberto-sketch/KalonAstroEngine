@@ -1,0 +1,98 @@
+versao: "1.0"
+signos:
+  aries:
+    elemento: fogo
+    modalidade: cardinal
+    polaridade: masculina
+    classica:
+      regentes: [marte]
+    moderna:
+      regentes: [marte]
+  touro:
+    elemento: terra
+    modalidade: fixa
+    polaridade: feminina
+    classica:
+      regentes: [venus]
+    moderna:
+      regentes: [venus]
+  gemeos:
+    elemento: ar
+    modalidade: mutavel
+    polaridade: masculina
+    classica:
+      regentes: [mercurio]
+    moderna:
+      regentes: [mercurio]
+  cancer:
+    elemento: agua
+    modalidade: cardinal
+    polaridade: feminina
+    classica:
+      regentes: [lua]
+    moderna:
+      regentes: [lua]
+  leao:
+    elemento: fogo
+    modalidade: fixa
+    polaridade: masculina
+    classica:
+      regentes: [sol]
+    moderna:
+      regentes: [sol]
+  virgem:
+    elemento: terra
+    modalidade: mutavel
+    polaridade: feminina
+    classica:
+      regentes: [mercurio]
+    moderna:
+      regentes: [mercurio]
+  libra:
+    elemento: ar
+    modalidade: cardinal
+    polaridade: masculina
+    classica:
+      regentes: [venus]
+    moderna:
+      regentes: [venus]
+  escorpiao:
+    elemento: agua
+    modalidade: fixa
+    polaridade: feminina
+    classica:
+      regentes: [marte]
+    moderna:
+      regentes: [marte, plutao]
+  sagitario:
+    elemento: fogo
+    modalidade: mutavel
+    polaridade: masculina
+    classica:
+      regentes: [jupiter]
+    moderna:
+      regentes: [jupiter]
+  capricornio:
+    elemento: terra
+    modalidade: cardinal
+    polaridade: feminina
+    classica:
+      regentes: [saturno]
+    moderna:
+      regentes: [saturno]
+  aquario:
+    elemento: ar
+    modalidade: fixa
+    polaridade: masculina
+    classica:
+      regentes: [saturno]
+    moderna:
+      regentes: [saturno, urano]
+  peixes:
+    elemento: agua
+    modalidade: mutavel
+    polaridade: feminina
+    classica:
+      regentes: [jupiter]
+    moderna:
+      regentes: [jupiter, netuno]
