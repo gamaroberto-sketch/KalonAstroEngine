@@ -1,0 +1,57 @@
+.kalon-identity-container {
+  background: var(--card, #13151A);
+  border: 1px solid var(--border, #1E2228);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: var(--text, #E8E4DC);
+  font-family: system-ui, sans-serif;
+}
+.kalon-identity-container .ki-header h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold, #C9A84C);
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+.kalon-identity-container .ki-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.kalon-identity-container .ki-item {
+  background: var(--bg, #0C0D0F);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #1E2228);
+}
+.kalon-identity-container .ki-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--dim, #7A8290);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.kalon-identity-container .ki-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text, #E8E4DC);
+}
+.kalon-identity-container .ki-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border, #1E2228);
+  font-size: 10px;
+  color: var(--dim, #7A8290);
+  display: flex;
+  justify-content: space-between;
+}
+.kalon-identity-container .ki-warning {
+  color: var(--gold, #C9A84C);
+  font-size: 11px;
+  margin-left: 4px;
+  cursor: help;
+}
