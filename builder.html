@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalon Strategy Builder</title>
+  <!-- CSS tokens igual ao Hair/Diet -->
+  <style>
+    /* mesmos tokens CSS do Hair */
+    [data-theme="dark"] {
+      --bg: #000;
+      --text: #fff;
+      --dim: #888;
+      --border: #333;
+      --muted: #111;
+      --gold: #d4af37;
+    }
+    body { background:var(--bg); color:var(--text);
+           font-family:system-ui,sans-serif; padding:0 16px 80px; }
+    .wrap { max-width:860px; margin:0 auto; }
+    /* estilos mínimos de step/navegação */
+    .step { color: var(--dim); padding: 8px; font-size: 14px; }
+    .step.active { color: var(--text); border-bottom: 2px solid var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div style="font-size:10px;letter-spacing:3px;color:var(--gold);
+                  text-transform:uppercase;margin-bottom:8px;">
+        Kalon Astro · Ferramentas Internas
+      </div>
+      <h1 style="font-size:24px;font-weight:300;">Designer de Produtos Kalon</h1>
+    </header>
+
+    <!-- STEP INDICATOR -->
+    <div id="steps" style="display:flex;gap:8px;margin-bottom:24px;">
+      <div class="step active" data-step="1">1 · Dados Gerais</div>
+      <div class="step" data-step="2">2 · Estratégias</div>
+      <div class="step" data-step="3">3 · Kalon Report</div>
+      <div class="step" data-step="4">4 · Resultado</div>
+    </div>
+
+    <!-- STEP PANELS (só placeholders por ora) -->
+    <div id="panel-1" class="panel active">
+      <p style="color:var(--dim)">Etapa 1 — Dados Gerais (em construção)</p>
+    </div>
+    <div id="panel-2" class="panel" style="display:none">
+      <p style="color:var(--dim)">Etapa 2 — Estratégias (em construção)</p>
+    </div>
+    <div id="panel-3" class="panel" style="display:none">
+      <p style="color:var(--dim)">Etapa 3 — Kalon Report (em construção)</p>
+    </div>
+    <div id="panel-4" class="panel" style="display:none">
+      <p style="color:var(--dim)">Etapa 4 — Resultado (em construção)</p>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div style="display:flex;gap:12px;margin-top:24px;">
+      <button id="btn-prev" onclick="navStep(-1)"
+        style="display:none;padding:10px 24px;background:var(--muted);
+               border:1px solid var(--border);color:var(--text);
+               border-radius:6px;cursor:pointer;">← Anterior</button>
+      <button id="btn-next" onclick="navStep(1)"
+        style="padding:10px 24px;background:var(--gold);border:none;
+               color:#fff;border-radius:6px;cursor:pointer;font-weight:600;">
+        Próximo →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    function navStep(dir) {
+      const next = currentStep + dir;
+      if (next < 1 || next > totalSteps) return;
+      document.getElementById('panel-' + currentStep).style.display = 'none';
+      document.querySelector('[data-step="' + currentStep + '"]')
+              .classList.remove('active');
+      currentStep = next;
+      document.getElementById('panel-' + currentStep).style.display = 'block';
+      document.querySelector('[data-step="' + currentStep + '"]')
+              .classList.add('active');
+      document.getElementById('btn-prev').style.display =
+        currentStep > 1 ? 'block' : 'none';
+      document.getElementById('btn-next').textContent =
+        currentStep === totalSteps ? '✓ Concluir' : 'Próximo →';
+    }
+  </script>
+</body>
+</html>

@@ -19,12 +19,18 @@ from typing import Optional, Dict
 import swisseph as swe
 import os, sys
 import yaml
+import unicodedata
 
 app = FastAPI(title="Kalon Astro Engine", version="1.0.0")
 
-STRATEGIES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'strategies')
-I18N_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'knowledge', 'i18n')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STRATEGIES_DIR = os.path.join(BASE_DIR, 'knowledge', 'strategies')
+I18N_DIR = os.path.join(BASE_DIR, 'knowledge', 'i18n')
 MOTOR_VERSAO = "1.0.0"
+
+def _normalizar_id(s: str) -> str:
+    return unicodedata.normalize('NFKD', s).encode('ASCII', 'ignore').decode('utf-8').lower()
 
 def carregar_i18n(idioma: str = 'pt-BR') -> dict:
     path = os.path.join(I18N_DIR, f'{idioma}.yaml')
@@ -576,3 +582,47 @@ async def validar_estrategia_endpoint(request: Request):
             detail="Corpo da requisição deve ser um objeto/dicionário válido")
     resultado = validar_estrategia(body)
     return resultado
+
+@app.get("/api/v1/vocabulario/aspectos")
+def get_aspectos():
+    """Retorna lista de aspectos válidos do Engine para uso no Builder."""
+    path = os.path.join(BASE_DIR, 'config', 'aspects.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    # Retornar lista com nome (chave do yaml), angulo, orbe e harmonico
+    aspectos = []
+    for nome, info in data.get('aspects', {}).items():
+        aspectos.append({
+            "id": _normalizar_id(nome),
+            "nome": nome,
+            "angulo": info.get('angulo', info.get('angle', 0)),
+            "orbe": info.get('orbe', info.get('orb', 1)),
+            "harmonico": info.get('harmonico', info.get('harmonic', True))
+        })
+    return {"aspectos": aspectos}
+
+@app.get("/api/v1/vocabulario/alvos")
+def get_alvos():
+    """Retorna lista de alvos natais válidos do Engine para uso no Builder."""
+    path = os.path.join(BASE_DIR, 'config', 'natal_targets.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    alvos = []
+    for nome, info in data.get('targets', {}).items():
+        alvos.append({
+            "id": nome,
+            "tipo": info.get('tipo', ''),
+            "implementado": info.get('implementado', False),
+            "descricao": info.get('descricao', ''),
+            "disponivel_para": info.get('disponivel_para', [])
+        })
+    return {"alvos": alvos}
+
+@app.get("/tools/builder", response_class=HTMLResponse)
+def builder_page():
+    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "builder.html")
+    if os.path.exists(html_path):
+        with open(html_path, encoding="utf-8") as f:
+            return f.read()
+    return "<h1>builder.html não encontrado</h1>"
+
