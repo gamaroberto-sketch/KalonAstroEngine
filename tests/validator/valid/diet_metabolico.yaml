@@ -1,0 +1,94 @@
+id: diet_metabolico
+tipo: calendario_temporal
+categoria: astrodiet
+suite: kalon_astro
+modulo: astrodiet
+nome: AstroDiet — Calendário Metabólico
+versao: 1.1.0
+descricao: Janelas de Pouca Caloria e Jejum baseadas na Lua x Ascendente natal
+engine:
+  tipo: calendario_temporal
+  versao_minima: 1.0.0
+  versao_maxima: null
+metadata:
+  autor: Kalon Team
+  criado_em: 2026-06-30
+  atualizado_em: 2026-06-30
+  status: production
+  foundation: 1.0
+o_que_e:
+  titulo: O que é o Astro*Diet
+  texto: 'O Astro*Diet mapeia os melhores momentos do mês para ajustar sua alimentação
+
+    com base nos trânsitos da Lua em relação ao seu Ascendente natal.
+
+    '
+como_usar:
+  titulo: Como utilizar este calendário
+  passos:
+  - Utilize os horários como orientação prática.
+  - Priorize o horário exato quando possível.
+  - Se não for possível, utilize qualquer momento dentro da janela.
+  - Não é necessário seguir todos os eventos do mês.
+  - A consistência é mais importante do que a perfeição.
+legenda:
+- icone: ●
+  titulo: Pouca Caloria
+  descricao: Prefira refeições leves, reduzindo a ingestão calórica.
+- icone: ▲
+  titulo: Jejum
+  descricao: Esta janela favorece protocolos de jejum previamente planejados.
+observacoes:
+  titulo: Importante
+  texto: 'Este calendário é uma ferramenta de planejamento simbólico. Ele complementa
+
+    hábitos saudáveis e o acompanhamento profissional quando necessário.
+
+    '
+calculo:
+  estrategias:
+    pouca_caloria:
+      alvo_natal: asc
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 2
+      plus: null
+    jejum:
+      alvo_natal: asc
+      aspectos:
+        quadratura: 90
+        quincuncio: 150
+        opposicao: 180
+      janela_h: 2
+      plus: null
+apresentacao:
+  pouca_caloria:
+    label: pouca_caloria
+    icones:
+      conjuncao: ●
+      sextil: ●
+      trigono: ●
+    cores:
+      conjuncao: green
+      sextil: green
+      trigono: green
+    prioridades:
+      conjuncao: alta
+      sextil: media
+      trigono: media
+  jejum:
+    label: jejum
+    icones:
+      quadratura: ▲
+      quincuncio: ▲
+      opposicao: ▲
+    cores:
+      quadratura: gold
+      quincuncio: gold
+      opposicao: gold
+    prioridades:
+      quadratura: alta
+      quincuncio: media
+      opposicao: alta

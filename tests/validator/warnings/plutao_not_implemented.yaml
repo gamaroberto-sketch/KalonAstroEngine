@@ -1,0 +1,128 @@
+id: hair_corte
+tipo: calendario_temporal
+categoria: astrohair
+suite: kalon_astro
+modulo: astrohair
+nome: AstroHair — Calendário de Corte
+versao: 1.0.0
+descricao: Janelas para cortes de cabelo combinando Crescimento, Vigor e Beleza
+engine:
+  tipo: calendario_temporal
+  versao_minima: 1.0.0
+  versao_maxima: null
+metadata:
+  autor: Kalon Team
+  criado_em: 2026-06-29
+  atualizado_em: 2026-06-30
+  status: production
+  foundation: 1.0
+o_que_e:
+  titulo: O que é o AstroHair
+  texto: 'O AstroHair mapeia os melhores dias e horários para você cortar o cabelo,
+
+    sincronizando seus objetivos de Crescimento, Força e Beleza com os trânsitos da
+    Lua.
+
+    '
+como_usar:
+  titulo: Como utilizar este calendário
+  passos:
+  - Utilize os horários indicados como o momento em que a tesoura toca o cabelo.
+  - Se não for possível no pico exato, tente agendar dentro da janela informada.
+  - O mais importante é evitar os horários marcados como "Evite cortar".
+legenda:
+- icone: ★
+  titulo: Excelente
+  descricao: Aspecto de alta intensidade. Oportunidade perfeita para o objetivo.
+- icone: ●
+  titulo: Bom
+  descricao: Janela favorável. Traz benefícios sólidos, com intensidade equilibrada.
+- icone: ▲
+  titulo: Abaixo da média / Atenção
+  descricao: Pode haver certa resistência ou sensibilidade. Prefira outra data se
+    possível.
+- icone: ✕
+  titulo: Evite cortar
+  descricao: Lua fora de curso ou aspectos tensos severos. Os resultados tendem a
+    ser imprevisíveis.
+observacoes:
+  titulo: Importante
+  texto: 'Os horários listados já estão calculados para o fuso horário da cidade informada.
+
+    Se você for viajar para um local com fuso diferente, refaça o cálculo para a nova
+    cidade.
+
+    '
+calculo:
+  estrategias:
+    crescimento:
+      alvo_natal: plutao
+      aspectos:
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: trigono
+    beleza:
+      alvo_natal: venus
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        quadratura: 90
+        trigono: 120
+        opposicao: 180
+      janela_h: 6
+      plus: conjuncao
+    vigor:
+      alvo_natal: sol
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+apresentacao:
+  crescimento:
+    label: crescimento
+    icones:
+      trigono: ★
+      sextil: ●
+    cores:
+      trigono: gold
+      sextil: green
+    prioridades:
+      trigono: alta
+      sextil: media
+  beleza:
+    label: beleza
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+      quadratura: ▲
+      opposicao: ▲
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+      quadratura: gold
+      opposicao: gold
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+      quadratura: media
+      opposicao: media
+  vigor:
+    label: forca
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media

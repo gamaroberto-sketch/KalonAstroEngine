@@ -1,0 +1,22 @@
+id: test_schema_invalido
+tipo: calendario_temporal
+suite: kalon_astro
+modulo: astrohair
+nome: Teste Schema Inválido
+versao: 1.0.0
+calculo:
+  estrategias:
+    teste:
+      alvo_natal: sol
+      aspectos:
+        conjuncao: 0
+      janela_h: 6
+apresentacao:
+  teste:
+    label: teste
+    icones:
+      conjuncao: ★
+    cores:
+      conjuncao: gold
+    prioridades:
+      conjuncao: alta
