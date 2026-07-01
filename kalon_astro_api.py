@@ -150,6 +150,16 @@ def diff_angular(a: float, b: float) -> float:
     d = abs(a - b) % 360
     return d if d <= 180 else 360 - d
 
+PLANETAS = {
+    'sol':      swe.SUN,
+    'lua':      swe.MOON,
+    'mercurio': swe.MERCURY,
+    'venus':    swe.VENUS,
+    'marte':    swe.MARS,
+    'jupiter':  swe.JUPITER,
+    'saturno':  swe.SATURN,
+}
+
 def calcular_natal(data_nasc: str, hora_nasc: str, lat: float, lon: float, fuso: int) -> dict:
     """Calcula posições natais via pyswisseph."""
     ano, mes, dia = map(int, data_nasc.split('-'))
@@ -158,18 +168,8 @@ def calcular_natal(data_nasc: str, hora_nasc: str, lat: float, lon: float, fuso:
     hora_utc = hora_local - fuso
     jd = swe.julday(ano, mes, dia, hora_utc)
 
-    planetas = {
-        'sol':      swe.SUN,
-        'lua':      swe.MOON,
-        'mercurio': swe.MERCURY,
-        'venus':    swe.VENUS,
-        'marte':    swe.MARS,
-        'jupiter':  swe.JUPITER,
-        'saturno':  swe.SATURN,
-    }
-
     natal = {}
-    for nome, pid in planetas.items():
+    for nome, pid in PLANETAS.items():
         pos, _ = swe.calc_ut(jd, pid)
         natal[nome] = pos[0]
 
@@ -350,6 +350,10 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
     resultados = {}
 
     for nome_sub, est in calculo_cfg['estrategias'].items():
+        # Resolver o planeta transitante da estratégia
+        nome_transitante = est.get('transitante', 'lua')  # fallback 'lua' para retrocompatibilidade
+        swe_transitante = PLANETAS.get(nome_transitante, swe.MOON)
+
         alvo_lon = natal[est['alvo_natal']]
         janela_h = est.get('janela_h', 6)
         em_asp = {}
@@ -357,9 +361,9 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
 
         while dt < dt_fim:
             jd = datetime_para_jd(dt)
-            pos, _ = swe.calc_ut(jd, swe.MOON)
-            lon_lua = pos[0]
-            diff = diff_angular(lon_lua, alvo_lon)
+            pos, _ = swe.calc_ut(jd, swe_transitante)
+            lon_transitante = pos[0]
+            diff = diff_angular(lon_transitante, alvo_lon)
 
             for nome_asp, angulo in est['aspectos'].items():
                 orbe = abs(diff - angulo)
@@ -388,7 +392,8 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
                         resultados[chave]['campos'][nome_sub] = {
                             'aspecto': ev['asp'],
                             'orbe': f"{ev['orbe']:.2f}°",
-                            'lua': f"{lon_lua:.1f}°",
+                            'transitante': f"{lon_transitante:.1f}°",
+                            'transitante_nome': nome_transitante,
                             'natal': f"{alvo_lon:.2f}° ({est['alvo_natal']})",
                             'aplic': 'Aplicante' if ev['asp'] else ''
                         }
@@ -426,7 +431,7 @@ def aplicar_apresentacao(janelas: list, apresentacao_cfg: dict, i18n: dict) -> l
                     "itens": [
                         {"label": "Aspecto", "valor": dados['aspecto'].capitalize()},
                         {"label": "Orbe", "valor": dados['orbe']},
-                        {"label": "Lua", "valor": dados['lua']},
+                        {"label": dados.get('transitante_nome', 'lua').capitalize(), "valor": dados.get('transitante', dados.get('lua', '—'))},
                         {"label": "Natal", "valor": dados['natal']},
                         {"label": "Aplicação", "valor": dados['aplic']},
                     ]
