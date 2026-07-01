@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalon Astro — Launcher</title>
+<link rel="stylesheet" href="components/kalon-report/AgendaKalon/agenda_kalon.css">
+<link rel="stylesheet" href="components/kalon-report/KalonIdentity/kalon_identity.css">
+<script src="components/kalon-report/AgendaKalon/agenda_kalon.js"></script>
+<script src="components/kalon-report/KalonIdentity/kalon_identity.js"></script>
+<script src="components/kalon-report/KalonReport/kalon_report.js"></script>
+<style>
+/* ── TOKENS ESCURO ───────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:#0C0D0F; --card:#13151A; --border:#1E2228; --muted:#272B34;
+  --text:#E8E4DC; --dim:#7A8290; --dim2:#A8B0BC;
+  --gold:#C9A84C; --gold-dk:#7A6228; --gold-bg:#1a1508; --gold-border:#3a2a10;
+  --green:#5BAF82; --green-bg:#0d2019; --green-border:#1a4030;
+  --red:#C85B5B; --red-bg:#1a0e0e; --red-border:#3a1a1a;
+  --blue:#5B8AC8; --blue-bg:#0d1520; --blue-border:#1a2a40;
+  --best-bg:#1a1508; --avoid-bg:#1a0e0e;
+  --shadow:none;
+}
+/* ── TOKENS CLARO ────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:#F5F4F0; --card:#FFFFFF; --border:#DDD8CE; --muted:#EAE7E0;
+  --text:#1A1A1A; --dim:#7A7870; --dim2:#4A4840;
+  --gold:#8A6B20; --gold-dk:#6A4B10; --gold-bg:#FFF8E8; --gold-border:#DEB84A;
+  --green:#2A7A50; --green-bg:#E8F5EE; --green-border:#5BAF82;
+  --red:#A03030; --red-bg:#FBE8E8; --red-border:#C85B5B;
+  --blue:#2A5A98; --blue-bg:#E8F0FB; --blue-border:#5B8AC8;
+  --best-bg:#FFF8E0; --avoid-bg:#FBE8E8;
+  --shadow:0 1px 3px rgba(0,0,0,.08);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:system-ui,sans-serif; padding:0 16px 80px; transition:background .2s,color .2s; }
+.wrap { max-width:900px; margin:0 auto; }
+header { padding:24px 0 18px; border-bottom:1px solid var(--border); margin-bottom:24px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+h1 { font-size:clamp(17px,4vw,24px); font-weight:300; line-height:1.3; color:var(--text); }
+h1 strong { font-weight:600; }
+.theme-toggle { background:var(--card); border:1px solid var(--border); border-radius:20px; cursor:pointer; display:flex; align-items:center; gap:6px; padding:6px 12px; font-size:12px; color:var(--dim2); transition:border-color .15s; }
+.theme-toggle:hover { border-color:var(--gold); color:var(--text); }
+.form-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px; margin-bottom:24px; box-shadow:var(--shadow); }
+.fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+.full { grid-column:1/-1; }
+label { display:block; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); margin-bottom:5px; }
+input, select { width:100%; background:var(--muted); border:1px solid var(--border); border-radius:6px; color:var(--text); font-size:14px; padding:9px 11px; outline:none; transition:border-color .15s; }
+input:focus, select:focus { border-color:var(--gold); }
+input::placeholder { color:var(--dim); }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; margin-bottom:32px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px; display:flex; flex-direction:column; box-shadow:var(--shadow); transition:border-color .2s; }
+.card:hover { border-color:var(--gold); }
+.c-suite { font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.c-title { font-size:16px; font-weight:600; color:var(--text); margin-bottom:8px; line-height:1.3; }
+.c-desc { font-size:13px; color:var(--dim2); line-height:1.5; margin-bottom:16px; flex-grow:1; }
+.btn { width:100%; background:var(--gold); border:none; border-radius:6px; color:#fff; cursor:pointer; font-size:12px; font-weight:700; letter-spacing:1px; padding:12px; text-transform:uppercase; transition:opacity .15s; }
+[data-theme="light"] .btn { color:#000; }
+.btn:hover { opacity:.85; }
+.btn:disabled { opacity:.35; cursor:not-allowed; }
+.err { background:var(--red-bg); border:1px solid var(--red-border); border-radius:6px; color:var(--red); font-size:12px; padding:10px 14px; display:none; margin-bottom:10px; }
+.loading { display:none; text-align:center; padding:40px; color:var(--dim); font-size:13px; }
+.spinner { width:22px; height:22px; border:2px solid var(--border); border-top-color:var(--gold); border-radius:50%; animation:spin .7s linear infinite; margin:0 auto 12px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Kalon Astro</div>
+      <h1><strong>Escolha seu calendário</strong></h1>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">☀️ Modo claro</button>
+  </header>
+
+  <div class="form-card">
+    <div class="fields">
+      <div class="full"><label>Nome</label><input id="nome" placeholder="Seu nome"></div>
+      <div><label>Data de nascimento</label><input id="data" type="date"></div>
+      <div><label>Hora (local)</label><input id="hora" type="time" value="00:00"></div>
+      <div class="full" style="position:relative;">
+        <label>Cidade de nascimento</label>
+        <input id="cidade" autocomplete="off" oninput="filtrarCidades()" onfocus="filtrarCidades()" onblur="setTimeout(()=>document.getElementById('cidade-lista').style.display='none',200)" placeholder="Digite o nome da cidade...">
+        <div id="cidade-lista" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--gold);border-radius:6px;max-height:200px;overflow-y:auto;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.3);margin-top:4px;"></div>
+      </div>
+      <div><label>Data de início</label><input id="data-inicio" type="date" value="2026-07-01"></div>
+      <div>
+        <label>Período</label>
+        <select id="periodo">
+          <option value="1">1 mês</option>
+          <option value="3">3 meses</option>
+        </select>
+      </div>
+      <div id="coords-manual" style="display:none;grid-column:1/-1;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label>Latitude (opcional)</label><input id="latitude" type="number" step="0.0001" placeholder="ex: -22.9835"></div>
+        <div><label>Longitude (opcional)</label><input id="longitude" type="number" step="0.0001" placeholder="ex: -49.8672"></div>
+      </div>
+      <div style="grid-column:1/-1;font-size:11px;color:var(--dim);margin-top:-6px;">
+        <a href="#" onclick="toggleCoords();return false;" style="color:var(--gold);text-decoration:none;">🌍 Cidade fora do Brasil? Informe coordenadas manualmente</a>
+      </div>
+    </div>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="grid" id="grid">
+    <div class="loading" style="display:block; grid-column:1/-1;">Carregando estratégias...</div>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    Calculando posições planetárias e montando seu calendário…
+  </div>
+  
+  <div id="resultado"></div>
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-btn').textContent = isDark ? '🌙 Modo escuro' : '☀️ Modo claro';
+}
+
+let CIDADES_BR = [];
+async function carregarCidades() {
+  if (CIDADES_BR.length > 0) return;
+  try {
+    const res = await fetch('/api/v1/cidades');
+    const data = await res.json();
+    CIDADES_BR = data.cidades.map(c => c.display);
+  } catch(e) {}
+}
+
+async function filtrarCidades() {
+  await carregarCidades();
+  const input = document.getElementById('cidade');
+  const lista = document.getElementById('cidade-lista');
+  const termo = input.value.toLowerCase().trim();
+  if (termo.length < 2) { lista.style.display='none'; return; }
+  const filtradas = CIDADES_BR.filter(c => c.toLowerCase().includes(termo)).slice(0,10);
+  if (!filtradas.length) { lista.style.display='none'; return; }
+  
+  lista.innerHTML = '';
+  filtradas.forEach(c => {
+    const item = document.createElement('div');
+    item.textContent = c;
+    item.style.cssText = 'padding:10px 14px;cursor:pointer;font-size:13px;color:var(--text);border-bottom:1px solid var(--border);';
+    item.onmouseover = () => item.style.background = 'var(--muted)';
+    item.onmouseout = () => item.style.background = '';
+    item.onclick = () => selecionarCidade(c);
+    lista.appendChild(item);
+  });
+  
+  lista.style.display = 'block';
+}
+
+function selecionarCidade(cidade) {
+  document.getElementById('cidade').value = cidade;
+  document.getElementById('cidade-lista').style.display = 'none';
+}
+
+function toggleCoords() {
+  const el = document.getElementById('coords-manual');
+  el.style.display = el.style.display === 'none' ? 'grid' : 'none';
+}
+
+async function carregarEstrategias() {
+  try {
+    const res = await fetch('/api/v1/estrategias');
+    const data = await res.json();
+    const grid = document.getElementById('grid');
+    grid.innerHTML = '';
+    data.estrategias.forEach(est => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="c-suite">${est.suite} · ${est.modulo}</div>
+        <div class="c-title">${est.nome}</div>
+        <div class="c-desc">${est.descricao}</div>
+        <button class="btn">Gerar Calendário</button>
+      `;
+      card.querySelector('.btn').addEventListener('click', () => gerar(est.id));
+      grid.appendChild(card);
+    });
+  } catch(e) {
+    document.getElementById('grid').innerHTML = '<div class="err" style="display:block">Erro ao carregar estratégias.</div>';
+  }
+}
+
+function gerar(estrategia_id) {
+  const nome = document.getElementById('nome').value.trim();
+  const data = document.getElementById('data').value;
+  const cidade = document.getElementById('cidade').value.trim();
+  const dataInicio = document.getElementById('data-inicio').value;
+  const periodo = parseInt(document.getElementById('periodo').value);
+  const err = document.getElementById('err');
+  err.style.display = 'none';
+  
+  if (!nome || !data || !cidade || !dataInicio) {
+    err.textContent = 'Preencha nome, data, cidade e data de início.';
+    err.style.display = 'block';
+    return;
+  }
+  
+  document.getElementById('grid').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
+  document.getElementById('resultado').innerHTML = '';
+  
+  const lat_el = document.getElementById('latitude');
+  const lon_el = document.getElementById('longitude');
+  
+  new KalonReport({
+    estrategia: estrategia_id,
+    container: '#resultado',
+    nivel: 'essencial',
+    nome: nome,
+    data_nascimento: data,
+    hora_nascimento: document.getElementById('hora').value || '00:00',
+    cidade: cidade,
+    latitude: (lat_el && lat_el.value) ? parseFloat(lat_el.value) : null,
+    longitude: (lon_el && lon_el.value) ? parseFloat(lon_el.value) : null,
+    data_inicio: dataInicio,
+    periodo_meses: periodo
+  }).render();
+  
+  setTimeout(() => {
+    document.getElementById('loading').style.display = 'none';
+  }, 800);
+}
+
+document.getElementById('resultado').addEventListener('agenda:nova', () => {
+  document.getElementById('grid').style.display = 'grid';
+  document.getElementById('resultado').innerHTML = '';
+});
+
+carregarEstrategias();
+</script>
+</body>
+</html>

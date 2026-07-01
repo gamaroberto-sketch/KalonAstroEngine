@@ -127,12 +127,16 @@ async function filtrarCidades() {
   if (termo.length < 2) { lista.style.display='none'; return; }
   const filtradas = CIDADES_BR.filter(c => c.toLowerCase().includes(termo)).slice(0,10);
   if (!filtradas.length) { lista.style.display='none'; return; }
-  lista.innerHTML = filtradas.map(c =>
-    '<div onclick="selecionarCidade(\'' + c + '\')" ' +
-    'style="padding:10px 14px;cursor:pointer;font-size:13px;color:var(--text);border-bottom:1px solid var(--border);transition:background .1s;" ' +
-    'onmouseover="this.style.background=\'var(--muted)\'" onmouseout="this.style.background=\'\'"> ' +
-    c + '</div>'
-  ).join('');
+  lista.innerHTML = '';
+  filtradas.forEach(c => {
+    const item = document.createElement('div');
+    item.textContent = c;
+    item.style.cssText = 'padding:10px 14px;cursor:pointer;font-size:13px;color:var(--text);border-bottom:1px solid var(--border);transition:background .1s;';
+    item.onmouseover = () => item.style.background = 'var(--muted)';
+    item.onmouseout = () => item.style.background = '';
+    item.onclick = () => selecionarCidade(c);
+    lista.appendChild(item);
+  });
   lista.style.display = 'block';
 }
 

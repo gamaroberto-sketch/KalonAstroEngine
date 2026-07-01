@@ -625,3 +625,36 @@ def builder_page():
             return f.read()
     return "<h1>builder.html não encontrado</h1>"
 
+@app.get("/api/v1/estrategias")
+def get_estrategias():
+    """Lista todas as estratégias disponíveis no Engine."""
+    estrategias = []
+    for root, dirs, files in os.walk(STRATEGIES_DIR):
+        for fname in files:
+            if fname.endswith('.yaml'):
+                fpath = os.path.join(root, fname)
+                try:
+                    with open(fpath, encoding='utf-8') as f:
+                        cfg = yaml.safe_load(f)
+                    estrategias.append({
+                        "id": cfg.get('id'),
+                        "nome": cfg.get('nome'),
+                        "descricao": cfg.get('descricao', ''),
+                        "suite": cfg.get('suite', cfg.get('categoria', '')),
+                        "modulo": cfg.get('modulo', ''),
+                        "versao": cfg.get('versao', '1.0.0'),
+                        "status": cfg.get('metadata', {}).get('status', 'production')
+                    })
+                except Exception as e:
+                    pass  # ignora arquivos corrompidos silenciosamente
+    estrategias.sort(key=lambda x: x.get('nome', ''))
+    return {"estrategias": estrategias, "total": len(estrategias)}
+
+@app.get("/kalon", response_class=HTMLResponse)
+def launcher_page():
+    html_path = os.path.join(BASE_DIR, "kalon_launcher.html")
+    if os.path.exists(html_path):
+        with open(html_path, encoding="utf-8") as f:
+            return f.read()
+    return "<h1>kalon_launcher.html não encontrado</h1>"
+
