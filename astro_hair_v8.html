@@ -293,45 +293,21 @@ function toggleTheme() {
 }
 
 // AUTOCOMPLETE CIDADES
-const CIDADES_BR = [
-  "Americana, SP","Anápolis, GO","Apucarana, PR","Aracaju, SE","Araçatuba, SP",
-  "Araguaína, TO","Araraquara, SP","Araras, SP","Araucária, PR","Assis, SP",
-  "Atibaia, SP","Bagé, RS","Barbacena, MG","Barreiras, BA","Barretos, SP",
-  "Barueri, SP","Bauru, SP","Belém, PA","Belo Horizonte, MG","Betim, MG",
-  "Blumenau, SC","Boa Vista, RR","Botucatu, SP","Brasília, DF","Caçapava, SP",
-  "Campina Grande, PB","Campinas, SP","Campo Grande, MS","Campo Largo, PR",
-  "Campos dos Goytacazes, RJ","Carapicuíba, SP","Caruaru, PE","Cascavel, PR",
-  "Catanduva, SP","Caxias do Sul, RS","Chapecó, SC","Colombo, PR","Contagem, MG",
-  "Corumbá, MS","Cotia, SP","Criciúma, SC","Cuiabá, MT","Curitiba, PR",
-  "Diadema, SP","Divinópolis, MG","Dourados, MS","Duque de Caxias, RJ",
-  "Embu das Artes, SP","Feira de Santana, BA","Florianópolis, SC","Fortaleza, CE",
-  "Foz do Iguaçu, PR","Franca, SP","Garanhuns, PE","Goiânia, GO",
-  "Governador Valadares, MG","Gravataí, RS","Guarapuava, PR","Guaratinguetá, SP",
-  "Guarujá, SP","Guarulhos, SP","Ilhéus, BA","Imperatriz, MA","Indaiatuba, SP",
-  "Ipatinga, MG","Itajaí, SC","Itapetininga, SP","Itaquaquecetuba, SP","Itu, SP",
-  "Jaboatão dos Guararapes, PE","Jacareí, SP","Jequié, BA","João Pessoa, PB",
-  "Joinville, SC","Juazeiro do Norte, CE","Juiz de Fora, MG","Jundiaí, SP",
-  "Leme, SP","Limeira, SP","Linhares, ES","Londrina, PR","Macaé, RJ",
-  "Macapá, AP","Maceió, AL","Manaus, AM","Marabá, PA","Maracanaú, CE",
-  "Maringá, PR","Marília, SP","Mauá, SP","Mogi das Cruzes, SP","Mogi Guaçu, SP",
-  "Montes Claros, MG","Mossoró, RN","Natal, RN","Nilópolis, RJ","Niterói, RJ",
-  "Nova Friburgo, RJ","Nova Iguaçu, RJ","Novo Hamburgo, RS","Olinda, PE",
-  "Osasco, SP","Ourinhos, SP","Palmas, TO","Paranaguá, PR","Parnamirim, RN",
-  "Passo Fundo, RS","Paulista, PE","Pelotas, RS","Petrolina, PE","Petrópolis, RJ",
-  "Piracicaba, SP","Porto Alegre, RS","Porto Velho, RO","Presidente Prudente, SP",
-  "Recife, PE","Ribeirão das Neves, MG","Ribeirão Preto, SP","Rio Branco, AC",
-  "Rio Claro, SP","Rio de Janeiro, RJ","Rio Verde, GO","Rondonópolis, MT",
-  "Salvador, BA","Santa Luzia, MG","Santa Maria, RS","Santarém, PA",
-  "Santo André, SP","Santos, SP","São Bernardo do Campo, SP","São Carlos, SP",
-  "São José do Rio Preto, SP","São José dos Campos, SP","São José dos Pinhais, PR",
-  "São Leopoldo, RS","São Luís, MA","São Paulo, SP","São Vicente, SP",
-  "Serra, ES","Sete Lagoas, MG","Sinop, MT","Sorocaba, SP","Sumaré, SP",
-  "Suzano, SP","Taboão da Serra, SP","Taubaté, SP","Teresina, PI","Teresópolis, RJ",
-  "Uberaba, MG","Uberlândia, MG","Várzea Grande, MT","Viamão, RS","Vila Velha, ES",
-  "Vitória, ES","Vitória da Conquista, BA","Volta Redonda, RJ"
-];
+let CIDADES_BR = [];
 
-function filtrarCidades() {
+async function carregarCidades() {
+  if (CIDADES_BR.length > 0) return;
+  try {
+    const res = await fetch('/api/v1/cidades');
+    const data = await res.json();
+    CIDADES_BR = data.cidades.map(c => c.display);
+  } catch (e) {
+    console.error("Erro ao carregar cidades da API:", e);
+  }
+}
+
+async function filtrarCidades() {
+  await carregarCidades();
   const input = document.getElementById('cidade');
   const lista = document.getElementById('cidade-lista');
   const termo = input.value.toLowerCase().trim();

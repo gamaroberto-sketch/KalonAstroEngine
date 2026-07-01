@@ -113,69 +113,26 @@ class RequisicaoAgenda(BaseModel):
 
 # ── LOOKUP DE CIDADES ─────────────────────────────────────────────────────────
 
-CIDADES = {
-    "ourinhos, sp":      (-22.983, -49.867, -3),
-    "são paulo, sp":     (-23.550, -46.633, -3),
-    "rio de janeiro, rj":(-22.906, -43.172, -3),
-    "belo horizonte, mg":(-19.920, -43.938, -3),
-    "curitiba, pr":      (-25.429, -49.271, -3),
-    "porto alegre, rs":  (-30.033, -51.230, -3),
-    "salvador, ba":      (-12.971, -38.501, -3),
-    "fortaleza, ce":     (-3.717,  -38.543, -3),
-    "recife, pe":        (-8.054,  -34.881, -3),
-    "manaus, am":        (-3.119,  -60.021, -4),
-    "belém, pa":         (-1.455,  -48.502, -3),
-    "goiânia, go":       (-16.686, -49.264, -3),
-    "brasília, df":      (-15.779, -47.929, -3),
-    "campinas, sp":      (-22.906, -47.063, -3),
-    "guarulhos, sp":     (-23.453, -46.533, -3),
-    "são bernardo do campo, sp": (-23.694, -46.565, -3),
-    "nova iguaçu, rj":   (-22.759, -43.450, -3),
-    "maceió, al":        (-9.666,  -35.735, -3),
-    "natal, rn":         (-5.793,  -35.209, -3),
-    "teresina, pi":      (-5.092,  -42.803, -3),
-    "campo grande, ms":  (-20.469, -54.620, -4),
-    "joão pessoa, pb":   (-7.115,  -34.861, -3),
-    "santos, sp":        (-23.961, -46.333, -3),
-    "londrina, pr":      (-23.304, -51.168, -3),
-    "cuiabá, mt":        (-15.596, -56.096, -4),
-    "macapá, ap":        (0.034,   -51.066, -3),
-    "porto velho, ro":   (-8.761,  -63.900, -4),
-    "boa vista, rr":     (2.820,   -60.673, -4),
-    "rio branco, ac":    (-9.975,  -67.810, -5),
-    "palmas, to":        (-10.249, -48.324, -3),
-    "florianópolis, sc": (-27.595, -48.548, -3),
-    "vitória, es":       (-20.319, -40.338, -3),
-    "maringá, pr":       (-23.425, -51.938, -3),
-    "joinville, sc":     (-26.303, -48.846, -3),
-    "sorocaba, sp":      (-23.501, -47.458, -3),
-    "ribeirão preto, sp":(-21.177, -47.810, -3),
-    "uberlândia, mg":    (-18.919, -48.277, -3),
-    "juiz de fora, mg":  (-21.764, -43.350, -3),
-    "contagem, mg":      (-19.932, -44.053, -3),
-    "feira de santana, ba":(-12.267,-38.967,-3),
-    "aracaju, se":       (-10.909, -37.072, -3),
-    "caucaia, ce":       (-3.737,  -38.658, -3),
-    "são luís, ma":      (-2.539,  -44.282, -3),
-    "mogi das cruzes, sp":(-23.523,-46.185,-3),
-    "betim, mg":         (-19.968, -44.198, -3),
-    "jundiaí, sp":       (-23.186, -46.884, -3),
-    "são josé dos campos, sp":(-23.178,-45.886,-3),
-    "carapicuíba, sp":   (-23.522, -46.836, -3),
-    "piracicaba, sp":    (-22.728, -47.649, -3),
-    "osasco, sp":        (-23.532, -46.791, -3),
-}
-
 def lookup_cidade(cidade: str):
-    key = cidade.lower().strip()
-    if key in CIDADES:
-        lat, lon, fuso = CIDADES[key]
-        return lat, lon, fuso
-    # Busca parcial
-    for k, v in CIDADES.items():
-        if key in k or k in key:
-            return v
-    return -23.55, -46.63, -3  # São Paulo como fallback
+    path = os.path.join(BASE_DIR, 'config', 'geocoding', 'cidades_br.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    
+    key_busca = _normalizar_id(cidade).strip()
+    
+    for cid_id, info in data.get('cidades', {}).items():
+        nome_norm = _normalizar_id(info['nome'])
+        display = f"{info['nome']}, {info.get('estado', info.get('pais', ''))}"
+        display_norm = _normalizar_id(display)
+        
+        if key_busca in nome_norm or key_busca in display_norm:
+            lat = info['latitude']
+            lon = info['longitude']
+            utc = info['utc_offset']
+            fuso = int(utc.split(':')[0])
+            return lat, lon, fuso
+            
+    raise ValueError(f"Cidade '{cidade}' não encontrada na base de dados.")
 
 # ── CÁLCULO ASTRONÔMICO ───────────────────────────────────────────────────────
 
@@ -642,6 +599,23 @@ def get_suites():
             "modulos": modulos
         })
     return {"suites": resultado}
+
+@app.get("/api/v1/cidades")
+def get_cidades():
+    """Retorna lista de cidades da Base Kalon para autocomplete."""
+    path = os.path.join(BASE_DIR, 'config', 'geocoding', 'cidades_br.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    cidades = []
+    for cid_id, info in data.get('cidades', {}).items():
+        cidades.append({
+            "id": cid_id,
+            "nome": info['nome'],
+            "estado": info.get('estado', ''),
+            "display": f"{info['nome']}, {info.get('estado', info.get('pais', ''))}"
+        })
+    cidades.sort(key=lambda x: x['display'])
+    return {"cidades": cidades, "total": len(cidades)}
 
 @app.get("/tools/builder", response_class=HTMLResponse)
 def builder_page():

@@ -1,0 +1,352 @@
+versao: '1.0'
+cidades:
+  ourinhos:
+    nome: Ourinhos
+    estado: SP
+    pais: BR
+    latitude: -22.983
+    longitude: -49.867
+    utc_offset: -03:00
+  sao_paulo:
+    nome: São Paulo
+    estado: SP
+    pais: BR
+    latitude: -23.55
+    longitude: -46.633
+    utc_offset: -03:00
+  rio_de_janeiro:
+    nome: Rio De Janeiro
+    estado: RJ
+    pais: BR
+    latitude: -22.906
+    longitude: -43.172
+    utc_offset: -03:00
+  belo_horizonte:
+    nome: Belo Horizonte
+    estado: MG
+    pais: BR
+    latitude: -19.92
+    longitude: -43.938
+    utc_offset: -03:00
+  curitiba:
+    nome: Curitiba
+    estado: PR
+    pais: BR
+    latitude: -25.429
+    longitude: -49.271
+    utc_offset: -03:00
+  porto_alegre:
+    nome: Porto Alegre
+    estado: RS
+    pais: BR
+    latitude: -30.033
+    longitude: -51.23
+    utc_offset: -03:00
+  salvador:
+    nome: Salvador
+    estado: BA
+    pais: BR
+    latitude: -12.971
+    longitude: -38.501
+    utc_offset: -03:00
+  fortaleza:
+    nome: Fortaleza
+    estado: CE
+    pais: BR
+    latitude: -3.717
+    longitude: -38.543
+    utc_offset: -03:00
+  recife:
+    nome: Recife
+    estado: PE
+    pais: BR
+    latitude: -8.054
+    longitude: -34.881
+    utc_offset: -03:00
+  manaus:
+    nome: Manaus
+    estado: AM
+    pais: BR
+    latitude: -3.119
+    longitude: -60.021
+    utc_offset: -04:00
+  belem:
+    nome: Belém
+    estado: PA
+    pais: BR
+    latitude: -1.455
+    longitude: -48.502
+    utc_offset: -03:00
+  goiania:
+    nome: Goiânia
+    estado: GO
+    pais: BR
+    latitude: -16.686
+    longitude: -49.264
+    utc_offset: -03:00
+  brasilia:
+    nome: Brasília
+    estado: DF
+    pais: BR
+    latitude: -15.779
+    longitude: -47.929
+    utc_offset: -03:00
+  campinas:
+    nome: Campinas
+    estado: SP
+    pais: BR
+    latitude: -22.906
+    longitude: -47.063
+    utc_offset: -03:00
+  guarulhos:
+    nome: Guarulhos
+    estado: SP
+    pais: BR
+    latitude: -23.453
+    longitude: -46.533
+    utc_offset: -03:00
+  sao_bernardo_do_campo:
+    nome: São Bernardo Do Campo
+    estado: SP
+    pais: BR
+    latitude: -23.694
+    longitude: -46.565
+    utc_offset: -03:00
+  nova_iguacu:
+    nome: Nova Iguaçu
+    estado: RJ
+    pais: BR
+    latitude: -22.759
+    longitude: -43.45
+    utc_offset: -03:00
+  maceio:
+    nome: Maceió
+    estado: AL
+    pais: BR
+    latitude: -9.666
+    longitude: -35.735
+    utc_offset: -03:00
+  natal:
+    nome: Natal
+    estado: RN
+    pais: BR
+    latitude: -5.793
+    longitude: -35.209
+    utc_offset: -03:00
+  teresina:
+    nome: Teresina
+    estado: PI
+    pais: BR
+    latitude: -5.092
+    longitude: -42.803
+    utc_offset: -03:00
+  campo_grande:
+    nome: Campo Grande
+    estado: MS
+    pais: BR
+    latitude: -20.469
+    longitude: -54.62
+    utc_offset: -04:00
+  joao_pessoa:
+    nome: João Pessoa
+    estado: PB
+    pais: BR
+    latitude: -7.115
+    longitude: -34.861
+    utc_offset: -03:00
+  santos:
+    nome: Santos
+    estado: SP
+    pais: BR
+    latitude: -23.961
+    longitude: -46.333
+    utc_offset: -03:00
+  londrina:
+    nome: Londrina
+    estado: PR
+    pais: BR
+    latitude: -23.304
+    longitude: -51.168
+    utc_offset: -03:00
+  cuiaba:
+    nome: Cuiabá
+    estado: MT
+    pais: BR
+    latitude: -15.596
+    longitude: -56.096
+    utc_offset: -04:00
+  macapa:
+    nome: Macapá
+    estado: AP
+    pais: BR
+    latitude: 0.034
+    longitude: -51.066
+    utc_offset: -03:00
+  porto_velho:
+    nome: Porto Velho
+    estado: RO
+    pais: BR
+    latitude: -8.761
+    longitude: -63.9
+    utc_offset: -04:00
+  boa_vista:
+    nome: Boa Vista
+    estado: RR
+    pais: BR
+    latitude: 2.82
+    longitude: -60.673
+    utc_offset: -04:00
+  rio_branco:
+    nome: Rio Branco
+    estado: AC
+    pais: BR
+    latitude: -9.975
+    longitude: -67.81
+    utc_offset: -05:00
+  palmas:
+    nome: Palmas
+    estado: TO
+    pais: BR
+    latitude: -10.249
+    longitude: -48.324
+    utc_offset: -03:00
+  florianopolis:
+    nome: Florianópolis
+    estado: SC
+    pais: BR
+    latitude: -27.595
+    longitude: -48.548
+    utc_offset: -03:00
+  vitoria:
+    nome: Vitória
+    estado: ES
+    pais: BR
+    latitude: -20.319
+    longitude: -40.338
+    utc_offset: -03:00
+  maringa:
+    nome: Maringá
+    estado: PR
+    pais: BR
+    latitude: -23.425
+    longitude: -51.938
+    utc_offset: -03:00
+  joinville:
+    nome: Joinville
+    estado: SC
+    pais: BR
+    latitude: -26.303
+    longitude: -48.846
+    utc_offset: -03:00
+  sorocaba:
+    nome: Sorocaba
+    estado: SP
+    pais: BR
+    latitude: -23.501
+    longitude: -47.458
+    utc_offset: -03:00
+  ribeirao_preto:
+    nome: Ribeirão Preto
+    estado: SP
+    pais: BR
+    latitude: -21.177
+    longitude: -47.81
+    utc_offset: -03:00
+  uberlandia:
+    nome: Uberlândia
+    estado: MG
+    pais: BR
+    latitude: -18.919
+    longitude: -48.277
+    utc_offset: -03:00
+  juiz_de_fora:
+    nome: Juiz De Fora
+    estado: MG
+    pais: BR
+    latitude: -21.764
+    longitude: -43.35
+    utc_offset: -03:00
+  contagem:
+    nome: Contagem
+    estado: MG
+    pais: BR
+    latitude: -19.932
+    longitude: -44.053
+    utc_offset: -03:00
+  feira_de_santana:
+    nome: Feira De Santana
+    estado: BA
+    pais: BR
+    latitude: -12.267
+    longitude: -38.967
+    utc_offset: -03:00
+  aracaju:
+    nome: Aracaju
+    estado: SE
+    pais: BR
+    latitude: -10.909
+    longitude: -37.072
+    utc_offset: -03:00
+  caucaia:
+    nome: Caucaia
+    estado: CE
+    pais: BR
+    latitude: -3.737
+    longitude: -38.658
+    utc_offset: -03:00
+  sao_luis:
+    nome: São Luís
+    estado: MA
+    pais: BR
+    latitude: -2.539
+    longitude: -44.282
+    utc_offset: -03:00
+  mogi_das_cruzes:
+    nome: Mogi Das Cruzes
+    estado: SP
+    pais: BR
+    latitude: -23.523
+    longitude: -46.185
+    utc_offset: -03:00
+  betim:
+    nome: Betim
+    estado: MG
+    pais: BR
+    latitude: -19.968
+    longitude: -44.198
+    utc_offset: -03:00
+  jundiai:
+    nome: Jundiaí
+    estado: SP
+    pais: BR
+    latitude: -23.186
+    longitude: -46.884
+    utc_offset: -03:00
+  sao_jose_dos_campos:
+    nome: São José Dos Campos
+    estado: SP
+    pais: BR
+    latitude: -23.178
+    longitude: -45.886
+    utc_offset: -03:00
+  carapicuiba:
+    nome: Carapicuíba
+    estado: SP
+    pais: BR
+    latitude: -23.522
+    longitude: -46.836
+    utc_offset: -03:00
+  piracicaba:
+    nome: Piracicaba
+    estado: SP
+    pais: BR
+    latitude: -22.728
+    longitude: -47.649
+    utc_offset: -03:00
+  osasco:
+    nome: Osasco
+    estado: SP
+    pais: BR
+    latitude: -23.532
+    longitude: -46.791
+    utc_offset: -03:00
