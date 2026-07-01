@@ -1,6 +1,7 @@
 import yaml
 import os
 import unicodedata
+from transitante_resolver import PLANETAS
 
 ENGINE_VERSION_ATUAL = "1.0.0"
 def _normalize_key(k: str) -> str:
@@ -129,6 +130,101 @@ def validar_vocabulario(cfg: dict) -> list[dict]:
                         
     return erros
 
+def _planeta_implementado(nome: str) -> bool:
+    """Verifica se um planeta está implementado no Engine."""
+    # Consulta natal_targets.yaml
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        'config', 'natal_targets.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    target = data.get('targets', {}).get(nome, {})
+    return target.get('implementado', False)
+
+def validar_transitante(cfg: dict) -> list[dict]:
+    """Valida o campo 'transitante' de cada sub-estratégia."""
+    erros = []
+    estrategias = cfg.get('calculo', {}).get('estrategias', {})
+    
+    for nome, est in estrategias.items():
+        trans = est.get('transitante')
+        if trans is None:
+            continue  # campo opcional — fallback 'lua' no Engine
+        
+        # CASO 1: string simples
+        if isinstance(trans, str):
+            if trans.lower() not in PLANETAS:
+                erros.append({
+                    "codigo": "TRANSITANTE_UNKNOWN",
+                    "campo": f"{nome}.transitante",
+                    "mensagem": f"Transitante '{trans}' desconhecido. Válidos: {list(PLANETAS.keys())}",
+                    "severity": "error"
+                })
+            elif not _planeta_implementado(trans.lower()):
+                erros.append({
+                    "codigo": "TRANSITANTE_NOT_IMPLEMENTED",
+                    "campo": f"{nome}.transitante",
+                    "mensagem": f"Transitante '{trans}' ainda não implementado.",
+                    "severity": "warning"
+                })
+        
+        # CASO 2: estrutura dict
+        elif isinstance(trans, dict):
+            tipo_obj = trans.get('objeto', {}).get('tipo')
+            
+            if tipo_obj == 'midpoint':
+                componentes = trans.get('objeto', {}).get('componentes', [])
+                
+                # quantidade correta?
+                if len(componentes) != 2:
+                    erros.append({
+                        "codigo": "MIDPOINT_INVALID_COMPONENTS",
+                        "campo": f"{nome}.transitante",
+                        "mensagem": f"Midpoint requer exatamente 2 componentes, encontrou {len(componentes)}",
+                        "severity": "error"
+                    })
+                else:
+                    # duplicação?
+                    if componentes[0].lower() == componentes[1].lower():
+                        erros.append({
+                            "codigo": "MIDPOINT_DUPLICATE_COMPONENT",
+                            "campo": f"{nome}.transitante",
+                            "mensagem": f"Midpoint com componentes duplicados: {componentes}",
+                            "severity": "error"
+                        })
+                    
+                    # componentes conhecidos e implementados?
+                    for comp in componentes:
+                        if comp.lower() not in PLANETAS:
+                            erros.append({
+                                "codigo": "MIDPOINT_COMPONENT_UNKNOWN",
+                                "campo": f"{nome}.transitante.componentes",
+                                "mensagem": f"Componente '{comp}' desconhecido no midpoint",
+                                "severity": "error"
+                            })
+                        elif not _planeta_implementado(comp.lower()):
+                            erros.append({
+                                "codigo": "MIDPOINT_COMPONENT_NOT_IMPLEMENTED",
+                                "campo": f"{nome}.transitante.componentes",
+                                "mensagem": f"Componente '{comp}' ainda não implementado",
+                                "severity": "warning"
+                            })
+            else:
+                erros.append({
+                    "codigo": "TRANSITANTE_TYPE_UNKNOWN",
+                    "campo": f"{nome}.transitante",
+                    "mensagem": f"Tipo de objeto '{tipo_obj}' desconhecido",
+                    "severity": "error"
+                })
+        else:
+            erros.append({
+                "codigo": "TRANSITANTE_INVALID_FORMAT",
+                "campo": f"{nome}.transitante",
+                "mensagem": "Campo 'transitante' deve ser string ou objeto estruturado",
+                "severity": "error"
+            })
+    
+    return erros
+
 def validar_estrategia(cfg: dict) -> dict:
     erros_schema = []
     try:
@@ -140,8 +236,9 @@ def validar_estrategia(cfg: dict) -> dict:
     erros_vocab = validar_vocabulario(cfg)
     erros_engine = validar_engine_compatibilidade(cfg)
     erros_apresentacao = validar_apresentacao(cfg)
+    erros_transitante = validar_transitante(cfg)
 
-    todos = erros_schema + erros_vocab + erros_engine + erros_apresentacao
+    todos = erros_schema + erros_vocab + erros_engine + erros_apresentacao + erros_transitante
     tem_erro = any(e['severity'] == 'error' for e in todos)
 
     return {
@@ -156,7 +253,8 @@ def validar_estrategia(cfg: dict) -> dict:
             "schema": len(erros_schema) == 0,
             "vocabulario": len(erros_vocab) == 0,
             "engine": len(erros_engine) == 0,
-            "apresentacao": len(erros_apresentacao) == 0
+            "apresentacao": len(erros_apresentacao) == 0,
+            "transitante": len(erros_transitante) == 0
         }
     }
 
