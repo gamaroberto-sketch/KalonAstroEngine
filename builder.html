@@ -3,88 +3,731 @@
 <head>
   <meta charset="UTF-8">
   <title>Kalon Strategy Builder</title>
-  <!-- CSS tokens igual ao Hair/Diet -->
   <style>
-    /* mesmos tokens CSS do Hair */
-    [data-theme="dark"] {
+    :root {
       --bg: #000;
       --text: #fff;
       --dim: #888;
       --border: #333;
       --muted: #111;
       --gold: #d4af37;
+      --input-bg: #1a1a1a;
+      --input-border: #444;
+      --card-bg: #0a0a0a;
     }
-    body { background:var(--bg); color:var(--text);
-           font-family:system-ui,sans-serif; padding:0 16px 80px; }
-    .wrap { max-width:860px; margin:0 auto; }
-    /* estilos mínimos de step/navegação */
-    .step { color: var(--dim); padding: 8px; font-size: 14px; }
-    .step.active { color: var(--text); border-bottom: 2px solid var(--gold); }
+    body { 
+      background: var(--bg); 
+      color: var(--text);
+      font-family: system-ui, sans-serif; 
+      padding: 0 16px 80px; 
+      margin: 0;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding-top: 32px; }
+    
+    header { margin-bottom: 32px; }
+    .label-k { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    h1 { font-size: 24px; font-weight: 300; margin: 0; }
+
+    /* STEPS */
+    #steps { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .step-ind { color: var(--dim); padding: 8px; font-size: 14px; cursor: pointer; transition: 0.2s; }
+    .step-ind.active { color: var(--text); border-bottom: 2px solid var(--gold); }
+    .step-ind:hover { color: var(--text); }
+
+    .panel { display: none; animation: fadeIn 0.3s ease; }
+    .panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* FORMS & CARDS */
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 11px; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; letter-spacing: 1px; }
+    input[type="text"], input[type="number"], select, textarea {
+      width: 100%; padding: 10px; background: var(--input-bg); border: 1px solid var(--input-border);
+      color: var(--text); border-radius: 4px; box-sizing: border-box; font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); }
+    
+    .card { border: 1px solid var(--border); padding: 16px; border-radius: 8px; background: var(--card-bg); margin-bottom: 16px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .card-title { font-weight: 600; font-size: 16px; }
+    
+    /* BUTTONS */
+    button { cursor: pointer; font-family: inherit; border-radius: 6px; transition: 0.2s; }
+    .btn-primary { padding: 10px 24px; background: var(--gold); border: none; color: #000; font-weight: 600; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary { padding: 10px 24px; background: var(--muted); border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { background: #222; }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+    .btn-danger { background: #3a1111; color: #ff8888; border: 1px solid #662222; }
+    .btn-danger:hover { background: #551111; }
+    .btn-icon { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 16px; padding: 0 4px; }
+    .btn-icon:hover { color: var(--text); }
+
+    .flex-row { display: flex; gap: 16px; }
+    .flex-row > * { flex: 1; }
+    .nav-buttons { display: flex; gap: 12px; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 24px; }
+    
+    .dynamic-list { margin-bottom: 12px; }
+    .dynamic-item { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+    .dynamic-item > .form-group { margin-bottom: 0; }
+    
+    .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+    .checkbox-label { display: flex; align-items: center; gap: 6px; font-size: 14px; text-transform: none; color: var(--text); cursor: pointer; }
+    .checkbox-label input { margin: 0; }
+
+    #form-nova-estr { display: none; margin-top: 16px; }
+    
+    /* PREVIEW */
+    .preview-box { border: 1px solid var(--border); border-radius: 8px; padding: 24px; background: var(--muted); margin-top: 24px; }
+    .preview-box pre { white-space: pre-wrap; font-size: 13px; color: #ccc; }
+    
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div style="font-size:10px;letter-spacing:3px;color:var(--gold);
-                  text-transform:uppercase;margin-bottom:8px;">
-        Kalon Astro · Ferramentas Internas
-      </div>
-      <h1 style="font-size:24px;font-weight:300;">Designer de Produtos Kalon</h1>
+      <div class="label-k">Kalon Astro · Ferramentas Internas</div>
+      <h1>Designer de Produtos Kalon</h1>
     </header>
 
     <!-- STEP INDICATOR -->
-    <div id="steps" style="display:flex;gap:8px;margin-bottom:24px;">
-      <div class="step active" data-step="1">1 · Dados Gerais</div>
-      <div class="step" data-step="2">2 · Estratégias</div>
-      <div class="step" data-step="3">3 · Kalon Report</div>
-      <div class="step" data-step="4">4 · Resultado</div>
+    <div id="steps">
+      <div class="step-ind active" data-step="1" onclick="navTo(1)">1 · Dados Gerais</div>
+      <div class="step-ind" data-step="2" onclick="navTo(2)">2 · Estratégias</div>
+      <div class="step-ind" data-step="3" onclick="navTo(3)">3 · Kalon Report</div>
+      <div class="step-ind" data-step="4" onclick="navTo(4)">4 · Resultado</div>
     </div>
 
-    <!-- STEP PANELS (só placeholders por ora) -->
+    <!-- ETAPA 1: DADOS GERAIS -->
     <div id="panel-1" class="panel active">
-      <p style="color:var(--dim)">Etapa 1 — Dados Gerais (em construção)</p>
-    </div>
-    <div id="panel-2" class="panel" style="display:none">
-      <p style="color:var(--dim)">Etapa 2 — Estratégias (em construção)</p>
-    </div>
-    <div id="panel-3" class="panel" style="display:none">
-      <p style="color:var(--dim)">Etapa 3 — Kalon Report (em construção)</p>
-    </div>
-    <div id="panel-4" class="panel" style="display:none">
-      <p style="color:var(--dim)">Etapa 4 — Resultado (em construção)</p>
+      <div class="card">
+        <div class="form-group">
+          <label>Nome do Produto (Estratégia)</label>
+          <input type="text" id="g-nome" placeholder="Ex: diet_metabolico_v2" onchange="updateState()">
+        </div>
+        
+        <div class="flex-row">
+          <div class="form-group">
+            <label>Suite</label>
+            <select id="g-suite" onchange="updateSuite()"></select>
+          </div>
+          <div class="form-group">
+            <label>Módulo</label>
+            <select id="g-modulo" onchange="updateState()"></select>
+          </div>
+        </div>
+        
+        <div class="flex-row">
+          <div class="form-group">
+            <label>Versão</label>
+            <input type="text" id="g-versao" value="1.0.0" onchange="updateState()">
+          </div>
+          <div class="form-group">
+            <label>Engine Mínima</label>
+            <input type="text" id="g-engine" value="1.0.0" onchange="updateState()">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea id="g-descricao" placeholder="Descreva brevemente esta estratégia..." onchange="updateState()"></textarea>
+        </div>
+      </div>
     </div>
 
-    <!-- NAVEGAÇÃO -->
-    <div style="display:flex;gap:12px;margin-top:24px;">
-      <button id="btn-prev" onclick="navStep(-1)"
-        style="display:none;padding:10px 24px;background:var(--muted);
-               border:1px solid var(--border);color:var(--text);
-               border-radius:6px;cursor:pointer;">← Anterior</button>
-      <button id="btn-next" onclick="navStep(1)"
-        style="padding:10px 24px;background:var(--gold);border:none;
-               color:#fff;border-radius:6px;cursor:pointer;font-weight:600;">
-        Próximo →</button>
+    <!-- ETAPA 2: ESTRATÉGIAS -->
+    <div id="panel-2" class="panel">
+      <div id="lista-estrategias"></div>
+      
+      <button class="btn-secondary btn-sm" onclick="toggleFormEstrategia()">+ Adicionar Sub-estratégia</button>
+      
+      <div id="form-nova-estr" class="card">
+        <div class="card-header"><div class="card-title">Nova Sub-estratégia</div></div>
+        
+        <div class="flex-row">
+          <div class="form-group">
+            <label>Nome (Identificador)</label>
+            <input type="text" id="e-nome" placeholder="Ex: crescimento">
+          </div>
+          <div class="form-group">
+            <label>Alvo Natal</label>
+            <select id="e-alvo"></select>
+          </div>
+          <div class="form-group">
+            <label>Janela (horas)</label>
+            <input type="number" id="e-janela" value="6" min="1" max="72">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Aspectos Permitidos</label>
+          <div class="checkbox-grid" id="e-aspectos"></div>
+        </div>
+        
+        <div class="form-group">
+          <label>Aspecto "Plus" (Destaque principal)</label>
+          <select id="e-plus">
+            <option value="">Selecione primeiro os aspectos acima...</option>
+          </select>
+        </div>
+
+        <div id="e-apres-fields" style="margin-top:16px;"></div>
+        
+        <div style="text-align: right; margin-top: 16px;">
+          <button class="btn-secondary btn-sm" onclick="toggleFormEstrategia()">Cancelar</button>
+          <button class="btn-primary btn-sm" onclick="addEstrategia()">Adicionar à lista</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ETAPA 3: KALON REPORT -->
+    <div id="panel-3" class="panel">
+      <div class="card">
+        <div class="card-header"><div class="card-title">O que é</div></div>
+        <div class="form-group">
+          <label>Título</label>
+          <input type="text" id="r-oque-titulo" onchange="updateState()" placeholder="Ex: O que é o AstroDiet?">
+        </div>
+        <div class="form-group">
+          <label>Texto explicativo</label>
+          <textarea id="r-oque-texto" onchange="updateState()"></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Como usar</div></div>
+        <div class="form-group">
+          <label>Título</label>
+          <input type="text" id="r-como-titulo" onchange="updateState()" placeholder="Ex: Como interpretar sua agenda">
+        </div>
+        <div class="form-group">
+          <label>Passos</label>
+          <div id="r-como-passos" class="dynamic-list"></div>
+          <button class="btn-secondary btn-sm" onclick="addPasso()">+ Adicionar Passo</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Legenda de Símbolos</div></div>
+        <div class="form-group">
+          <div id="r-legenda-itens" class="dynamic-list"></div>
+          <button class="btn-secondary btn-sm" onclick="addLegenda()">+ Adicionar Símbolo</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Observações (Disclaimer)</div></div>
+        <div class="form-group">
+          <label>Título</label>
+          <input type="text" id="r-obs-titulo" onchange="updateState()" placeholder="Ex: Importante">
+        </div>
+        <div class="form-group">
+          <label>Texto</label>
+          <textarea id="r-obs-texto" onchange="updateState()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ETAPA 4: RESULTADO -->
+    <div id="panel-4" class="panel">
+      <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+        <button class="btn-secondary" onclick="validarYAML()">Validar (API)</button>
+        <button class="btn-secondary" onclick="renderPreview()">Visualizar Preview</button>
+        <button class="btn-primary" onclick="exportarYAML()">Baixar YAML</button>
+      </div>
+      
+      <div id="result-box" class="preview-box" style="display:none;"></div>
+      
+      <div class="card" style="margin-top:24px;">
+        <div class="card-header"><div class="card-title">YAML Gerado</div></div>
+        <pre id="yaml-output" style="font-size: 13px; color: var(--gold); margin: 0; white-space: pre-wrap; word-break: break-all;"></pre>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO GLOBAL -->
+    <div class="nav-buttons">
+      <button id="btn-prev" class="btn-secondary" onclick="navStep(-1)" style="display:none;">← Anterior</button>
+      <div style="flex:1;"></div>
+      <button id="btn-next" class="btn-primary" onclick="navStep(1)">Próximo →</button>
     </div>
   </div>
 
   <script>
-    let currentStep = 1;
+    // --- ESTADO GLOBAL ---
+    let estado = {
+      step: 1,
+      nome: '', modulo: '', suite: '', versao: '1.0.0',
+      descricao: '', engine_minima: '1.0.0',
+      estrategias: [],
+      o_que_e: { titulo: '', texto: '' },
+      como_usar: { titulo: '', passos: [] },
+      legenda: [],
+      observacoes: { titulo: '', texto: '' }
+    };
+    
+    let vocab = { aspectos: [], alvos: [], suites: [] };
     const totalSteps = 4;
 
+    // --- INICIALIZAÇÃO ---
+    window.onload = init;
+    async function init() {
+      try {
+        const [ra, rv, rs] = await Promise.all([
+          fetch('/api/v1/vocabulario/aspectos').then(r => r.json()),
+          fetch('/api/v1/vocabulario/alvos').then(r => r.json()),
+          fetch('/api/v1/vocabulario/suites').then(r => r.json())
+        ]);
+        vocab.aspectos = ra.aspectos;
+        vocab.alvos = rv.alvos.filter(a => a.implementado);
+        vocab.suites = rs.suites;
+        
+        preencherCombosGerais();
+        preencherCombosEstrategia();
+        
+        // Setup initial UI data
+        if(vocab.suites.length > 0) {
+            estado.suite = vocab.suites[0].id;
+            updateSuite();
+        }
+        addPasso(); // start with 1 step
+        addLegenda(); // start with 1 legend item
+        
+        renderStep(1);
+      } catch (err) {
+        console.error("Erro ao carregar vocabulários:", err);
+        alert("Erro de conexão com a API. Certifique-se de que o backend está rodando.");
+      }
+    }
+
+    // --- NAVEGAÇÃO ---
     function navStep(dir) {
-      const next = currentStep + dir;
-      if (next < 1 || next > totalSteps) return;
-      document.getElementById('panel-' + currentStep).style.display = 'none';
-      document.querySelector('[data-step="' + currentStep + '"]')
-              .classList.remove('active');
-      currentStep = next;
-      document.getElementById('panel-' + currentStep).style.display = 'block';
-      document.querySelector('[data-step="' + currentStep + '"]')
-              .classList.add('active');
-      document.getElementById('btn-prev').style.display =
-        currentStep > 1 ? 'block' : 'none';
-      document.getElementById('btn-next').textContent =
-        currentStep === totalSteps ? '✓ Concluir' : 'Próximo →';
+      navTo(estado.step + dir);
+    }
+    
+    function navTo(step) {
+      if (step < 1 || step > totalSteps) return;
+      
+      updateState(); // Save current state before leaving
+      
+      document.getElementById('panel-' + estado.step).classList.remove('active');
+      document.querySelector(`[data-step="${estado.step}"]`).classList.remove('active');
+      
+      estado.step = step;
+      
+      document.getElementById('panel-' + estado.step).classList.add('active');
+      document.querySelector(`[data-step="${estado.step}"]`).classList.add('active');
+      
+      document.getElementById('btn-prev').style.display = estado.step > 1 ? 'block' : 'none';
+      document.getElementById('btn-next').style.display = estado.step === totalSteps ? 'none' : 'block';
+      
+      if (step === 4) {
+        document.getElementById('yaml-output').textContent = gerarYAML();
+      }
+    }
+    
+    function renderStep(s) { navTo(s); }
+
+    // --- ETAPA 1 LOGIC ---
+    function preencherCombosGerais() {
+      const selSuite = document.getElementById('g-suite');
+      selSuite.innerHTML = '';
+      vocab.suites.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = `${s.nome} (${s.id})`;
+        selSuite.appendChild(opt);
+      });
+    }
+
+    function updateSuite() {
+      const selSuite = document.getElementById('g-suite');
+      const val = selSuite.value;
+      estado.suite = val;
+      const suite = vocab.suites.find(s => s.id === val);
+      
+      const selModulo = document.getElementById('g-modulo');
+      selModulo.innerHTML = '';
+      if(suite && suite.modulos) {
+        suite.modulos.forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m.id;
+          opt.textContent = `${m.nome} (${m.id})`;
+          selModulo.appendChild(opt);
+        });
+      }
+      updateState();
+    }
+
+    // --- ETAPA 2 LOGIC ---
+    function preencherCombosEstrategia() {
+      const selAlvo = document.getElementById('e-alvo');
+      vocab.alvos.forEach(a => {
+        const opt = document.createElement('option');
+        opt.value = a.id;
+        opt.textContent = `${a.descricao} (${a.id})`;
+        selAlvo.appendChild(opt);
+      });
+
+      const gridAsp = document.getElementById('e-aspectos');
+      vocab.aspectos.forEach(asp => {
+        const lbl = document.createElement('label');
+        lbl.className = 'checkbox-label';
+        lbl.innerHTML = `<input type="checkbox" value="${asp.id}" data-angulo="${asp.angulo}" onchange="updatePlusCombo()"> ${asp.nome} (${asp.angulo}°)`;
+        gridAsp.appendChild(lbl);
+      });
+    }
+
+    function updatePlusCombo() {
+      const checks = Array.from(document.querySelectorAll('#e-aspectos input:checked'));
+      
+      // Update Plus combo
+      const selPlus = document.getElementById('e-plus');
+      selPlus.innerHTML = '';
+      if(checks.length === 0) {
+        selPlus.innerHTML = '<option value="">Selecione aspectos primeiro...</option>';
+      } else {
+        checks.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.value;
+          opt.textContent = c.parentNode.textContent.trim();
+          selPlus.appendChild(opt);
+        });
+      }
+      
+      // Update Apresentação Fields
+      const flds = document.getElementById('e-apres-fields');
+      flds.innerHTML = '<label>Apresentação dos Aspectos</label>';
+      if(checks.length === 0) {
+        flds.innerHTML += '<div style="color:var(--dim);font-size:12px;">Selecione aspectos para configurar...</div>';
+        return;
+      }
+      
+      checks.forEach(c => {
+        flds.innerHTML += `
+          <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
+            <span style="width:100px;font-size:13px;color:var(--gold);">${c.value}</span>
+            <select class="apres-icone" data-asp="${c.value}">
+              <option value="★">★ Estrela</option><option value="●">● Círculo</option>
+              <option value="▲">▲ Triângulo</option><option value="✕">✕ X</option>
+              <option value="✂">✂ Tesoura</option><option value="❤">❤ Coração</option>
+            </select>
+            <select class="apres-cor" data-asp="${c.value}">
+              <option value="gold">Gold</option><option value="green">Green</option>
+              <option value="red">Red</option><option value="dim">Dim</option>
+            </select>
+            <select class="apres-prio" data-asp="${c.value}">
+              <option value="alta">Alta</option><option value="media">Média</option><option value="baixa">Baixa</option>
+            </select>
+          </div>
+        `;
+      });
+    }
+
+    function toggleFormEstrategia() {
+      const f = document.getElementById('form-nova-estr');
+      f.style.display = f.style.display === 'block' ? 'none' : 'block';
+      if(f.style.display === 'block') {
+        document.getElementById('e-nome').value = '';
+        Array.from(document.querySelectorAll('#e-aspectos input')).forEach(c => c.checked = false);
+        updatePlusCombo();
+      }
+    }
+
+    function addEstrategia() {
+      const nome = document.getElementById('e-nome').value.trim();
+      const alvo = document.getElementById('e-alvo').value;
+      const janela = parseInt(document.getElementById('e-janela').value) || 6;
+      const checks = Array.from(document.querySelectorAll('#e-aspectos input:checked'));
+      const plus = document.getElementById('e-plus').value;
+      
+      if(!nome) return alert("Digite um nome para a sub-estratégia");
+      if(checks.length === 0) return alert("Selecione pelo menos um aspecto");
+      
+      let aspectos = {};
+      let icones = {};
+      let cores = {};
+      let prioridades = {};
+      
+      checks.forEach(c => {
+        const v = c.value;
+        aspectos[v] = parseInt(c.getAttribute('data-angulo'));
+        
+        const selI = document.querySelector(`.apres-icone[data-asp="${v}"]`);
+        const selC = document.querySelector(`.apres-cor[data-asp="${v}"]`);
+        const selP = document.querySelector(`.apres-prio[data-asp="${v}"]`);
+        if(selI) icones[v] = selI.value;
+        if(selC) cores[v] = selC.value;
+        if(selP) prioridades[v] = selP.value;
+      });
+      
+      let apresentacao = {
+        label: nome,
+        icones: icones,
+        cores: cores,
+        prioridades: prioridades
+      };
+      
+      estado.estrategias.push({
+        nome: nome,
+        alvo_natal: alvo,
+        janela_h: janela,
+        aspectos: aspectos,
+        plus: plus || checks[0].value,
+        apresentacao: apresentacao
+      });
+      
+      renderEstrategiasList();
+      toggleFormEstrategia();
+    }
+    
+    function removerEstrategia(idx) {
+      estado.estrategias.splice(idx, 1);
+      renderEstrategiasList();
+    }
+    
+    function renderEstrategiasList() {
+      const div = document.getElementById('lista-estrategias');
+      div.innerHTML = '';
+      estado.estrategias.forEach((e, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-header" style="margin-bottom:4px;">
+            <div class="card-title">${e.nome} <span style="font-weight:normal;color:var(--dim);font-size:13px;">→ Alvo: ${e.alvo_natal}</span></div>
+            <button class="btn-danger btn-sm" onclick="removerEstrategia(${idx})">Remover</button>
+          </div>
+          <div style="font-size:13px;color:var(--dim);">
+            Janela: ${e.janela_h}h | Plus: ${e.plus} | Aspectos: ${Object.keys(e.aspectos).join(', ')}
+          </div>
+        `;
+        div.appendChild(card);
+      });
+    }
+
+    // --- ETAPA 3 LOGIC ---
+    function addPasso() {
+      const list = document.getElementById('r-como-passos');
+      const item = document.createElement('div');
+      item.className = 'dynamic-item';
+      item.innerHTML = `
+        <input type="text" class="passo-input" style="flex:1;" placeholder="Descreva o passo..." onchange="updateState()">
+        <button class="btn-icon" onclick="this.parentElement.remove(); updateState();">×</button>
+      `;
+      list.appendChild(item);
+    }
+    
+    function addLegenda() {
+      const list = document.getElementById('r-legenda-itens');
+      const item = document.createElement('div');
+      item.className = 'dynamic-item';
+      item.innerHTML = `
+        <input type="text" class="leg-icone" style="width:50px;text-align:center;" placeholder="✨" maxlength="2" onchange="updateState()">
+        <input type="text" class="leg-titulo" style="flex:1;" placeholder="Título" onchange="updateState()">
+        <input type="text" class="leg-desc" style="flex:2;" placeholder="Descrição" onchange="updateState()">
+        <button class="btn-icon" onclick="this.parentElement.remove(); updateState();">×</button>
+      `;
+      list.appendChild(item);
+    }
+
+    // --- GLOBAL STATE SYNC ---
+    function updateState() {
+      if(estado.step === 1) {
+        estado.nome = document.getElementById('g-nome').value.trim();
+        estado.modulo = document.getElementById('g-modulo').value;
+        estado.suite = document.getElementById('g-suite').value;
+        estado.versao = document.getElementById('g-versao').value.trim();
+        estado.engine_minima = document.getElementById('g-engine').value.trim();
+        estado.descricao = document.getElementById('g-descricao').value.trim();
+      }
+      else if(estado.step === 3) {
+        estado.o_que_e.titulo = document.getElementById('r-oque-titulo').value.trim();
+        estado.o_que_e.texto = document.getElementById('r-oque-texto').value.trim();
+        
+        estado.como_usar.titulo = document.getElementById('r-como-titulo').value.trim();
+        estado.como_usar.passos = Array.from(document.querySelectorAll('.passo-input'))
+                                      .map(i => i.value.trim()).filter(v => v);
+                                      
+        estado.observacoes.titulo = document.getElementById('r-obs-titulo').value.trim();
+        estado.observacoes.texto = document.getElementById('r-obs-texto').value.trim();
+        
+        estado.legenda = Array.from(document.querySelectorAll('#r-legenda-itens .dynamic-item'))
+          .map(el => {
+            return {
+              icone: el.querySelector('.leg-icone').value.trim(),
+              titulo: el.querySelector('.leg-titulo').value.trim(),
+              descricao: el.querySelector('.leg-desc').value.trim()
+            };
+          }).filter(i => i.icone || i.titulo);
+      }
+    }
+
+    // --- ETAPA 4 LOGIC ---
+    function gerarYAML() {
+      let yaml = `id: ${estado.nome || 'nova_estrategia'}
+tipo: calendario_temporal
+suite: ${estado.suite}
+modulo: ${estado.modulo}
+nome: "${estado.nome}"
+versao: "${estado.versao}"
+descricao: "${estado.descricao}"
+
+engine:
+  tipo: calendario_temporal
+  versao_minima: "${estado.engine_minima}"
+  versao_maxima: null
+
+o_que_e:
+  titulo: "${estado.o_que_e.titulo}"
+  texto: |
+    ${estado.o_que_e.texto.replace(/\n/g, '\n    ')}
+
+como_usar:
+  titulo: "${estado.como_usar.titulo}"
+  passos:`;
+      
+      if(estado.como_usar.passos.length === 0) yaml += ` []`;
+      else estado.como_usar.passos.forEach(p => yaml += `\n    - "${p}"`);
+      
+      yaml += `\n\nlegenda:`;
+      if(estado.legenda.length === 0) yaml += ` []`;
+      else estado.legenda.forEach(l => {
+        yaml += `\n  - icone: "${l.icone}"\n    titulo: "${l.titulo}"\n    descricao: "${l.descricao}"`;
+      });
+      
+      yaml += `\n\nobservacoes:
+  titulo: "${estado.observacoes.titulo}"
+  texto: |
+    ${estado.observacoes.texto.replace(/\n/g, '\n    ')}
+
+calculo:
+  estrategias:`;
+
+      if(estado.estrategias.length === 0) {
+        yaml += `\n    {}`;
+      } else {
+        estado.estrategias.forEach(e => {
+          yaml += `
+    ${e.nome}:
+      alvo_natal: ${e.alvo_natal}
+      aspectos:`;
+          for(const [asp, ang] of Object.entries(e.aspectos)) {
+            yaml += `\n        ${asp}: ${ang}`;
+          }
+          yaml += `\n      janela_h: ${e.janela_h}\n      plus: ${e.plus}`;
+        });
+      }
+
+      yaml += `\n\napresentacao:`;
+      if(estado.estrategias.length === 0) yaml += ` {}`;
+      else {
+        estado.estrategias.forEach(e => {
+          yaml += `
+  ${e.nome}:
+    label: ${e.apresentacao.label}
+    icones:`;
+          for(const [asp, ic] of Object.entries(e.apresentacao.icones)) yaml += `\n      ${asp}: "${ic}"`;
+          yaml += `\n    cores:`;
+          for(const [asp, cr] of Object.entries(e.apresentacao.cores)) yaml += `\n      ${asp}: ${cr}`;
+          yaml += `\n    prioridades:`;
+          for(const [asp, pr] of Object.entries(e.apresentacao.prioridades)) yaml += `\n      ${asp}: ${pr}`;
+        });
+      }
+
+      return yaml + '\n';
+    }
+    
+    function exportarYAML() {
+      const y = gerarYAML();
+      const blob = new Blob([y], { type: 'text/yaml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${estado.nome || 'estrategia'}.yaml`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    async function validarYAML() {
+      const box = document.getElementById('result-box');
+      box.style.display = 'block';
+      box.innerHTML = '<span style="color:var(--dim)">Validando na API...</span>';
+      
+      const payload = {
+        id: estado.nome || 'temp', 
+        tipo: 'calendario_temporal',
+        suite: estado.suite, 
+        modulo: estado.modulo, 
+        nome: estado.nome, 
+        versao: estado.versao,
+        descricao: estado.descricao,
+        engine: {
+          tipo: 'calendario_temporal',
+          versao_minima: estado.engine_minima,
+          versao_maxima: null
+        },
+        o_que_e: estado.o_que_e,
+        como_usar: estado.como_usar,
+        legenda: estado.legenda,
+        observacoes: estado.observacoes,
+        calculo: { estrategias: {} },
+        apresentacao: {}
+      };
+      
+      estado.estrategias.forEach(e => {
+        payload.calculo.estrategias[e.nome] = {
+          alvo_natal: e.alvo_natal, janela_h: e.janela_h, plus: e.plus, aspectos: e.aspectos
+        };
+        payload.apresentacao[e.nome] = e.apresentacao;
+      });
+
+      try {
+        const res = await fetch('/api/v1/validar-estrategia', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        
+        let color = res.ok && data.valido ? '#55ff55' : '#ff5555';
+        box.innerHTML = `<pre style="color:${color}">${JSON.stringify(data, null, 2)}</pre>`;
+      } catch (err) {
+        box.innerHTML = `<pre style="color:#ff5555">Erro na requisição: ${err.message}</pre>`;
+      }
+    }
+    
+    function renderPreview() {
+      const box = document.getElementById('result-box');
+      box.style.display = 'block';
+      
+      let html = `<div style="background:var(--bg); border:1px solid var(--gold); border-radius:12px; padding:24px;">`;
+      html += `<h2 style="color:var(--gold);margin-top:0;">${estado.nome || 'Estratégia'}</h2>`;
+      html += `<p style="color:var(--dim);font-size:14px;">${estado.descricao}</p>`;
+      
+      html += `<div style="margin-top:24px;">
+        <h3 style="font-size:16px;">${estado.o_que_e.titulo || 'O que é'}</h3>
+        <p style="font-size:14px;color:#ccc;white-space:pre-wrap;">${estado.o_que_e.texto || '...'}</p>
+      </div>`;
+      
+      html += `<div style="margin-top:24px;">
+        <h3 style="font-size:16px;">${estado.como_usar.titulo || 'Como usar'}</h3>
+        <ol style="font-size:14px;color:#ccc;padding-left:16px;">`;
+      estado.como_usar.passos.forEach(p => html += `<li>${p}</li>`);
+      html += `</ol></div>`;
+      
+      if(estado.legenda.length > 0) {
+        html += `<div style="margin-top:24px;"><h3 style="font-size:16px;">Legenda</h3><div style="display:flex;flex-direction:column;gap:12px;">`;
+        estado.legenda.forEach(l => {
+          html += `<div style="display:flex;gap:12px;align-items:center;">
+            <div style="font-size:24px;">${l.icone}</div>
+            <div><div style="font-weight:bold;font-size:14px;">${l.titulo}</div><div style="font-size:12px;color:var(--dim);">${l.descricao}</div></div>
+          </div>`;
+        });
+        html += `</div></div>`;
+      }
+      
+      html += `</div>`;
+      box.innerHTML = html;
     }
   </script>
 </body>
