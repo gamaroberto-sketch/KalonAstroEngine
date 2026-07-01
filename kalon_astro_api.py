@@ -618,6 +618,31 @@ def get_alvos():
         })
     return {"alvos": alvos}
 
+@app.get("/api/v1/vocabulario/suites")
+def get_suites():
+    path = os.path.join(BASE_DIR, 'config', 'suites.yaml')
+    with open(path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+    resultado = []
+    for suite_id, suite_info in data.get('suites', {}).items():
+        modulos = []
+        for mod_id, mod_info in suite_info.get('modulos', {}).items():
+            modulos.append({
+                "id": mod_id,
+                "nome": mod_info.get('nome', ''),
+                "descricao": mod_info.get('descricao', ''),
+                "status": mod_info.get('status', 'planned'),
+                "categoria_legado": mod_info.get('categoria_legado', mod_id)
+            })
+        resultado.append({
+            "id": suite_id,
+            "nome": suite_info.get('nome', ''),
+            "descricao": suite_info.get('descricao', ''),
+            "status": suite_info.get('status', 'active'),
+            "modulos": modulos
+        })
+    return {"suites": resultado}
+
 @app.get("/tools/builder", response_class=HTMLResponse)
 def builder_page():
     html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "builder.html")
