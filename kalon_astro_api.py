@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict
 import swisseph as swe
+from transitante_resolver import resolver_transitante
 import os, sys
 import yaml
 import unicodedata
@@ -350,9 +351,8 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
     resultados = {}
 
     for nome_sub, est in calculo_cfg['estrategias'].items():
-        # Resolver o planeta transitante da estratégia
-        nome_transitante = est.get('transitante', 'lua')  # fallback 'lua' para retrocompatibilidade
-        swe_transitante = PLANETAS.get(nome_transitante, swe.MOON)
+        # Obter a configuração do transitante
+        cfg_transitante = est.get('transitante', 'lua')  # fallback 'lua' para retrocompatibilidade
 
         alvo_lon = natal[est['alvo_natal']]
         janela_h = est.get('janela_h', 6)
@@ -361,8 +361,7 @@ def calcular_janelas(natal: dict, data_inicio: str, periodo_meses: int, fuso: in
 
         while dt < dt_fim:
             jd = datetime_para_jd(dt)
-            pos, _ = swe.calc_ut(jd, swe_transitante)
-            lon_transitante = pos[0]
+            lon_transitante, nome_transitante = resolver_transitante(cfg_transitante, jd)
             diff = diff_angular(lon_transitante, alvo_lon)
 
             for nome_asp, angulo in est['aspectos'].items():
