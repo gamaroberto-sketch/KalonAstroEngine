@@ -1,0 +1,99 @@
+id: cash_decisoes
+tipo: calendario_temporal
+categoria: astrocash
+suite: kalon_astro
+modulo: astrocash
+nome: AstroCash — Janelas para Decisões Financeiras
+versao: "1.0.0"
+descricao: Janelas favoráveis para negociar, assinar, investir e tomar decisões financeiras importantes
+engine:
+  tipo: calendario_temporal
+  versao_minima: "1.0.0"
+  versao_maxima: null
+metadata:
+  autor: Kalon Team
+  criado_em: 2026-07-01
+  atualizado_em: 2026-07-01
+  status: production
+  foundation: 1.0
+
+o_que_e:
+  titulo: O que é o AstroCash
+  texto: |
+    O AstroCash mapeia os melhores momentos para tomar decisões financeiras importantes,
+    sincronizando sua clareza mental, percepção de valor e equilíbrio entre risco e
+    prudência com os trânsitos da Lua.
+
+como_usar:
+  titulo: Como utilizar este calendário
+  passos:
+    - Utilize as janelas indicadas para negociar, assinar contratos ou iniciar conversas comerciais.
+    - Janelas com ★★★ ou mais são ideais para decisões de maior impacto.
+    - Em janelas marcadas com Atenção, prefira planejar em vez de agir.
+    - Evite decisões financeiras importantes nos horários marcados como Evite.
+
+legenda:
+  - icone: "★"
+    titulo: Excelente
+    descricao: Janela de alta qualidade. Momento favorável para decisões financeiras importantes.
+  - icone: "●"
+    titulo: Favorável
+    descricao: Boa janela. Traz clareza e equilíbrio para negociações e acordos.
+  - icone: "▲"
+    titulo: Atenção
+    descricao: Prefira planejar e revisar em vez de tomar decisões definitivas.
+  - icone: "✕"
+    titulo: Evite
+    descricao: Momento desfavorável para compromissos financeiros importantes.
+
+observacoes:
+  titulo: Importante
+  texto: |
+    O AstroCash indica qualidade temporal — não prevê resultados financeiros.
+    A decisão final é sempre sua. Consulte um profissional financeiro para
+    decisões de grande impacto.
+
+calculo:
+  estrategias:
+    mercurio_natal:
+      alvo_natal: mercurio
+      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      janela_h: 4
+      plus: trigono
+    venus_natal:
+      alvo_natal: venus
+      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      janela_h: 4
+      plus: conjuncao
+    jupiter_natal:
+      alvo_natal: jupiter
+      aspectos: { sextil: 60, trigono: 120 }
+      janela_h: 6
+      plus: trigono
+    saturno_natal:
+      alvo_natal: saturno
+      aspectos: { sextil: 60, trigono: 120 }
+      janela_h: 6
+      plus: trigono
+
+apresentacao:
+  mercurio_natal:
+    label: mercurio
+    icones:     { trigono: "★", sextil: "●", conjuncao: "●" }
+    cores:      { trigono: gold, sextil: green, conjuncao: green }
+    prioridades: { trigono: alta, sextil: media, conjuncao: media }
+  venus_natal:
+    label: venus
+    icones:     { conjuncao: "★", trigono: "★", sextil: "●" }
+    cores:      { conjuncao: gold, trigono: gold, sextil: green }
+    prioridades: { conjuncao: alta, trigono: alta, sextil: media }
+  jupiter_natal:
+    label: jupiter
+    icones:     { trigono: "★", sextil: "●" }
+    cores:      { trigono: gold, sextil: green }
+    prioridades: { trigono: alta, sextil: media }
+  saturno_natal:
+    label: saturno
+    icones:     { trigono: "●", sextil: "●" }
+    cores:      { trigono: green, sextil: green }
+    prioridades: { trigono: media, sextil: media }
