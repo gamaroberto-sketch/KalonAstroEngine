@@ -4,11 +4,13 @@ categoria: astrocash
 suite: kalon_astro
 modulo: astrocash
 nome: AstroCash — Decisões Financeiras (Gê)
-versao: "1.0.0"
-descricao: Janelas financeiras por trânsito de Vênus sobre pontos natais — compatível com metodologia Gê/Solar Fire (Fase 1, sem midpoints)
+versao: 1.1.0
+descricao: Janelas financeiras por trânsito de Vênus, Ven/Jup e Mar/Jup sobre pontos
+  natais — compatível com metodologia Gê/Solar Fire (Fase 2 — com midpoints transitantes,
+  sem midpoints natais)
 engine:
   tipo: calendario_temporal
-  versao_minima: "1.0.0"
+  versao_minima: 1.0.0
   versao_maxima: null
 metadata:
   autor: Kalon Team
@@ -16,115 +18,595 @@ metadata:
   atualizado_em: 2026-07-01
   status: beta
   foundation: 1.0
-
 o_que_e:
   titulo: O que é o AstroCash Gê
-  texto: |
-    Calendário de janelas financeiras baseado no trânsito de Vênus sobre
+  texto: 'Calendário de janelas financeiras baseado no trânsito de Vênus sobre
+
     pontos natais. Reproduz a metodologia da tabela financeira do Solar Fire
+
     (Fase 1 — sem pontos médios).
 
+    '
 como_usar:
   titulo: Como utilizar este calendário
   passos:
     - Utilize as janelas para negociar, assinar contratos ou tomar decisões financeiras.
     - Conjunções e Trígonos são as janelas mais favoráveis.
-    - Esta é a Fase 1 da metodologia Gê — pontos médios serão adicionados em versão futura.
-
+    - Esta é a Fase 1 da metodologia Gê — pontos médios serão adicionados em versão
+      futura.
 legenda:
-  - icone: "★"
+  - icone: ★
     titulo: Excelente
     descricao: Conjunção ou Trígono de Vênus com ponto natal de alto impacto financeiro.
-  - icone: "●"
+  - icone: ●
     titulo: Favorável
     descricao: Sextil de Vênus com ponto natal. Bom momento para acordos e parcerias.
-
 observacoes:
   titulo: Importante
-  texto: |
-    Esta estratégia usa Vênus como transitante, não a Lua.
+  texto: 'Esta estratégia usa Vênus como transitante, não a Lua.
+
     Os ciclos são mensais (Vênus percorre ~30° por mês).
+
     Fase 1 — pontos médios (Vênus/Júpiter, Marte/Júpiter) serão
+
     adicionados após implementação do Midpoint Engine.
 
+    '
 calculo:
   estrategias:
     venus_sol:
       transitante: venus
       alvo_natal: sol
-      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
       janela_h: 6
       plus: conjuncao
     venus_venus:
       transitante: venus
       alvo_natal: venus
-      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
       janela_h: 6
       plus: conjuncao
     venus_marte:
       transitante: venus
       alvo_natal: marte
-      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
       janela_h: 6
       plus: conjuncao
     venus_jupiter:
       transitante: venus
       alvo_natal: jupiter
-      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
       janela_h: 6
       plus: conjuncao
     venus_saturno:
       transitante: venus
       alvo_natal: saturno
-      aspectos: { conjuncao: 0, sextil: 60, trigono: 120 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
       janela_h: 6
       plus: trigono
     venus_asc:
       transitante: venus
       alvo_natal: asc
-      aspectos: { conjuncao: 0, sextil: 60 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
       janela_h: 6
       plus: conjuncao
     venus_mc:
       transitante: venus
       alvo_natal: mc
-      aspectos: { conjuncao: 0, sextil: 60 }
+      aspectos:
+        conjuncao: 0
+        sextil: 60
       janela_h: 6
       plus: conjuncao
-
+    venjup_sol:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: sol
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    venjup_venus:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: venus
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    venjup_marte:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: marte
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    venjup_jupiter:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: jupiter
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    venjup_saturno:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: saturno
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: trigono
+    venjup_asc:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: asc
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+      janela_h: 6
+      plus: conjuncao
+    venjup_mc:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - venus
+            - jupiter
+      alvo_natal: mc
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+      janela_h: 6
+      plus: conjuncao
+    marjup_sol:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: sol
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    marjup_venus:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: venus
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    marjup_marte:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: marte
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    marjup_jupiter:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: jupiter
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: conjuncao
+    marjup_saturno:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: saturno
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+        trigono: 120
+      janela_h: 6
+      plus: trigono
+    marjup_asc:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: asc
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+      janela_h: 6
+      plus: conjuncao
+    marjup_mc:
+      transitante:
+        tipo: objeto
+        objeto:
+          tipo: midpoint
+          componentes:
+            - marte
+            - jupiter
+      alvo_natal: mc
+      aspectos:
+        conjuncao: 0
+        sextil: 60
+      janela_h: 6
+      plus: conjuncao
 apresentacao:
   venus_sol:
     label: venus_sol
-    icones: { conjuncao: "★", trigono: "★", sextil: "●" }
-    cores: { conjuncao: gold, trigono: gold, sextil: green }
-    prioridades: { conjuncao: alta, trigono: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
   venus_venus:
     label: venus_venus
-    icones: { conjuncao: "★", trigono: "★", sextil: "●" }
-    cores: { conjuncao: gold, trigono: gold, sextil: green }
-    prioridades: { conjuncao: alta, trigono: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
   venus_marte:
     label: venus_marte
-    icones: { conjuncao: "★", trigono: "★", sextil: "●" }
-    cores: { conjuncao: gold, trigono: gold, sextil: green }
-    prioridades: { conjuncao: alta, trigono: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
   venus_jupiter:
     label: venus_jupiter
-    icones: { conjuncao: "★", trigono: "★", sextil: "●" }
-    cores: { conjuncao: gold, trigono: gold, sextil: green }
-    prioridades: { conjuncao: alta, trigono: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
   venus_saturno:
     label: venus_saturno
-    icones: { trigono: "★", conjuncao: "●", sextil: "●" }
-    cores: { trigono: gold, conjuncao: green, sextil: green }
-    prioridades: { trigono: alta, conjuncao: media, sextil: media }
+    icones:
+      trigono: ★
+      conjuncao: ●
+      sextil: ●
+    cores:
+      trigono: gold
+      conjuncao: green
+      sextil: green
+    prioridades:
+      trigono: alta
+      conjuncao: media
+      sextil: media
   venus_asc:
     label: venus_asc
-    icones: { conjuncao: "★", sextil: "●" }
-    cores: { conjuncao: gold, sextil: green }
-    prioridades: { conjuncao: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      sextil: media
   venus_mc:
     label: venus_mc
-    icones: { conjuncao: "★", sextil: "●" }
-    cores: { conjuncao: gold, sextil: green }
-    prioridades: { conjuncao: alta, sextil: media }
+    icones:
+      conjuncao: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      sextil: media
+  venjup_sol:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Sol
+  marjup_sol:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Sol
+  venjup_venus:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Vênus
+  marjup_venus:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Vênus
+  venjup_marte:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Marte
+  marjup_marte:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Marte
+  venjup_jupiter:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Júpiter
+  marjup_jupiter:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Júpiter
+  venjup_saturno:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Saturno
+  marjup_saturno:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Saturno
+  venjup_asc:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Ascendente
+  marjup_asc:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Ascendente
+  venjup_mc:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Venus/Jup × Meio do Céu
+  marjup_mc:
+    icones:
+      conjuncao: ★
+      trigono: ★
+      sextil: ●
+    cores:
+      conjuncao: gold
+      trigono: gold
+      sextil: green
+    prioridades:
+      conjuncao: alta
+      trigono: alta
+      sextil: media
+    label: Marte/Jup × Meio do Céu
