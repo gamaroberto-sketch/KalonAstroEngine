@@ -1,0 +1,107 @@
+versao: "1.0"
+estrategias:
+
+  hair_corte:
+    nome: "AstroHair — Calendário de Corte"
+    modulo: astrohair
+    suite: kalon_astro
+    arquivo: knowledge/strategies/hair/corte.yaml
+    origem: ge_solar_fire
+    metodologia: "Lua em trânsito × planetas natais (Crescimento/Beleza/Força)"
+    transitantes:
+      - lua
+    alvos_natais:
+      - jupiter
+      - venus
+      - sol
+    aspectos: [conjuncao, sextil, quadratura, trigono, opposicao]
+    janela_h: 6
+    compatibilidade:
+      status: validada
+      referencia: Solar Fire / Método Gê
+      desvio_maximo_min: 3
+      validado_em: 2026-06-29
+    pendencias: []
+    versao_estrategia: "1.0.0"
+    status: production
+
+  diet_metabolico:
+    nome: "AstroDiet — Calendário Metabólico"
+    modulo: astrodiet
+    suite: kalon_astro
+    arquivo: knowledge/strategies/diet/metabolico.yaml
+    origem: ge_solar_fire
+    metodologia: "Lua em trânsito × Ascendente natal (Pouca Caloria/Jejum)"
+    transitantes:
+      - lua
+    alvos_natais:
+      - asc
+    aspectos: [conjuncao, sextil, quadratura, quincuncio, opposicao]
+    janela_h: 2
+    compatibilidade:
+      status: validada
+      referencia: Solar Fire / Método Gê
+      desvio_maximo_min: 5
+      validado_em: 2026-06-30
+    pendencias: []
+    versao_estrategia: "1.1.0"
+    status: production
+
+  cash_decisoes_kalon:
+    nome: "AstroCash — Decisões Financeiras (Metodologia Kalon)"
+    modulo: astrocash
+    suite: kalon_astro
+    arquivo: knowledge/strategies/cash/decisoes_kalon.yaml
+    origem: kalon_original
+    metodologia: "Lua em trânsito × planetas financeiros natais (Mercúrio/Vênus/Júpiter/Saturno)"
+    transitantes:
+      - lua
+    alvos_natais:
+      - mercurio
+      - venus
+      - jupiter
+      - saturno
+    aspectos: [conjuncao, sextil, trigono]
+    janela_h: 4
+    compatibilidade:
+      status: nao_aplicavel
+      referencia: Metodologia própria Kalon — sem referência externa
+      desvio_maximo_min: null
+      validado_em: null
+    pendencias: []
+    versao_estrategia: "1.0.0"
+    status: production
+
+  cash_decisoes_ge:
+    nome: "AstroCash — Decisões Financeiras (Compatibilidade Gê)"
+    modulo: astrocash
+    suite: kalon_astro
+    arquivo: knowledge/strategies/cash/decisoes_ge.yaml
+    origem: ge_solar_fire
+    metodologia: "Vênus + Ven/Jup + Mar/Jup em trânsito × planetas natais"
+    transitantes:
+      - venus
+      - midpoint:venus/jupiter
+      - midpoint:marte/jupiter
+    alvos_natais:
+      - sol
+      - venus
+      - marte
+      - jupiter
+      - saturno
+      - asc
+      - mc
+    aspectos: [conjuncao, sextil, trigono]
+    janela_h: 6
+    compatibilidade:
+      status: validada_parcialmente
+      referencia: Solar Fire / Método Gê
+      desvio_maximo_min: 5
+      validado_em: 2026-07-01
+    pendencias:
+      - descricao: "Plutão natal não implementado (TARGET_NOT_IMPLEMENTED)"
+        missao: AstroCore — transpessoais
+      - descricao: "Midpoints natais (Ven/Jup natal, Mar/Jup natal) não implementados"
+        missao: AstroCore-05
+    versao_estrategia: "1.1.0"
+    status: beta
