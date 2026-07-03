@@ -24,6 +24,14 @@ import unicodedata
 
 app = FastAPI(title="Kalon Astro Engine", version="1.0.0")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 STRATEGIES_DIR = os.path.join(BASE_DIR, 'knowledge', 'strategies')
