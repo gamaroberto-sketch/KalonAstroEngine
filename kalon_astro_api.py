@@ -448,6 +448,10 @@ def aplicar_apresentacao(janelas: list, apresentacao_cfg: dict, i18n: dict) -> l
 
 # ── ENDPOINTS ─────────────────────────────────────────────────────────────────
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.get("/ping")
 def ping():
     return {"ok": True}
