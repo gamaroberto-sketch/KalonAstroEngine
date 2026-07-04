@@ -452,6 +452,18 @@ def aplicar_apresentacao(janelas: list, apresentacao_cfg: dict, i18n: dict) -> l
 def health():
     return {"status": "ok"}
 
+@app.get("/ephe-status")
+def ephe_status():
+    import swisseph as swe
+    jd = swe.julday(2024, 1, 1, 12.0)
+    pos, flags = swe.calc_ut(jd, swe.SUN, swe.FLG_SWIEPH)
+    return {
+        "flags_returned": flags,
+        "is_swiss_ephemeris": bool(flags & swe.FLG_SWIEPH),
+        "is_moshier": bool(flags & swe.FLG_MOSEPH),
+        "active_path_resolved_at_startup": next((p for p in _ephe_paths if os.path.isdir(p)), "None/Fallback")
+    }
+
 @app.get("/ping")
 def ping():
     return {"ok": True}
