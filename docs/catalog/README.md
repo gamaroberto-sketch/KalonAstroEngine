@@ -23,3 +23,9 @@
 | astrolove_ge | AstroLove (Gê) | Planejado |
 | astropower_ge | AstroPower (Gê) | Planejado |
 | astrostudy_ge | AstroStudy (Gê) | Planejado |
+
+## Decisões Arquiteturais (ADR)
+
+### Precisão do Engine (Moshier vs Swiss Ephemeris)
+
+Kalon Astro Alpha opera em modo Moshier (fallback analítico do pyswisseph) por decisão consciente — precisão validada empiricamente (desvio máx. 5 min vs. Solar Fire) tanto localmente quanto em produção, ambiente idêntico desde o início. Upgrade para efemérides Swiss Ephemeris file-based (`.se1`) fica condicionado a demanda real de precisão identificada durante validação com astrólogos reais (etapa 8 do plano Alpha).
