@@ -34,15 +34,19 @@ legenda:
   - icone: "★"
     titulo: Excelente
     descricao: Aspecto de alta intensidade. Oportunidade perfeita para o objetivo.
+    cor: "gold"
   - icone: "●"
     titulo: Bom
     descricao: Janela favorável. Traz benefícios sólidos, com intensidade equilibrada.
+    cor: "green"
   - icone: "▲"
     titulo: Abaixo da média / Atenção
     descricao: Pode haver certa resistência ou sensibilidade. Prefira outra data se possível.
+    cor: "gold"
   - icone: "✕"
     titulo: Evite cortar
     descricao: Lua fora de curso ou aspectos tensos severos. Os resultados tendem a ser imprevisíveis.
+    cor: "red"
 
 observacoes:
   titulo: Importante

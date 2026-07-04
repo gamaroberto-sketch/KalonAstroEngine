@@ -1,0 +1,157 @@
+{
+  "estrategia_id": "diet_metabolico",
+  "estrategia_nome": "AstroDiet — Calendário Metabólico",
+  "versao": "1.1.0",
+  "motor_temporal": "1.0.0",
+  "calculado_em": "2026-06-30T19:05:59.304808+00:00",
+  "o_que_e": {
+    "titulo": "O que é o Astro*Diet",
+    "texto": "O Astro*Diet mapeia os melhores momentos do mês para ajustar sua alimentação\ncom base nos trânsitos da Lua em relação ao seu Ascendente natal.\n"
+  },
+  "como_usar": {
+    "titulo": "Como utilizar este calendário",
+    "passos": [
+      "Utilize os horários como orientação prática.",
+      "Priorize o horário exato quando possível.",
+      "Se não for possível, utilize qualquer momento dentro da janela.",
+      "Não é necessário seguir todos os eventos do mês.",
+      "A consistência é mais importante do que a perfeição."
+    ]
+  },
+  "legenda": [
+    {
+      "icone": "●",
+      "titulo": "Pouca Caloria",
+      "descricao": "Prefira refeições leves, reduzindo a ingestão calórica."
+    },
+    {
+      "icone": "▲",
+      "titulo": "Jejum",
+      "descricao": "Esta janela favorece protocolos de jejum previamente planejados."
+    }
+  ],
+  "observacoes": {
+    "titulo": "Importante",
+    "texto": "Este calendário é uma ferramenta de planejamento simbólico. Ele complementa\nhábitos saudáveis e o acompanhamento profissional quando necessário.\n"
+  },
+  "nome": "Roberto",
+  "janelas": "[11 janelas calculadas...]",
+  "natal": {
+    "sol": 280.9417,
+    "lua": 334.953,
+    "mercurio": 295.6344,
+    "venus": 306.2052,
+    "marte": 250.0881,
+    "jupiter": 95.1319,
+    "saturno": 285.6723,
+    "asc": 8.5833,
+    "mc": 278.6084
+  },
+  "identity": {
+    "sol": {
+      "longitude": 280.9417,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 10,
+      "minuto": 56,
+      "segundo": 30,
+      "texto": "Capricórnio 10°56'"
+    },
+    "lua": {
+      "longitude": 334.953,
+      "signo": "peixes",
+      "indice_signo": 11,
+      "grau": 4,
+      "minuto": 57,
+      "segundo": 10,
+      "texto": "Peixes 04°57'"
+    },
+    "mercurio": {
+      "longitude": 295.6344,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 25,
+      "minuto": 38,
+      "segundo": 3,
+      "texto": "Capricórnio 25°38'"
+    },
+    "venus": {
+      "longitude": 306.2052,
+      "signo": "aquario",
+      "indice_signo": 10,
+      "grau": 6,
+      "minuto": 12,
+      "segundo": 18,
+      "texto": "Aquário 06°12'"
+    },
+    "marte": {
+      "longitude": 250.0881,
+      "signo": "sagitario",
+      "indice_signo": 8,
+      "grau": 10,
+      "minuto": 5,
+      "segundo": 17,
+      "texto": "Sagitário 10°05'"
+    },
+    "jupiter": {
+      "longitude": 95.1319,
+      "signo": "cancer",
+      "indice_signo": 3,
+      "grau": 5,
+      "minuto": 7,
+      "segundo": 54,
+      "texto": "Câncer 05°07'"
+    },
+    "saturno": {
+      "longitude": 285.6723,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 15,
+      "minuto": 40,
+      "segundo": 20,
+      "texto": "Capricórnio 15°40'"
+    },
+    "asc": {
+      "longitude": 8.5833,
+      "signo": "aries",
+      "indice_signo": 0,
+      "grau": 8,
+      "minuto": 34,
+      "segundo": 59,
+      "texto": "Áries 08°34'",
+      "regente_do_ascendente": {
+        "classico": [
+          "Marte"
+        ],
+        "moderno": [
+          "Marte"
+        ],
+        "moderno_implementado": [
+          true
+        ]
+      }
+    },
+    "mc": {
+      "longitude": 278.6084,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 8,
+      "minuto": 36,
+      "segundo": 30,
+      "texto": "Capricórnio 08°36'"
+    },
+    "sistema_casas": "Placidus",
+    "zodiaco": "Tropical",
+    "efemerides": "Swiss Ephemeris",
+    "tradicao": "classica",
+    "local": {
+      "cidade": "São Paulo, SP",
+      "latitude": -23.55,
+      "longitude": -46.633,
+      "utc": "-03:00"
+    },
+    "engine": "1.0.0",
+    "strategy": "diet_metabolico 1.1.0",
+    "report_id": "KA-20260630-000006"
+  }
+}

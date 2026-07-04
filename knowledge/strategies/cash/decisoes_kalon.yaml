@@ -36,15 +36,19 @@ legenda:
   - icone: "★"
     titulo: Excelente
     descricao: Janela de alta qualidade. Momento favorável para decisões financeiras importantes.
+    cor: "gold"
   - icone: "●"
     titulo: Favorável
     descricao: Boa janela. Traz clareza e equilíbrio para negociações e acordos.
+    cor: "green"
   - icone: "▲"
     titulo: Atenção
     descricao: Prefira planejar e revisar em vez de tomar decisões definitivas.
+    cor: "gold"
   - icone: "✕"
     titulo: Evite
     descricao: Momento desfavorável para compromissos financeiros importantes.
+    cor: "red"
 
 observacoes:
   titulo: Importante

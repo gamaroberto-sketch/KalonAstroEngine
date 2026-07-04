@@ -36,9 +36,11 @@ legenda:
   - icone: "●"
     titulo: Pouca Caloria
     descricao: Prefira refeições leves, reduzindo a ingestão calórica.
+    cor: "green"
   - icone: "▲"
     titulo: Jejum
     descricao: Esta janela favorece protocolos de jejum previamente planejados.
+    cor: "gold"
 
 observacoes:
   titulo: Importante

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste KalonIdentity</title>
+<link rel="stylesheet" href="components/kalon-report/KalonIdentity/kalon_identity.css">
+<style>
+  body { background:#0C0D0F; color:#E8E4DC; font-family:system-ui,sans-serif; padding:20px; }
+  .grid-test { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:20px; }
+  h2 { font-size:16px; color:#A8B0BC; font-weight:400; text-align:center; }
+  /* Fallback para testar isolado se CSS vars nao vierem do astro_hair */
+  :root {
+    --bg:#0C0D0F; --card:#13151A; --border:#1E2228; --muted:#272B34;
+    --text:#E8E4DC; --dim:#7A8290; --gold:#C9A84C;
+  }
+</style>
+</head>
+<body>
+
+<h1>Teste Isolado: KalonIdentity</h1>
+<p>Comparação dos três níveis de detalhamento.</p>
+
+<div class="grid-test">
+  <div>
+    <h2>Nível: Essencial</h2>
+    <div id="ki-essencial"></div>
+  </div>
+  <div>
+    <h2>Nível: Explorador</h2>
+    <div id="ki-explorador"></div>
+  </div>
+  <div>
+    <h2>Nível: Profissional</h2>
+    <div id="ki-profissional"></div>
+  </div>
+</div>
+
+<script src="components/kalon-report/KalonIdentity/kalon_identity.js"></script>
+<script>
+  // Objeto JSON real retornado no teste da agenda
+  const identityExemplo = {
+    "sol": {
+      "longitude": 280.9417, "signo": "capricornio", "indice_signo": 9, "grau": 10, "minuto": 56, "segundo": 30, "texto": "Capricórnio 10°56'"
+    },
+    "lua": {
+      "longitude": 334.953, "signo": "peixes", "indice_signo": 11, "grau": 4, "minuto": 57, "segundo": 10, "texto": "Peixes 04°57'"
+    },
+    "mercurio": {
+      "longitude": 295.6344, "signo": "capricornio", "indice_signo": 9, "grau": 25, "minuto": 38, "segundo": 3, "texto": "Capricórnio 25°38'"
+    },
+    "venus": {
+      "longitude": 306.2052, "signo": "aquario", "indice_signo": 10, "grau": 6, "minuto": 12, "segundo": 18, "texto": "Aquário 06°12'"
+    },
+    "marte": {
+      "longitude": 250.0881, "signo": "sagitario", "indice_signo": 8, "grau": 10, "minuto": 5, "segundo": 17, "texto": "Sagitário 10°05'"
+    },
+    "jupiter": {
+      "longitude": 95.1319, "signo": "cancer", "indice_signo": 3, "grau": 5, "minuto": 7, "segundo": 54, "texto": "Câncer 05°07'"
+    },
+    "saturno": {
+      "longitude": 285.6723, "signo": "capricornio", "indice_signo": 9, "grau": 15, "minuto": 40, "segundo": 20, "texto": "Capricórnio 15°40'"
+    },
+    "asc": {
+      "longitude": 5.6471, "signo": "aries", "indice_signo": 0, "grau": 5, "minuto": 38, "segundo": 49, "texto": "Áries 05°38'",
+      "regente_do_ascendente": {
+        "classico": ["Marte"],
+        "moderno": ["Marte", "Plutão"],
+        "moderno_implementado": [true, false]
+      }
+    },
+    "mc": {
+      "longitude": 275.6326, "signo": "capricornio", "indice_signo": 9, "grau": 5, "minuto": 37, "segundo": 57, "texto": "Capricórnio 05°37'"
+    },
+    "sistema_casas": "Placidus",
+    "zodiaco": "Tropical",
+    "efemerides": "Swiss Ephemeris",
+    "tradicao": "classica",
+    "local": {
+      "cidade": "Ourinhos, SP", "latitude": -22.983, "longitude": -49.867, "utc": "-03:00"
+    },
+    "engine": "1.0.0",
+    "strategy": "hair_corte 1.0.0",
+    "report_id": "KA-20260630-000005"
+  };
+
+  new KalonIdentity('#ki-essencial').render(identityExemplo, 'essencial');
+  new KalonIdentity('#ki-explorador').render(identityExemplo, 'explorador');
+  new KalonIdentity('#ki-profissional').render(identityExemplo, 'profissional');
+</script>
+</body>
+</html>

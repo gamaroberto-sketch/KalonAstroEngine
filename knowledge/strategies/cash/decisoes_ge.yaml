@@ -38,9 +38,11 @@ legenda:
   - icone: ★
     titulo: Excelente
     descricao: Conjunção ou Trígono de Vênus com ponto natal de alto impacto financeiro.
+    cor: "gold"
   - icone: ●
     titulo: Favorável
     descricao: Sextil de Vênus com ponto natal. Bom momento para acordos e parcerias.
+    cor: "green"
 observacoes:
   titulo: Importante
   texto: 'Esta estratégia usa Vênus como transitante, não a Lua.

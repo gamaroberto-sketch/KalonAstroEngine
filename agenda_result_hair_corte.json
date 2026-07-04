@@ -1,0 +1,165 @@
+{
+  "estrategia_id": "hair_corte",
+  "estrategia_nome": "AstroHair — Calendário de Corte",
+  "versao": "1.0.0",
+  "motor_temporal": "1.0.0",
+  "calculado_em": "2026-06-30T19:05:59.044777+00:00",
+  "o_que_e": {
+    "titulo": "O que é o AstroHair",
+    "texto": "O AstroHair mapeia os melhores dias e horários para você cortar o cabelo,\nsincronizando seus objetivos de Crescimento, Força e Beleza com os trânsitos da Lua.\n"
+  },
+  "como_usar": {
+    "titulo": "Como utilizar este calendário",
+    "passos": [
+      "Utilize os horários indicados como o momento em que a tesoura toca o cabelo.",
+      "Se não for possível no pico exato, tente agendar dentro da janela informada.",
+      "O mais importante é evitar os horários marcados como \"Evite cortar\"."
+    ]
+  },
+  "legenda": [
+    {
+      "icone": "★",
+      "titulo": "Excelente",
+      "descricao": "Aspecto de alta intensidade. Oportunidade perfeita para o objetivo."
+    },
+    {
+      "icone": "●",
+      "titulo": "Bom",
+      "descricao": "Janela favorável. Traz benefícios sólidos, com intensidade equilibrada."
+    },
+    {
+      "icone": "▲",
+      "titulo": "Abaixo da média / Atenção",
+      "descricao": "Pode haver certa resistência ou sensibilidade. Prefira outra data se possível."
+    },
+    {
+      "icone": "✕",
+      "titulo": "Evite cortar",
+      "descricao": "Lua fora de curso ou aspectos tensos severos. Os resultados tendem a ser imprevisíveis."
+    }
+  ],
+  "observacoes": {
+    "titulo": "Importante",
+    "texto": "Os horários listados já estão calculados para o fuso horário da cidade informada.\nSe você for viajar para um local com fuso diferente, refaça o cálculo para a nova cidade.\n"
+  },
+  "nome": "Roberto",
+  "janelas": "[14 janelas calculadas...]",
+  "natal": {
+    "sol": 280.9417,
+    "lua": 334.953,
+    "mercurio": 295.6344,
+    "venus": 306.2052,
+    "marte": 250.0881,
+    "jupiter": 95.1319,
+    "saturno": 285.6723,
+    "asc": 5.6471,
+    "mc": 275.6326
+  },
+  "identity": {
+    "sol": {
+      "longitude": 280.9417,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 10,
+      "minuto": 56,
+      "segundo": 30,
+      "texto": "Capricórnio 10°56'"
+    },
+    "lua": {
+      "longitude": 334.953,
+      "signo": "peixes",
+      "indice_signo": 11,
+      "grau": 4,
+      "minuto": 57,
+      "segundo": 10,
+      "texto": "Peixes 04°57'"
+    },
+    "mercurio": {
+      "longitude": 295.6344,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 25,
+      "minuto": 38,
+      "segundo": 3,
+      "texto": "Capricórnio 25°38'"
+    },
+    "venus": {
+      "longitude": 306.2052,
+      "signo": "aquario",
+      "indice_signo": 10,
+      "grau": 6,
+      "minuto": 12,
+      "segundo": 18,
+      "texto": "Aquário 06°12'"
+    },
+    "marte": {
+      "longitude": 250.0881,
+      "signo": "sagitario",
+      "indice_signo": 8,
+      "grau": 10,
+      "minuto": 5,
+      "segundo": 17,
+      "texto": "Sagitário 10°05'"
+    },
+    "jupiter": {
+      "longitude": 95.1319,
+      "signo": "cancer",
+      "indice_signo": 3,
+      "grau": 5,
+      "minuto": 7,
+      "segundo": 54,
+      "texto": "Câncer 05°07'"
+    },
+    "saturno": {
+      "longitude": 285.6723,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 15,
+      "minuto": 40,
+      "segundo": 20,
+      "texto": "Capricórnio 15°40'"
+    },
+    "asc": {
+      "longitude": 5.6471,
+      "signo": "aries",
+      "indice_signo": 0,
+      "grau": 5,
+      "minuto": 38,
+      "segundo": 49,
+      "texto": "Áries 05°38'",
+      "regente_do_ascendente": {
+        "classico": [
+          "Marte"
+        ],
+        "moderno": [
+          "Marte"
+        ],
+        "moderno_implementado": [
+          true
+        ]
+      }
+    },
+    "mc": {
+      "longitude": 275.6326,
+      "signo": "capricornio",
+      "indice_signo": 9,
+      "grau": 5,
+      "minuto": 37,
+      "segundo": 57,
+      "texto": "Capricórnio 05°37'"
+    },
+    "sistema_casas": "Placidus",
+    "zodiaco": "Tropical",
+    "efemerides": "Swiss Ephemeris",
+    "tradicao": "classica",
+    "local": {
+      "cidade": "Ourinhos, SP",
+      "latitude": -22.983,
+      "longitude": -49.867,
+      "utc": "-03:00"
+    },
+    "engine": "1.0.0",
+    "strategy": "hair_corte 1.0.0",
+    "report_id": "KA-20260630-000005"
+  }
+}
